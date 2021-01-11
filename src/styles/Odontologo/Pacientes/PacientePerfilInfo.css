@@ -1,0 +1,35 @@
+.paciente-datos{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+.paciente-datos .perfil{
+    display: flex;
+    font-family: var(--font-family-main);
+    align-items: center;
+}
+.paciente-datos .perfil img{
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.paciente-datos .perfil .nombre-perfil{
+    color: var(--header);
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 4px;
+    
+}
+.paciente-datos .info{
+    margin-left: 150px;
+}
+.paciente-datos .info img{
+    margin: 0 5px;
+}
+
+
+.paciente-datos .contacto{
+    margin-left: 100px;
+}

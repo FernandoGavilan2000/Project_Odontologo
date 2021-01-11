@@ -1,7 +1,12 @@
+import BarraLateral from './components/Odontologo/components/BarraLateral'
+import Contenedor from './components/Odontologo/components/Contenedor'
+import "./styles/globalStyle.css"
+
 function App() {
 	return (
 		<div className="App">
-			<h2>Here Project !!</h2>
+			<BarraLateral></BarraLateral>
+			<Contenedor></Contenedor>
 		</div>
 	);
 }

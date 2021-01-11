@@ -1,0 +1,94 @@
+
+:root{
+    --main-color:#2A57E5;
+    --main-color-dark:#1D47CD;
+    --main-color-light:#4670F4;
+    --second-color:#24CDB0;
+    --second-color-dark:#15BCA0;
+    --second-color-light:#4AEDD1;
+    --red:red;
+    --header:#262b32;
+    --paragraph:#6b7386;
+    --background1:#fff;
+    --background2:#f4f4f8;
+    --background3:#e3e3e9;
+    --background4:#cfcfd4;
+    --font-family-main:'Hind', sans-serif;
+    --font-family-second:'Open Sans', sans-serif;
+}
+
+*{
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: var(--font-family-second);
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background1);
+}
+
+#root{
+    width: 100%;
+    height: 100%;
+}
+
+.App{
+    height: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: orange;
+    display: flex;
+}
+
+h1{
+    font-size: 48px;  
+    font-family: var(--font-family-main);
+    color: var(--header);
+}
+h2{
+    font-size:24px;
+    font-family: var(--font-family-main);
+    color: var(--header);
+}
+h3{
+    font-size:15px;
+    font-family: var(--font-family-main);
+    color: var(--paragraph);
+    text-transform: uppercase;
+}
+
+a{
+    color:var(--second-color);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: .3s ease-in;
+    font-family: var(--font-family-second);
+}
+
+a:hover{
+    display: inline-block;
+    color:var(--second-color-dark);
+    transform: translateY(-6px);
+}
+
+p, td{
+    font-size: 16px;
+    font-family: var(--font-family-second);
+    color: var(--paragraph);
+}
+
+button{
+    font-family: var(--font-family-second);
+    font-size: 16px;
+}
+ul{
+    list-style: none;
+    padding: 0;
+}

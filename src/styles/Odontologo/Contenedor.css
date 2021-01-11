@@ -1,0 +1,8 @@
+#contenedorPrincipal{
+    background-color: var(--background1);
+    width: 100%;
+    max-width: 100%;
+    padding:0px;
+        /* padding: 55px 90px 0 90px; */
+
+}

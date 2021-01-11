@@ -1,0 +1,40 @@
+
+/* PACIENTES NAVEGATION MENU*/
+
+.paciente-nav{
+    background-color: var(--background1);
+    display: flex;
+    justify-content: space-between;
+    padding-right: 160px;
+    margin-top: 25px;
+    font-family: var(--font-family-main);
+    color: var(--paragraph);
+
+}
+
+.paciente-nav .paciente-nav-item{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 400;
+    transition: .3s ease-in-out;
+    
+}
+.paciente-nav .paciente-nav-item span{
+    color: var(--paragraph-color);
+
+}
+.paciente-nav .paciente-nav-item:hover{
+    color: var(--main-color);
+    transform: translateY(-5px);
+}
+.paciente-nav .paciente-nav-item.active{
+    font-weight: 700;
+    color: var(--main-color);
+}
+.paciente-nav .paciente-nav-item.active .active-menu{
+    width: 110%;
+    height: 2px;
+    background-color: var(--main-color);
+}
