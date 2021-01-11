@@ -33,19 +33,19 @@ function BarraLateral() {
 		<ul id="sideBar" className="nav-bar">
 			<img src={logo} className="logo" alt="logo" />
 			<li className="nav-item">
-				<NavLink to="/app/inicio">
+				<NavLink to="/app/inicio" activeClassName="selected">
 					<span>Inicio</span>
 					<img src={home} alt="home" />
 				</NavLink>
 			</li>
 			<li className="nav-item">
-				<NavLink to="/app/horarios">
+				<NavLink to="/app/horarios" activeClassName="selected">
 					<span>Horarios</span>
 					<img src={calendar} alt="calendar" />
 				</NavLink>
 			</li>
 			<li className="nav-item">
-				<NavLink to="/app/pacientes">
+				<NavLink to="/app/pacientes" activeClassName="selected">
 					<span>Pacientes</span>
 					<img src={patients} alt="patients" />
 				</NavLink>

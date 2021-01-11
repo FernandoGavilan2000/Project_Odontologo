@@ -4,6 +4,7 @@ import React from 'react';
 import see from '../../../assets/images/see.svg';
 
 import patientImage from '../../../assets/images/patient3.jpg';
+import { NavLink } from 'react-router-dom';
 
 function PacienteFila() {
 	return (
@@ -18,10 +19,10 @@ function PacienteFila() {
 			<td className="columna-visita">20/12/2020</td>
 			<td className="columna-balance">s/. 390.00</td>
 			<td className="columna-ver-perfil">
-				<button>
+				<NavLink to="/app/pacientes/321">
 					<img src={see} alt="see" />
 					<span>Ver Perfil</span>
-				</button>
+				</NavLink>
 			</td>
 		</tr>
 	);
