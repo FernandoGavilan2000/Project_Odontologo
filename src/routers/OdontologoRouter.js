@@ -5,9 +5,9 @@ import Contenedor from '../components/Odontologo/components/Contenedor';
 
 export const OdontologoRouter = () => {
 	return (
-		<>
+		<div className="App">
 			<BarraLateral />
 			<Contenedor />
-		</>
+		</div>
 	);
 };
