@@ -1,0 +1,116 @@
+.pacientes-contenedor {
+	margin: 55px 90px 0 90px;
+}
+
+.pacientes-contenedor .title {
+	display: flex;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+.pacientes-contenedor .title button {
+	background: var(--main-color);
+	display: flex;
+	align-items: center;
+	border-radius: 5px;
+	font-family: var(--font-family-second);
+	font-size: 14px;
+	padding: 8px 14px;
+	margin-left: 35px;
+	cursor: pointer;
+	transition: 0.25s ease-in-out;
+}
+
+.pacientes-contenedor .title button:hover {
+	transform: translateY(-6px);
+	background-color: var(--main-color-dark);
+}
+
+.pacientes-contenedor .title button span {
+	margin-left: 10px;
+	color: var(--background1);
+}
+
+.pacientes-contenedor .patients-table {
+	background: var(--background1);
+	width: 100%;
+	overflow: scroll;
+	height: 500px;
+	overflow-x: hidden;
+}
+
+/* SCROLL BAR*/
+
+.pacientes-contenedor .patients-table::-webkit-scrollbar-track {
+	-webkit-box-shadow: 0 0 6px rgb(255, 255, 255);
+	border-radius: 10px;
+	background-color: var(--background2);
+}
+.pacientes-contenedor .patients-table::-webkit-scrollbar {
+	width: 12px;
+	background-color: var(--background1);
+}
+.pacientes-contenedor .patients-table::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: 0 0 0px rgba(0, 0, 0, 0.3);
+	background-color: var(--background3);
+	transition: 0.25s ease-in-out;
+}
+.pacientes-contenedor .patients-table::-webkit-scrollbar-thumb:hover {
+	background-color: var(--background4);
+}
+
+/*--------------------*/
+
+.pacientes-contenedor .patients-table table {
+	width: 100%;
+}
+
+.pacientes-contenedor .patients-table table thead tr th {
+	text-align: left;
+	font-size: 14px;
+	font-family: var(--font-family-main);
+	color: var(--paragraph);
+	border-bottom: 2px solid var(--background2);
+	padding-bottom: 8px;
+}
+
+.pacientes-contenedor .patients-table table tbody {
+}
+.pacientes-contenedor .patients-table table tbody tr td {
+	padding: 10px 0;
+}
+
+.pacientes-contenedor .patients-table table tbody tr td.columna-paciente {
+	display: flex;
+	align-items: center;
+	color: var(--header);
+	font-size: 18px;
+	font-family: var(--font-family-main);
+	font-weight: 700;
+}
+
+.pacientes-contenedor .patients-table table tbody tr td.columna-paciente img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin-right: 20px;
+}
+
+.pacientes-contenedor .patients-table table tbody tr td.columna-ver-perfil a {
+	background-color: transparent;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	color: var(--second-color);
+	transition: 0.3s ease-in-out;
+}
+
+.pacientes-contenedor .patients-table table tbody tr td.columna-ver-perfil a:hover {
+	color: var(--second-color-dark);
+	transform: translateY(-6px);
+}
+
+.pacientes-contenedor .patients-table table tbody tr td.columna-ver-perfil a span {
+	margin-left: 9px;
+}

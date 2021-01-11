@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './App';
+import { OdontologoApp } from './OdontologoApp';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<OdontologoApp />, document.getElementById('root'));
