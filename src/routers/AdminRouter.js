@@ -5,9 +5,9 @@ import { ContenedorAdmin } from '../components/Admin/components/ContenedorAdmin'
 
 export const AdminRouter = () => {
 	return (
-		<>
+		<div className="App">
 			<BarraLateralAdmin />
 			<ContenedorAdmin />
-		</>
+		</div>
 	);
 };
