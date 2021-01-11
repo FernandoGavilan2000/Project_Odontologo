@@ -11,7 +11,7 @@ import logout from '../../../assets/images/logout.svg';
 
 //Navegar
 
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../auth/AuthContext';
 import { types } from '../../../types/types';
 
@@ -33,22 +33,22 @@ function BarraLateral() {
 		<ul id="sideBar" className="nav-bar">
 			<img src={logo} className="logo" alt="logo" />
 			<li className="nav-item">
-				<a>
+				<NavLink to="/app/inicio">
 					<span>Inicio</span>
 					<img src={home} alt="home" />
-				</a>
+				</NavLink>
 			</li>
 			<li className="nav-item">
-				<a>
+				<NavLink to="/app/horarios">
 					<span>Horarios</span>
 					<img src={calendar} alt="calendar" />
-				</a>
+				</NavLink>
 			</li>
 			<li className="nav-item">
-				<a>
+				<NavLink to="/app/pacientes">
 					<span>Pacientes</span>
 					<img src={patients} alt="patients" />
-				</a>
+				</NavLink>
 			</li>
 			<div className="user-doctor">
 				{/* <!-- Doctor Picture --> */}
