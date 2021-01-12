@@ -59,10 +59,11 @@ function BarraLateral() {
 				/>
 				{/* <!-- Doctor Name --> */}
 				<h3 className="doctor-name">{name}</h3>
-				<a className="nav-link nav-link-profile nav-link-ver-perfil">
+
+				<NavLink to="/app/perfil" activeClassName="selected">
 					<img src={profile} alt="profile" />
-					<span>Ver Perfil</span>
-				</a>
+					<span> Ver Perfil</span>
+				</NavLink>
 				<a className="nav-link nav-link-profile nav-link-cerrar-sesion">
 					<img src={logout} alt="log-out" />
 					<span onClick={handleLogout}>Cerrar Sesión</span>
