@@ -1,6 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { types } from '../../types/types';
 import { AuthContext } from '../../auth/AuthContext';
+import '../../styles/Login/Login.css';
+
+import logo from '../../assets/images/logo.svg';
 
 export const LoginScreen = ({ history }) => {
 	const { dispatch } = useContext(AuthContext);
@@ -19,17 +22,31 @@ export const LoginScreen = ({ history }) => {
 		history.replace(lastPath);
 	};
 	return (
-		<div>
-			LoginScreen
-			<div className="container mt-5">
-				<h1>Login</h1>
-				<hr />
-				<br />
-				Recuerda : Solo "odontologo" o "admin"
-				<br />
-				<button className="btn btn-primary" onClick={handleLogin}>
+		<div class="center">
+			<div class="container">
+				<div class="text">
+					<img src={logo} alt="logo" />
 					Login
-				</button>
+				</div>
+				<form action="#">
+					<div class="data">
+						<label>Email User</label>
+						<input type="text" required />
+					</div>
+					<div class="data">
+						<label>Password</label>
+						<input type="password" required />
+					</div>
+					<div class="forgot-pass">
+						<a href="#">Forgot Password?</a>
+					</div>
+					<div class="btn">
+						<div class="inner"></div>
+						<button type="submit" onClick={handleLogin}>
+							Login
+						</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	);

@@ -1,5 +1,9 @@
 import React from 'react';
 
 export const HomeScreen = () => {
-	return <div>Esta es la Home Page , aqui toda la publicidad de la clinica</div>;
+	return (
+		<div className="Home-Container">
+			<h1>Aqui va el HOME PAGE</h1>
+		</div>
+	);
 };
