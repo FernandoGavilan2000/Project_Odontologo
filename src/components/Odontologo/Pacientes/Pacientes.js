@@ -5,6 +5,7 @@ import '../../../styles/Odontologo/Pacientes/Pacientes.css';
 
 //Icon
 import add from '../../../assets/images/add.svg';
+import { NavLink } from 'react-router-dom';
 
 function Pacientes() {
 	return (
@@ -12,8 +13,10 @@ function Pacientes() {
 			<div className="title">
 				<h2>Lista de Pacientes</h2>
 				<button>
-					<img src={add} alt="add" />
-					<span>Agregar Paciente</span>
+					<NavLink to="/app/pacientes/new">
+						<img src={add} alt="add" />
+						<span>Agregar Paciente</span>
+					</NavLink>
 				</button>
 			</div>
 			<div className="patients-table">
@@ -29,6 +32,7 @@ function Pacientes() {
 						</tr>
 					</thead>
 					<tbody>
+						<PacienteFila></PacienteFila>
 						<PacienteFila></PacienteFila>
 						<PacienteFila></PacienteFila>
 						<PacienteFila></PacienteFila>
