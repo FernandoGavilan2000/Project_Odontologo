@@ -1,8 +1,15 @@
+.horario-contenedor h1 {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
 .react-calendar {
 	width: 95%;
 	margin: 0 auto;
-	height: 80vh;
+	height: 85vh;
+	box-shadow: 4px 2px 2px #999;
 	border: none;
+	border-radius: 6px;
 }
 
 .react-calendar__tile {
@@ -17,4 +24,9 @@
 .react-calendar__navigation__label__labelText {
 	font-size: 18px;
 	text-transform: uppercase;
+}
+.react-calendar__month-view__days__day abbr {
+	color: var(--header);
+	float: right;
+	margin-top: -42px;
 }
