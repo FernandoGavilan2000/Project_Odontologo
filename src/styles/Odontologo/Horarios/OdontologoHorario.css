@@ -4,12 +4,13 @@
 	text-align: center;
 }
 .react-calendar {
-	width: 95%;
+	width: 96%;
 	margin: 0 auto;
 	height: 85vh;
 	box-shadow: 4px 2px 2px #999;
 	border: none;
 	border-radius: 6px;
+	padding: 15px;
 }
 
 .react-calendar__tile {
