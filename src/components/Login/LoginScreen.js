@@ -1,9 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { types } from '../../types/types';
 import { AuthContext } from '../../auth/AuthContext';
 import '../../styles/Login/Login.css';
 
 import logo from '../../assets/images/logo.svg';
+import { NavLink } from 'react-router-dom';
+import { SuccesfullLogin } from '../../helpers/Alerts/SuccessfulLogin';
 
 export const LoginScreen = ({ history }) => {
 	const { dispatch } = useContext(AuthContext);
@@ -20,28 +22,30 @@ export const LoginScreen = ({ history }) => {
 		});
 
 		history.replace(lastPath);
+
+		SuccesfullLogin();
 	};
 	return (
-		<div class="center">
-			<div class="container">
-				<div class="text">
+		<div className="login-center">
+			<div className="login-container">
+				<div className="text">
 					<img src={logo} alt="logo" />
 					Login
 				</div>
-				<form action="#">
-					<div class="data">
+				<form>
+					<div className="data">
 						<label>Email User</label>
 						<input type="text" required />
 					</div>
-					<div class="data">
+					<div className="data">
 						<label>Password</label>
 						<input type="password" required />
 					</div>
-					<div class="forgot-pass">
-						<a href="#">Forgot Password?</a>
+					<div className="forgot-pass">
+						<NavLink to="/help">Forgot Password?</NavLink>
 					</div>
-					<div class="btn">
-						<div class="inner"></div>
+					<div className="btn">
+						<div className="inner"></div>
 						<button type="submit" onClick={handleLogin}>
 							Login
 						</button>

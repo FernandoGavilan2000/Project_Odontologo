@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 
 function Pacientes() {
 	return (
-		<div id="pacientesContenedor" class="pacientes-contenedor">
+		<div id="pacientesContenedor" className="pacientes-contenedor">
 			<div className="title">
 				<h2>Lista de Pacientes</h2>
 				<button>
