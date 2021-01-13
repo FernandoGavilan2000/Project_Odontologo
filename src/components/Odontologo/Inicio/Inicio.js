@@ -7,7 +7,7 @@ import { InicioPacienteRow } from './InicioPacienteRow';
 
 function Inicio() {
 	return (
-		<div id="inicioContenedor" class="inicio-contenedor">
+		<div id="inicioContenedor" className="inicio-contenedor">
 			<h1>
 				Bienvenido : <span>Fernando</span>
 			</h1>

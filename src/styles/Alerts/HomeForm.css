@@ -1,0 +1,212 @@
+/*//////////////////////////////////////////////////////////////////
+  [ RESTYLE TAG ]*/
+
+/*---------------------------------------------*/
+
+/*---------------------------------------------*/
+
+p {
+	font-size: 14px;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+}
+textarea {
+	resize: none;
+}
+ul,
+li {
+	margin: 0px;
+	list-style-type: none;
+}
+
+/*---------------------------------------------*/
+input {
+	outline: none;
+	border: none;
+}
+
+textarea {
+	outline: none;
+	border: none;
+}
+
+textarea:focus,
+input:focus {
+	border-color: transparent !important;
+}
+
+input:focus::-webkit-input-placeholder {
+	color: transparent;
+}
+input:focus:-moz-placeholder {
+	color: transparent;
+}
+input:focus::-moz-placeholder {
+	color: transparent;
+}
+input:focus:-ms-input-placeholder {
+	color: transparent;
+}
+
+textarea:focus::-webkit-input-placeholder {
+	color: transparent;
+}
+textarea:focus:-moz-placeholder {
+	color: transparent;
+}
+textarea:focus::-moz-placeholder {
+	color: transparent;
+}
+textarea:focus:-ms-input-placeholder {
+	color: transparent;
+}
+
+input::-webkit-input-placeholder {
+	color: #adadad;
+}
+input:-moz-placeholder {
+	color: #adadad;
+}
+input::-moz-placeholder {
+	color: #adadad;
+}
+input:-ms-input-placeholder {
+	color: #adadad;
+}
+
+textarea::-webkit-input-placeholder {
+	color: #adadad;
+}
+textarea:-moz-placeholder {
+	color: #adadad;
+}
+textarea::-moz-placeholder {
+	color: #adadad;
+}
+textarea:-ms-input-placeholder {
+	color: #adadad;
+}
+
+/*//////////////////////////////////////////////////////////////////
+  [ Contact ]*/
+
+.container-contact100 {
+	width: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	height: auto;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.wrap-contact100 {
+	max-width: 960px;
+	margin: 0 auto;
+	display: block;
+	background: #fff;
+	border-radius: 2px;
+	padding: 66px 115px 59px 115px;
+	position: relative;
+}
+
+/*==================================================================
+  [ Form ]*/
+
+.contact100-form {
+	margin: 0 auto;
+	width: 90%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.contact100-form-title {
+	display: block;
+	width: 100%;
+
+	font-size: 30px;
+	color: #333333;
+	line-height: 1.2;
+	text-transform: uppercase;
+	text-align: left;
+	padding-bottom: 32px;
+}
+
+/*------------------------------------------------------------------
+  [ Input ]*/
+
+.wrap-input100 {
+	width: 100%;
+	position: relative;
+	background-color: transparent;
+	margin-bottom: 35px;
+}
+
+.rs1-wrap-input100 {
+	width: calc((100% - 30px) / 2);
+}
+
+.label-input100 {
+	font-size: 16px;
+	color: #555555;
+	line-height: 2px;
+	font-weight: bold;
+	float: left;
+	margin: 20px 20px;
+	font-family: (--font-family-main);
+}
+
+.input100 {
+	display: block;
+	width: 100%;
+	background: #f2f2f2;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #686868;
+	line-height: 1.2;
+	padding: 0 28px;
+
+	-webkit-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
+
+	margin-top: 10px;
+}
+
+/*---------------------------------------------*/
+input.input100 {
+	height: 62px;
+}
+
+textarea.input100 {
+	min-height: 162px;
+	padding-top: 19px;
+	padding-bottom: 13px;
+}
+
+.input100:focus {
+	background: #e6e6e6;
+}
+
+@media (max-width: 992px) {
+	.alert-validate::before {
+		visibility: visible;
+		opacity: 1;
+	}
+}

@@ -84,7 +84,7 @@
 #sideBar .user-doctor .nav-link-ver-perfil {
 	color: var(--paragraph);
 }
-#sideBar .user-doctor .nav-link-cerrar-sesion {
+#sideBar .user-doctor a:nth-child(2n + 2) {
 	color: var(--red);
 }
 #sideBar .user-doctor .nav-link-profile img {

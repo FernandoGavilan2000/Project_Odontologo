@@ -6,7 +6,7 @@ import '../../../styles/Odontologo/Horarios/OdontologoHorario.css';
 function Horario() {
 	const [value, onChange] = useState(new Date());
 	return (
-		<div id="horarioContenedor" class="horario-contenedor">
+		<div id="horarioContenedor" className="horario-contenedor">
 			<h1>Horario de Trabajo</h1>
 			<Calendar onChange={onChange} value={value} />
 		</div>
