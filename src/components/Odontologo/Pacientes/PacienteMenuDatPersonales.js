@@ -79,12 +79,11 @@ function PacienteMenuDatPersonales() {
 				</button>
 				<div className="datos-personales-inputs">
 					{userDetail.map((item) => (
-						<div className="txt-input">
+						<div className="txt-input" key={item.propiedad}>
 							<label htmlFor="">{item.propiedad}</label>
 							<input
 								type="text"
 								name={item.propiedad}
-								id=""
 								autoComplete="off"
 								placeholder={item.valor}
 								disabled={inputDisabled}

@@ -4,7 +4,6 @@ import { AdminDashboard } from '../Dashboard/AdminDashboard';
 import { Cuentas } from '../Dinero/Cuentas';
 import { Doctores } from '../Doctores/Doctores';
 import { DoctorInfo } from '../Doctores/DoctorInfo';
-import { prueba } from '../prueba';
 
 export const ContenedorAdmin = () => {
 	return (

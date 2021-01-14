@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuPlanesTratFila.css';
-import see from '../../../assets/images/see.svg';
 
 function PacienteMenuPlanesTratFila() {
 	return (
