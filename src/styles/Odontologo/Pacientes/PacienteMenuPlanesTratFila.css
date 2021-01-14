@@ -1,25 +1,25 @@
-.paciente-menu-planestrat-fila{
-    display: grid;
-    grid-template-columns: 15% 20% 9% 9% 27% 20%;
-    padding-left: 30px;
-    padding-right: 30px;
-    text-align: center;
-    margin-bottom: 30px;
-    /* background-color: red; */
+.paciente-menu-planestrat-fila {
+	display: grid;
+	grid-template-columns: 20% 30% 10% 10% 20%;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: center;
+	margin-bottom: 30px;
+	/* background-color: red; */
 }
 
-.paciente-menu-planestrat-fila a{
-    cursor: pointer;
+.paciente-menu-planestrat-fila a {
+	cursor: pointer;
 }
 
-.paciente-menu-planestrat-fila a img{
-    transform: translateY(5px);
-    margin-right: 8px;
+.paciente-menu-planestrat-fila a img {
+	transform: translateY(5px);
+	margin-right: 8px;
 }
 
-.paciente-menu-planestrat-fila p:nth-child(4){
-    width: 160px;
-    word-wrap: break-word;
-    text-align: center;
-    justify-self: center;
+.paciente-menu-planestrat-fila p:nth-child(4) {
+	width: 160px;
+	word-wrap: break-word;
+	text-align: center;
+	justify-self: center;
 }

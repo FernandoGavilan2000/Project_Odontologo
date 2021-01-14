@@ -1,59 +1,69 @@
-
-#pacienteMenuDatPersonales{
-    background-color: var(--background2);
-    width: 100%;
-    padding: 35px;
-    border-radius: 13px;
+#pacienteMenuDatPersonales {
+	background-color: var(--background2);
+	width: 100%;
+	padding: 35px;
+	border-radius: 13px;
 }
 
-#pacienteMenuDatPersonales .datos-personales h3{
-    color: var(--header);
-    text-transform: capitalize;
-    margin-bottom: 14px;
+#pacienteMenuDatPersonales .datos-personales h3 {
+	color: var(--header);
+	text-transform: capitalize;
+	margin-bottom: 14px;
 }
 
-.datos-personales .datos-personales-inputs{
-    display: grid;
-    background: var(--background1);
-    border-radius: 10px;
-    padding: 25px 30px 30px 30px;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 50px;
-    row-gap: 35px;
+.datos-personales .datos-personales-inputs {
+	display: grid;
+	background: var(--background1);
+	border-radius: 10px;
+	padding: 25px 30px 30px 30px;
+	grid-template-columns: 1fr 1fr 1fr;
+	column-gap: 50px;
+	row-gap: 35px;
 }
-.datos-personales .datos-personales-inputs input[type=text]{
-    width: 100%;
-}
-
-.mas-informacion h3{
-    color: var(--header);
-    text-transform: capitalize;
-    margin-right: 35px;
+.datos-personales .datos-personales-inputs input[type='text'] {
+	width: 100%;
 }
 
-
-.mas-informacion{
-    display: flex;
-    margin-top: 35px;
-    align-items: center;
+.mas-informacion h2 {
+	color: var(--header);
+	text-transform: capitalize;
+	margin-right: 35px;
 }
 
+.mas-informacion {
+	display: flex;
+	margin-top: 35px;
+	align-items: center;
+}
 
 .mas-informacion button {
-    display: flex;
-    font-size: 14px;
-    background-color: var(--second-color);
-    color: var(--background1);
-    padding: 10px 15px;
-    font-weight: bolder;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: .3s ease-in-out;
+	display: flex;
+	font-size: 14px;
+	background-color: var(--second-color);
+	color: var(--background1);
+	padding: 10px 15px;
+	font-weight: bolder;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: 0.3s ease-in-out;
+	margin-left: 20px;
 }
-.mas-informacion button img{
-    margin-right: 10px;
+.mas-informacion button img {
+	margin-right: 10px;
 }
 
-.mas-informacion button:hover{
-    transform: translateY(-10px);
+.mas-informacion button:hover {
+	transform: translateY(-10px);
+}
+
+.btn_changeEdit {
+	font-size: 14px;
+	background-color: var(--second-color);
+	color: var(--background1);
+	padding: 10px 15px;
+	font-weight: bolder;
+	border-radius: 8px;
+	margin: 10px 5px;
+	cursor: pointer;
+	transition: 0.3s ease-in-out;
 }
