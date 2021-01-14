@@ -12,6 +12,8 @@ import { DashboardRoutes } from './DashboardRoutes';
 
 //Context
 import { AuthContext } from '../auth/AuthContext';
+import { RecoverPassword } from '../components/Help/RecoverPassword';
+import { Page404 } from '../components/Page404/Page404';
 
 export const AppRouter = () => {
 	const { user } = useContext(AuthContext);
@@ -20,6 +22,7 @@ export const AppRouter = () => {
 			<Switch>
 				<Route exact component={HomeScreen} path="/" />
 
+				<Route exact component={RecoverPassword} path="/help" />
 				<PublicRoute
 					exact
 					path="/login"
@@ -27,14 +30,15 @@ export const AppRouter = () => {
 					isAuthenticated={user.logged}
 					isTypeUser={user.type}
 				/>
-
 				<PrivateRoute
 					path="/app"
 					component={DashboardRoutes}
 					isAuthenticated={user.logged}
 					isTypeUser={user.type}
 				/>
-				<Redirect to="/" />
+				<Route exact component={Page404} path="/404" />
+
+				<Redirect to="/404" />
 			</Switch>
 		</Router>
 	);

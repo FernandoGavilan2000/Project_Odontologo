@@ -1,5 +1,7 @@
 import React from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuFacturacionFila.css'
+import { Link } from 'react-router-dom'
+
 
 import see from '../../../assets/images/see.svg'
 
@@ -23,12 +25,12 @@ function PacienteMenuFacturacionFila() {
             <p>Faltante</p>
 
             {/* Ver Detalles */}
-            <div>
-                <a>
+            {/* <div>
+                <Link to="/app/pacientes/:id">
                     <img src={see} alt="see" />
                     <span>Ver Perfil</span>
-                </a>
-            </div>
+                </Link>
+            </div> */}
         </div>
     )
 }

@@ -64,10 +64,11 @@ function BarraLateral() {
 					<img src={profile} alt="profile" />
 					<span> Ver Perfil</span>
 				</NavLink>
-				<a className="nav-link nav-link-profile nav-link-cerrar-sesion">
+
+				<NavLink to="/" activeClassName="selected" onClick={handleLogout}>
 					<img src={logout} alt="log-out" />
-					<span onClick={handleLogout}>Cerrar Sesión</span>
-				</a>
+					<span> Cerrar Sesión</span>
+				</NavLink>
 			</div>
 		</ul>
 	);

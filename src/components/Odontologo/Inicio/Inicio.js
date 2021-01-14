@@ -7,7 +7,7 @@ import { InicioPacienteRow } from './InicioPacienteRow';
 
 function Inicio() {
 	return (
-		<div id="inicioContenedor" class="inicio-contenedor">
+		<div id="inicioContenedor" className="inicio-contenedor">
 			<h1>
 				Bienvenido : <span>Fernando</span>
 			</h1>
@@ -15,9 +15,9 @@ function Inicio() {
 			<div className="title">
 				<h2>Tus proximas citas :</h2>
 				<button>
-					<NavLink to="/app/pacientes/new">
+					<NavLink to="/app/horarios">
 						<img src={see} alt="see" />
-						<span>Ver todas</span>
+						<span>Ver Horario de Citas</span>
 					</NavLink>
 				</button>
 			</div>

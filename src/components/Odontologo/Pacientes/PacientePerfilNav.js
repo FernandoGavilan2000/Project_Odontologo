@@ -7,6 +7,7 @@ function PacientePerfilNav({ handleMenu, menusArray, current }) {
 			{menusArray.map((menu, index) => (
 				<li
 					className={`paciente-nav-item ${current.menuCod === index && 'active'}`}
+					key={menu}
 					onClick={() => {
 						handleMenu(menu, index);
 					}}

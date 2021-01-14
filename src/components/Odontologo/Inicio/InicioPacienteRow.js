@@ -9,7 +9,7 @@ export const InicioPacienteRow = () => {
 		<tr>
 			{/* INFORMATION OF USERS */}
 			<td className="columna-paciente">
-				<img src={patientImage} />
+				<img src={patientImage} alt="patientPerfil" />
 				<h4>Annette Black</h4>
 			</td>
 

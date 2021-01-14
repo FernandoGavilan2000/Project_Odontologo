@@ -11,7 +11,7 @@ function PacienteFila() {
 		<tr>
 			{/* INFORMATION OF USERS */}
 			<td className="columna-paciente">
-				<img src={patientImage} />
+				<img src={patientImage} alt="patientImage" />
 				<h4>Annette Black</h4>
 			</td>
 			<td className="columna-edad">33 Años</td>
