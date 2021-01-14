@@ -1,0 +1,36 @@
+#pacienteMenuOdontograma{
+    background-color: var(--background2);
+    width: 100%;
+    padding: 35px;
+    border-radius: 13px;
+}
+.odontograma-tabla-top{
+    display: grid;
+    grid-template-columns: 35% 65%;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: left;    
+    margin-bottom: 15px;
+}
+
+.odontograma-tabla-data{
+    display: grid;
+    grid-template-columns: 35% 65%;
+    background-color: var(--background1);
+    padding: 20px 0;
+    border-radius: 8px;
+}
+
+.odontograma-tabla-data .lista-actualizaciones{
+    height: 400px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.odontograma-tabla-data .odontograma-actual{
+    margin: 20px 0 0 20px;
+}
+
+.odontograma-tabla-data .odontograma-actual img{
+    width: 100%;
+}

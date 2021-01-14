@@ -1,0 +1,37 @@
+
+#pacienteMenuFacturacion{
+    background-color: var(--background2);
+    width: 100%;
+    padding: 35px;
+    border-radius: 13px;
+}
+.facturacion-tabla-top{
+    display: grid;
+    grid-template-columns: 20% 16% 16% 16% 16% 16%;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;    
+    margin-bottom: 15px;
+    /* background-color: rebeccapurple; */
+}
+
+.facturacion-tabla-top .red{
+    color: var(--red);
+}
+
+.facturacion-tabla-top .blue{
+    color: var(--main-color);
+}
+
+.facturacion-tabla-datos{
+    background-color: var(--background1);
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    
+}
+.facturacion-tabla-datos{
+    height: 400px;
+    overflow: scroll;
+    overflow-x: hidden;
+}

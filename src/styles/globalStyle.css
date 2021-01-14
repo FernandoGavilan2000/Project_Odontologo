@@ -42,7 +42,6 @@ body{
     height: 100%;
     width: 100%;
     height: 100%;
-    background-color: orange;
     display: flex;
 }
 
@@ -61,6 +60,11 @@ h3{
     font-family: var(--font-family-main);
     color: var(--paragraph);
     text-transform: uppercase;
+}
+h4{
+    font-size: 14px;
+    font-family: var(--font-family-main);
+    color: var(--paragraph);
 }
 
 a{
@@ -87,8 +91,51 @@ p, td{
 button{
     font-family: var(--font-family-second);
     font-size: 16px;
+    outline: none;
 }
 ul{
     list-style: none;
     padding: 0;
+}
+
+
+.txt-input label{
+    font-size:14px;
+    font-weight: bolder;
+    font-family: var(--font-family-main);
+    color: var(--paragraph);
+    text-transform: capitalize;
+    display: block;
+}
+.txt-input input[type=text]{
+    border-bottom: 0.75px solid var(--background4);
+    padding: 6px 4px;
+    background: none;
+    font-size: 16px;
+    font-family: var(--font-family-second);
+    color: var(--paragraph);
+}
+.txt-input input[type=text]:focus{
+    outline-color: var(--background3);
+    
+}
+
+
+.contenedor-scroll::-webkit-scrollbar-track {
+	-webkit-box-shadow: 0 0 6px rgb(255, 255, 255);
+	border-radius: 10px;
+	background-color: var(--background2);
+}
+.contenedor-scroll::-webkit-scrollbar {
+	width: 12px;
+	background-color: var(--background1);
+}
+.contenedor-scroll::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: 0 0 0px rgba(0, 0, 0, 0.3);
+	background-color: var(--background3);
+	transition: 0.25s ease-in-out;
+}
+.contenedor-scroll::-webkit-scrollbar-thumb:hover {
+	background-color: var(--background4);
 }

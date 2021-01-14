@@ -31,7 +31,7 @@ function Pacientes() {
 							<th />
 						</tr>
 					</thead>
-					<tbody>
+					<tbody >
 						<PacienteFila></PacienteFila>
 						<PacienteFila></PacienteFila>
 						<PacienteFila></PacienteFila>
