@@ -3,31 +3,25 @@
 	margin: 0 auto;
 	text-align: center;
 }
-.react-calendar {
-	width: 96%;
-	margin: 0 auto;
-	height: 85vh;
-	box-shadow: 4px 2px 2px #999;
-	border: none;
-	border-radius: 6px;
-	padding: 15px;
+
+.rbc-calendar {
+	background-color: var(--background1);
+	height: 100vh;
 }
 
-.react-calendar__tile {
-	height: 100px;
+.rbc-event {
+	background-color: var(--main-color-dark);
 }
-
-.react-calendar__month-view__weekdays__weekday {
-	font-size: 18px;
-	color: rgb(15, 70, 15);
-	text-decoration: solid;
+.rbc-event-content {
+	background-color: var(--main-color-dark);
+	border-style: none;
 }
-.react-calendar__navigation__label__labelText {
-	font-size: 18px;
+.rbc-today {
+	background-color: #aefdf0;
+}
+.rbc-header {
 	text-transform: uppercase;
 }
-.react-calendar__month-view__days__day abbr {
-	color: var(--header);
-	float: right;
-	margin-top: -42px;
+.rbc-toolbar-label {
+	text-transform: uppercase;
 }
