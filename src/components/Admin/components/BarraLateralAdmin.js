@@ -3,7 +3,6 @@ import { NavLink, useHistory } from 'react-router-dom';
 
 import '../../../styles/Admin/AdminBarraLateral.css';
 import logo from '../../../assets/images/logo.svg';
-import profile from '../../../assets/images/profile.svg';
 import dashboard from '../../../assets/images/dashboard.svg';
 import doctos from '../../../assets/images/doctors.svg';
 import money from '../../../assets/images/money.svg';

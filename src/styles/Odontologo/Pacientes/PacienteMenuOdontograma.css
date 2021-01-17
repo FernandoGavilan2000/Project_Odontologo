@@ -1,36 +1,259 @@
-#pacienteMenuOdontograma{
-    background-color: var(--background2);
-    width: 100%;
-    padding: 35px;
-    border-radius: 13px;
+#pacienteMenuOdontograma {
+	background-color: var(--background2);
+	width: 100%;
+	padding: 10px 10px;
+	border-radius: 13px;
 }
-.odontograma-tabla-top{
-    display: grid;
-    grid-template-columns: 35% 65%;
-    padding-left: 30px;
-    padding-right: 30px;
-    text-align: left;    
-    margin-bottom: 15px;
-}
-
-.odontograma-tabla-data{
-    display: grid;
-    grid-template-columns: 35% 65%;
-    background-color: var(--background1);
-    padding: 20px 0;
-    border-radius: 8px;
+.odontograma-tabla-top {
+	display: grid;
+	grid-template-columns: 8% 92%;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: left;
+	margin-top: 5px;
+	margin-bottom: 20px;
 }
 
-.odontograma-tabla-data .lista-actualizaciones{
-    height: 400px;
-    overflow: scroll;
-    overflow-x: hidden;
+.odontograma-tabla-data {
+	display: grid;
+	grid-template-columns: 8% 92%;
+	background-color: var(--background1);
+	padding: 20px 5px 0px 0px;
+	border-radius: 8px;
+	overflow: hidden;
 }
 
-.odontograma-tabla-data .odontograma-actual{
-    margin: 20px 0 0 20px;
+.odontograma-tabla-data .lista-actualizaciones {
+	height: 300px;
+	overflow: scroll;
+	overflow-x: hidden;
 }
 
-.odontograma-tabla-data .odontograma-actual img{
-    width: 100%;
+.odontograma-tabla-data .odontograma-actual {
+	margin: 5px 0 0 5px;
+
+	display: grid;
+	grid-template-rows: 120px 120px 90px;
+	gap: 20px;
+}
+.odontograma-tabla-data .odontograma-actual .container-superior {
+	display: grid;
+	grid-template-rows: 30px 50px 50px;
+	width: 100%;
+	height: auto;
+	max-height: 300px;
+	gap: 0px;
+}
+
+.odontograma-tabla-data .odontograma-actual .container-superior-numbers {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	grid-template-rows: 30px;
+}
+.odontograma-tabla-data .odontograma-actual .container-superior-numbers > span {
+	text-align: center;
+}
+
+.odontograma-tabla-data .odontograma-actual .container-superior-images {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	grid-template-rows: 50px;
+}
+.odontograma-tabla-data .odontograma-actual .container-superior-images > div {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 35px;
+	height: 50px;
+}
+.odontograma-tabla-data .odontograma-actual .container-superior-options {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	grid-template-rows: 50px;
+}
+
+.container-superior-options ul.menu {
+	margin: 0px 0px 0px 7px;
+	text-align: center;
+	padding: 1px;
+	position: relative;
+	transform: rotate(45deg);
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+}
+
+.container-superior-options ul.menu li {
+	position: absolute;
+	list-style: none;
+	width: 20px;
+	height: 20px;
+	color: #fff;
+	text-align: center;
+	line-height: 10px;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+.container-superior-options ul.menu li:hover {
+	cursor: pointer;
+}
+
+.container-superior-options ul.menu li:nth-child(1) {
+	top: 0;
+	left: 0;
+	background: #939caf;
+	border-top-left-radius: 100%;
+}
+
+.container-superior-options ul.menu li:nth-child(2) {
+	top: 0em;
+	left: 20px;
+	background: var(--background4);
+	border-top-right-radius: 100%;
+}
+
+.container-superior-options ul.menu li:nth-child(3) {
+	top: 20px;
+	left: 0;
+	background: var(--background4);
+	border-bottom-left-radius: 100%;
+}
+
+.container-superior-options ul.menu li:nth-child(4) {
+	top: 20px;
+	left: 20px;
+	background: #939caf;
+	border-bottom-right-radius: 100%;
+}
+
+.container-superior-options ul.menu li:nth-child(5) {
+	width: 20px;
+	height: 20px;
+	top: 10px;
+	left: 10px;
+	line-height: 8em;
+	background: rgb(255, 255, 255);
+	border-radius: 100%;
+	z-index: 11;
+}
+
+.container-superior-options ul.menu li div {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.odontograma-tabla-data .odontograma-actual .container-inferior {
+	display: grid;
+	grid-template-rows: 50px 50px 30px;
+	width: 100%;
+	height: auto;
+	max-height: 300px;
+	gap: 0px;
+}
+.odontograma-tabla-data .odontograma-actual .container-inferior-images {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	grid-template-rows: 50px;
+}
+.odontograma-tabla-data .odontograma-actual .container-inferior-images > div {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 35px;
+	height: 50px;
+}
+.odontograma-tabla-data .odontograma-actual .container-inferior-options {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	grid-template-rows: 50px;
+}
+
+.container-inferior-options ul.menu {
+	margin: 0px 0px 0px 7px;
+	text-align: center;
+	padding: 1px;
+	position: relative;
+	transform: rotate(45deg);
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+}
+
+.container-inferior-options ul.menu li {
+	position: absolute;
+	list-style: none;
+	width: 20px;
+	height: 20px;
+	color: #fff;
+	text-align: center;
+	line-height: 10px;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+.container-inferior-options ul.menu li:hover {
+	cursor: pointer;
+}
+
+.container-inferior-options ul.menu li:nth-child(1) {
+	top: 0;
+	left: 0;
+	background: #939caf;
+	border-top-left-radius: 100%;
+}
+
+.container-inferior-options ul.menu li:nth-child(2) {
+	top: 0em;
+	left: 20px;
+	background: var(--background4);
+	border-top-right-radius: 100%;
+}
+
+.container-inferior-options ul.menu li:nth-child(3) {
+	top: 20px;
+	left: 0;
+	background: var(--background4);
+	border-bottom-left-radius: 100%;
+}
+
+.container-inferior-options ul.menu li:nth-child(4) {
+	top: 20px;
+	left: 20px;
+	background: #939caf;
+	border-bottom-right-radius: 100%;
+}
+
+.container-inferior-options ul.menu li:nth-child(5) {
+	width: 20px;
+	height: 20px;
+	top: 10px;
+	left: 10px;
+	line-height: 8em;
+	background: rgb(255, 255, 255);
+	border-radius: 100%;
+	z-index: 11;
+}
+
+.container-inferior-options ul.menu li div {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+.odontograma-tabla-data .odontograma-actual .container-inferior-numbers {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	grid-template-rows: 30px;
+}
+.odontograma-tabla-data .odontograma-actual .container-inferior-numbers > span {
+	text-align: center;
 }
