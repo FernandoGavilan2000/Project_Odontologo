@@ -33,7 +33,7 @@
 	margin: 5px 0 0 5px;
 
 	display: grid;
-	grid-template-rows: 120px 120px 90px;
+	grid-template-rows: 120px 120px;
 	gap: 20px;
 }
 .odontograma-tabla-data .odontograma-actual .container-superior {
