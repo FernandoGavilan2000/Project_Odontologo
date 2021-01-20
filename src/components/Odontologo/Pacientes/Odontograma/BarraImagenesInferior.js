@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import num48 from '../../../../assets/odontograma/48.png';
 import num47 from '../../../../assets/odontograma/47.png';
@@ -17,25 +17,108 @@ import num36 from '../../../../assets/odontograma/36.png';
 import num37 from '../../../../assets/odontograma/37.png';
 import num38 from '../../../../assets/odontograma/38.png';
 
-export const BarraImagenesInferior = React.memo(() => {
+import { OdontogramaContext } from './OdontogramaContext';
+
+export const BarraImagenesInferior = () => {
+	const { setDiente, DientesCollection } = useContext(OdontogramaContext);
 	return (
 		<div className="odontograma-actual container-inferior-images">
-			<div style={{ backgroundImage: 'url(' + num48 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num47 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num46 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num45 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num44 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num43 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num42 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num41 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num31 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num32 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num33 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num34 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num35 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num36 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num37 + ')' }}></div>
-			<div style={{ backgroundImage: 'url(' + num38 + ')' }}></div>
+			<div
+				style={{ backgroundImage: 'url(' + num48 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[16]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num47 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[17]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num46 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[18]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num45 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[19]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num44 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[20]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num43 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[21]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num42 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[22]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num41 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[23]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num31 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[24]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num32 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[25]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num33 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[26]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num34 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[27]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num35 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[28]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num36 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[29]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num37 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[30]);
+				}}
+			></div>
+			<div
+				style={{ backgroundImage: 'url(' + num38 + ')' }}
+				onClick={() => {
+					setDiente(DientesCollection[31]);
+				}}
+			></div>
 		</div>
 	);
-});
+};

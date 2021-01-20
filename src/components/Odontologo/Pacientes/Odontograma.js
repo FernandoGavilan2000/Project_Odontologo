@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 //Numeros Barra en Memo
 import { BarraNumerosSuperior } from './Odontograma/BarraNumerosSuperior';
@@ -11,61 +11,188 @@ import { BarraImagenesInferior } from './Odontograma/BarraImagenesInferior';
 
 //RadarDiente
 
-import { RadarDiente } from './Odontograma/RadarDiente';
+import { OdontogramaContext } from './Odontograma/OdontogramaContext';
+import { PrimerCuadranteRadar } from './Odontograma/PrimerCuadranteRadar';
+import { SegundoCuadranteRadar } from './Odontograma/SegundoCuadranteRadar';
+import { TercerCuadranteRadar } from './Odontograma/TercerCuadranteRadar';
+import { CuartoCuadranteRadar } from './Odontograma/CuartoCuadranteRadar';
+import { EstadosArray } from '../../../helpers/Odontograma/EstadosArray';
+import { HallazgosArray } from '../../../helpers/Odontograma/HallazgosArray';
+import { CarasDientesArray } from '../../../helpers/Odontograma/CarasDientesArray';
+//EstadosDientes
 
 export const Odontograma = ({ ArrayDiente }) => {
-	const DientesSuperiores = ArrayDiente.slice(0, 16);
-	const DientesInferiores = ArrayDiente.slice(16);
+	const [DientesCollection, setDientesCollection] = useState(ArrayDiente);
+	const [Diente, setDiente] = useState(DientesCollection[0]);
+
+	console.log(DientesCollection);
+	console.log(Diente);
+
+	useEffect(() => {
+		setDiente(
+			DientesCollection[
+				DientesCollection.findIndex((diente) => (diente.numero = Diente.numero))
+			]
+		);
+	}, [DientesCollection]);
+
+	const handleChangeEstado = (e) => {
+		let nuevo = DientesCollection.filter((diente) => diente.numero !== Diente.numero);
+		setDientesCollection([
+			{
+				id: Diente.id,
+				numero: Diente.numero,
+				cuadrante: Diente.cuadrante,
+				nombre: Diente.nombre,
+				estado: e.target.value,
+				hallazgo: Diente.hallazgo,
+				caras: Diente.caras,
+			},
+			...nuevo,
+		]);
+	};
+
+	const handleChangeHallazgo = (e) => {
+		let nuevo = DientesCollection.filter((diente) => diente.numero !== Diente.numero);
+		setDientesCollection([
+			{
+				id: Diente.id,
+				numero: Diente.numero,
+				cuadrante: Diente.cuadrante,
+				estado: Diente.estado,
+				nombre: Diente.nombre,
+				hallazgo: e.target.value,
+				caras: Diente.caras,
+			},
+			...nuevo,
+		]);
+	};
+
+	const handleChangeCara = (e) => {
+		let nuevo = DientesCollection.filter((diente) => diente.numero !== Diente.numero);
+		setDientesCollection([
+			{
+				id: Diente.id,
+				numero: Diente.numero,
+				cuadrante: Diente.cuadrante,
+				estado: Diente.estado,
+				nombre: Diente.nombre,
+				hallazgo: Diente.hallazgo,
+				caras: {
+					Vestibular: Diente.caras.Vestibular,
+					Oclusal: Diente.caras.Oclusal,
+					Lingual: Diente.caras.Lingual,
+					Mesial: Diente.caras.Mesial,
+					Distal: Diente.caras.Distal,
+					[e.target.name]: e.target.value,
+				},
+			},
+			...nuevo,
+		]);
+	};
+
+	//Efecto cuando ocurra un cambio dentro del Odontograma Actual
+	useEffect(() => {
+		setDientesCollection(ArrayDiente);
+	}, [ArrayDiente]);
+	//Efecto cuando inserte nuevo Odontograma
 
 	return (
-		<div className="odontograma-actual">
-			<div className="odontograma-actual container-superior">
-				<BarraNumerosSuperior />
-				<div className="odontograma-actual container-superior-options">
-					{DientesSuperiores.map((diente, index) => (
-						<RadarDiente />
-					))}
+		<OdontogramaContext.Provider value={{ setDiente, DientesCollection, Diente }}>
+			<div className="odontograma-actual">
+				<div className="odontograma-actual container-superior">
+					<BarraNumerosSuperior key={'Barra1'} />
+					<div className="odontograma-actual container-superior-options">
+						{DientesCollection.filter(
+							(diente) => diente.cuadrante === 'Primer Cuadrante'
+						).map((diente, index) => (
+							<PrimerCuadranteRadar key={diente.id} diente={diente} />
+						))}
+					</div>
+					<BarraImagenesSuperior handleDiente={setDiente} key={'Imagenes1'} />
 				</div>
-				<BarraImagenesSuperior />
-			</div>
-			<div className="odontograma-actual container-inferior">
-				<BarraImagenesInferior />
-				<div className="odontograma-actual container-inferior-options">
-					{DientesInferiores.map((diente, index) => (
-						<RadarDiente />
-					))}
+				<div className="odontograma-actual container-inferior">
+					<BarraImagenesInferior handleDiente={setDiente} key={'Imagenes2'} />
+					<div className="odontograma-actual container-inferior-options"></div>
+					<BarraNumerosInferior key={'Barra2'} />
 				</div>
-				<BarraNumerosInferior />
-			</div>
+				<div className="detalles-odontograma">
+					<h2>DIENTE SELECCIONADO :</h2>
+					<p>
+						<b>Numero de Diente:</b> <span>{Diente.numero}</span>
+					</p>
+					<p>
+						<b>Nombre del Diente:</b> <span>{Diente.nombre}</span>
+					</p>
+					<p>
+						<b>Estado:</b>
+						<select value={Diente.estado} onChange={handleChangeEstado}>
+							{EstadosArray.map((estadoArray, index) => (
+								<option value={estadoArray.name} key={estadoArray.name}>
+									{estadoArray.name}
+								</option>
+							))}
+						</select>
+					</p>
 
-			<h3>INFO DEL DIENTE SELECCIONADO</h3>
-			<p>
-				Numero de Diente: <span>18</span>
-			</p>
-			<p>
-				Nombre del Diente: <span>Tercera Molar</span>
-			</p>
-			<p>
-				Estado: <span>1.Presente en Boca 2.Proceso de Erupcion 3. No Registra</span>
-			</p>
-			<p>
-				Hallazgo Clínico: <span>Caries,Obt</span>
-			</p>
-			<p>
-				Vestibular: <span></span>
-			</p>
-			<p>
-				Oclusal: <span></span>
-			</p>
-			<p>
-				Lingual: <span></span>
-			</p>
-			<p>
-				Mesial: <span>Caries</span>
-			</p>
-			<p>
-				Distal: <span></span>
-			</p>
-		</div>
+					<h2>Hallazgo Clínico:</h2>
+					<select value={Diente.hallazgo} onChange={handleChangeHallazgo}>
+						{HallazgosArray.map((hallazgoArray, index) => (
+							<option value={hallazgoArray.name} key={hallazgoArray.id}>
+								{hallazgoArray.name}
+							</option>
+						))}
+					</select>
+
+					<h2>Caras del Diente Seleccionado :</h2>
+
+					<p>Vestibular:</p>
+					<select
+						value={Diente.caras.Vestibular}
+						name="Vestibular"
+						onChange={handleChangeCara}
+					>
+						{CarasDientesArray.map((carasArray, index) => (
+							<option name="Vestibular" value={carasArray.name} key={carasArray.id}>
+								{carasArray.name}
+							</option>
+						))}
+					</select>
+					<p>Oclusal: </p>
+					<select value={Diente.caras.Oclusal} name="Oclusal" onChange={handleChangeCara}>
+						{CarasDientesArray.map((carasArray, index) => (
+							<option name="Oclusal" value={carasArray.name} key={carasArray.id}>
+								{carasArray.name}
+							</option>
+						))}
+					</select>
+
+					<p>Lingual:</p>
+					<select value={Diente.caras.Lingual} name="Lingual" onChange={handleChangeCara}>
+						{CarasDientesArray.map((carasArray, index) => (
+							<option name="Lingual" value={carasArray.name} key={carasArray.id}>
+								{carasArray.name}
+							</option>
+						))}
+					</select>
+					<p>Mesial:</p>
+					<select value={Diente.caras.Mesial} name="Mesial" onChange={handleChangeCara}>
+						{CarasDientesArray.map((carasArray, index) => (
+							<option name="Mesial" value={carasArray.name} key={carasArray.id}>
+								{carasArray.name}
+							</option>
+						))}
+					</select>
+					<p>Distal:</p>
+					<select value={Diente.caras.Distal} name="Distal" onChange={handleChangeCara}>
+						{CarasDientesArray.map((carasArray, index) => (
+							<option name="Distal" value={carasArray.name} key={carasArray.id}>
+								{carasArray.name}
+							</option>
+						))}
+					</select>
+				</div>
+			</div>
+		</OdontogramaContext.Provider>
 	);
 };
