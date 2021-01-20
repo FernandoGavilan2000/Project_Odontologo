@@ -26,97 +26,161 @@ export const BarraImagenesInferior = () => {
 			<div
 				style={{ backgroundImage: 'url(' + num48 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[16]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 48)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num47 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[17]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 47)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num46 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[18]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 46)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num45 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[19]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 45)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num44 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[20]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 44)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num43 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[21]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 43)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num42 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[22]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 42)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num41 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[23]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 41)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num31 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[24]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 31)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num32 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[25]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 32)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num33 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[26]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 33)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num34 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[27]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 34)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num35 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[28]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 35)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num36 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[29]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 36)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num37 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[30]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 37)
+						]
+					);
 				}}
 			></div>
 			<div
 				style={{ backgroundImage: 'url(' + num38 + ')' }}
 				onClick={() => {
-					setDiente(DientesCollection[31]);
+					setDiente(
+						DientesCollection[
+							DientesCollection.findIndex((diente) => diente.numero === 38)
+						]
+					);
 				}}
 			></div>
 		</div>
