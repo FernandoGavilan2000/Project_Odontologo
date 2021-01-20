@@ -1,4 +1,4 @@
-export const ArrayDiente2 = [
+export const ArrayDienteModelo = [
 	{
 		id: 'num18',
 		numero: 18,
@@ -23,8 +23,8 @@ export const ArrayDiente2 = [
 		hallazgo: '',
 		caras: {
 			Vestibular: '',
-			Oclusal: 'caries',
-			Lingual: 'caries',
+			Oclusal: '',
+			Lingual: '',
 			Mesial: '',
 			Distal: '',
 		},
@@ -113,10 +113,10 @@ export const ArrayDiente2 = [
 		hallazgo: '',
 		caras: {
 			Vestibular: '',
-			Oclusal: 'caries',
+			Oclusal: '',
 			Lingual: '',
 			Mesial: '',
-			Distal: 'caries',
+			Distal: '',
 		},
 	},
 	{
@@ -173,10 +173,10 @@ export const ArrayDiente2 = [
 		hallazgo: '',
 		caras: {
 			Vestibular: '',
-			Oclusal: 'caries',
+			Oclusal: '',
 			Lingual: '',
 			Mesial: '',
-			Distal: 'caries',
+			Distal: '',
 		},
 	},
 	{
@@ -220,8 +220,8 @@ export const ArrayDiente2 = [
 			Vestibular: '',
 			Oclusal: '',
 			Lingual: '',
-			Mesial: 'restauración en buen estado',
-			Distal: 'restauración en buen estado',
+			Mesial: '',
+			Distal: '',
 		},
 	},
 	{
@@ -233,9 +233,9 @@ export const ArrayDiente2 = [
 		hallazgo: '',
 		caras: {
 			Vestibular: '',
-			Oclusal: 'restauración en buen estado',
+			Oclusal: '',
 			Lingual: '',
-			Mesial: 'restauración en buen estado',
+			Mesial: '',
 			Distal: '',
 		},
 	},
@@ -308,8 +308,8 @@ export const ArrayDiente2 = [
 		hallazgo: '',
 		caras: {
 			Vestibular: '',
-			Oclusal: 'caries',
-			Lingual: 'caries',
+			Oclusal: '',
+			Lingual: '',
 			Mesial: '',
 			Distal: '',
 		},
@@ -325,7 +325,7 @@ export const ArrayDiente2 = [
 			Vestibular: '',
 			Oclusal: '',
 			Lingual: '',
-			Mesial: 'caries',
+			Mesial: '',
 			Distal: '',
 		},
 	},
@@ -413,8 +413,8 @@ export const ArrayDiente2 = [
 		hallazgo: '',
 		caras: {
 			Vestibular: '',
-			Oclusal: 'restauración en buen estado',
-			Lingual: 'restauración en buen estado',
+			Oclusal: '',
+			Lingual: '',
 			Mesial: '',
 			Distal: '',
 		},
@@ -458,8 +458,8 @@ export const ArrayDiente2 = [
 		hallazgo: '',
 		caras: {
 			Vestibular: '',
-			Oclusal: 'restauración en buen estado',
-			Lingual: 'restauración en buen estado',
+			Oclusal: '',
+			Lingual: '',
 			Mesial: '',
 			Distal: '',
 		},

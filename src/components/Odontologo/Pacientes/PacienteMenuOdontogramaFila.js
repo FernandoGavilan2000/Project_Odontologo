@@ -1,11 +1,17 @@
 import React from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuOdontogramaFila.css';
 
-function PacienteMenuOdontogramaFila() {
+function PacienteMenuOdontogramaFila({ handleChangeArray, OdontogramaArray, fecha }) {
 	return (
 		<div className="paciente-menu-odontograma-fila">
 			{/* Fecha */}
-			<p>20 Dic 2020</p>
+			<p
+				onClick={() => {
+					handleChangeArray(OdontogramaArray);
+				}}
+			>
+				{fecha}
+			</p>
 
 			{/* Ver Detalles */}
 			{/*

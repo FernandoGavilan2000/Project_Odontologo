@@ -32,10 +32,10 @@ export const Odontograma = ({ ArrayDiente }) => {
 	useEffect(() => {
 		setDiente(
 			DientesCollection[
-				DientesCollection.findIndex((diente) => (diente.numero = Diente.numero))
+				DientesCollection.findIndex((diente) => diente.numero === Diente.numero)
 			]
 		);
-	}, [DientesCollection]);
+	}, [DientesCollection, Diente.numero]);
 
 	const handleChangeEstado = (e) => {
 		let nuevo = DientesCollection.filter((diente) => diente.numero !== Diente.numero);
@@ -93,9 +93,12 @@ export const Odontograma = ({ ArrayDiente }) => {
 	};
 
 	//Efecto cuando ocurra un cambio dentro del Odontograma Actual
+
 	useEffect(() => {
 		setDientesCollection(ArrayDiente);
+		setDiente(ArrayDiente[0]);
 	}, [ArrayDiente]);
+
 	//Efecto cuando inserte nuevo Odontograma
 
 	return (
@@ -210,6 +213,11 @@ export const Odontograma = ({ ArrayDiente }) => {
 							</option>
 						))}
 					</select>
+
+					<br />
+					<button style={{ backgroundColor: 'lightblue', padding: '12px' }}>
+						Guardar Cambios
+					</button>
 				</div>
 			</div>
 		</OdontogramaContext.Provider>
