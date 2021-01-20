@@ -2,11 +2,12 @@
 	display: block;
 	margin: 0 auto;
 	text-align: center;
+	height: 10vh;
 }
 
 .rbc-calendar {
 	background-color: var(--background1);
-	height: 100vh;
+	height: 90vh;
 }
 
 .rbc-event {

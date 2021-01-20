@@ -19,8 +19,8 @@ import num28 from '../../../../assets/odontograma/28.png';
 
 import { OdontogramaContext } from './OdontogramaContext';
 
-export const BarraImagenesSuperior = ({ handleDiente }) => {
-	const { setDiente, DientesCollection, Diente } = useContext(OdontogramaContext);
+export const BarraImagenesSuperior = () => {
+	const { setDiente, DientesCollection } = useContext(OdontogramaContext);
 	return (
 		<div className="odontograma-actual container-superior-images">
 			<div

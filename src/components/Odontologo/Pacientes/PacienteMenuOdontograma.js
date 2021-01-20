@@ -19,13 +19,6 @@ function PacienteMenuOdontograma() {
 					<PacienteMenuOdontogramaFila></PacienteMenuOdontogramaFila>
 					<PacienteMenuOdontogramaFila></PacienteMenuOdontogramaFila>
 					<PacienteMenuOdontogramaFila></PacienteMenuOdontogramaFila>
-					<PacienteMenuOdontogramaFila></PacienteMenuOdontogramaFila>
-					<PacienteMenuOdontogramaFila></PacienteMenuOdontogramaFila>
-					<PacienteMenuOdontogramaFila></PacienteMenuOdontogramaFila>
-					<PacienteMenuOdontogramaFila></PacienteMenuOdontogramaFila>
-					<PacienteMenuOdontogramaFila></PacienteMenuOdontogramaFila>
-					<PacienteMenuOdontogramaFila></PacienteMenuOdontogramaFila>
-					<PacienteMenuOdontogramaFila></PacienteMenuOdontogramaFila>
 				</div>
 
 				<Odontograma ArrayDiente={ArrayDiente} />

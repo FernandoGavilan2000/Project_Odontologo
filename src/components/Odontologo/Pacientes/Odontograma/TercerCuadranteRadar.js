@@ -2,13 +2,13 @@ import React from 'react';
 import { StyleCaraDiente } from '../../../../helpers/Odontograma/StyleCaraDiente';
 import { StyeleContenedorDiente } from '../../../../helpers/Odontograma/StyleContenedorDiente';
 
-export const TercerCuadranteRadar = ({ hallazgo, caras }) => {
-	let classDiente = StyeleContenedorDiente(hallazgo);
-	let caraVestibular = StyleCaraDiente(caras.Vestibular);
-	let caraOclusal = StyleCaraDiente(caras.Oclusal);
-	let caraLingual = StyleCaraDiente(caras.Lingual);
-	let caraMesial = StyleCaraDiente(caras.Mesial);
-	let caraDistal = StyleCaraDiente(caras.Distal);
+export const TercerCuadranteRadar = ({ diente }) => {
+	let classDiente = StyeleContenedorDiente(diente.hallazgo);
+	let caraVestibular = StyleCaraDiente(diente.caras.Vestibular);
+	let caraOclusal = StyleCaraDiente(diente.caras.Oclusal);
+	let caraLingual = StyleCaraDiente(diente.caras.Lingual);
+	let caraMesial = StyleCaraDiente(diente.caras.Mesial);
+	let caraDistal = StyleCaraDiente(diente.caras.Distal);
 
 	return (
 		<ul className={`menu ${classDiente}`}>

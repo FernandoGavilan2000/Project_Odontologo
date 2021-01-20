@@ -23,10 +23,11 @@ import { CarasDientesArray } from '../../../helpers/Odontograma/CarasDientesArra
 
 export const Odontograma = ({ ArrayDiente }) => {
 	const [DientesCollection, setDientesCollection] = useState(ArrayDiente);
-	const [Diente, setDiente] = useState(DientesCollection[0]);
-
+	const [Diente, setDiente] = useState(ArrayDiente[0]);
+	/*
 	console.log(DientesCollection);
 	console.log(Diente);
+	*/
 
 	useEffect(() => {
 		setDiente(
@@ -103,17 +104,35 @@ export const Odontograma = ({ ArrayDiente }) => {
 				<div className="odontograma-actual container-superior">
 					<BarraNumerosSuperior key={'Barra1'} />
 					<div className="odontograma-actual container-superior-options">
+						{DientesCollection.filter((diente) => diente.cuadrante === 'Primer Cuadrante')
+							.sort((a, b) => b.numero - a.numero)
+							.map((diente, index) => (
+								<PrimerCuadranteRadar key={diente.id} diente={diente} />
+							))}
 						{DientesCollection.filter(
-							(diente) => diente.cuadrante === 'Primer Cuadrante'
-						).map((diente, index) => (
-							<PrimerCuadranteRadar key={diente.id} diente={diente} />
-						))}
+							(diente) => diente.cuadrante === 'Segundo Cuadrante'
+						)
+							.sort((a, b) => a.numero - b.numero)
+							.map((diente, index) => (
+								<SegundoCuadranteRadar key={diente.id} diente={diente} />
+							))}
 					</div>
 					<BarraImagenesSuperior handleDiente={setDiente} key={'Imagenes1'} />
 				</div>
 				<div className="odontograma-actual container-inferior">
 					<BarraImagenesInferior handleDiente={setDiente} key={'Imagenes2'} />
-					<div className="odontograma-actual container-inferior-options"></div>
+					<div className="odontograma-actual container-inferior-options">
+						{DientesCollection.filter((diente) => diente.cuadrante === 'Cuarto Cuadrante')
+							.sort((a, b) => b.numero - a.numero)
+							.map((diente, index) => (
+								<CuartoCuadranteRadar key={diente.id} diente={diente} />
+							))}
+						{DientesCollection.filter((diente) => diente.cuadrante === 'Tercer Cuadrante')
+							.sort((a, b) => a.numero - b.numero)
+							.map((diente, index) => (
+								<TercerCuadranteRadar key={diente.id} diente={diente} />
+							))}
+					</div>
 					<BarraNumerosInferior key={'Barra2'} />
 				</div>
 				<div className="detalles-odontograma">
