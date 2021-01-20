@@ -10,7 +10,7 @@ export const BarraNumerosInferior = React.memo(() => {
 			<span>44</span>
 			<span>43</span>
 			<span>42</span>
-			<span>31</span>
+			<span>41</span>
 			<span>31</span>
 			<span>32</span>
 			<span>33</span>

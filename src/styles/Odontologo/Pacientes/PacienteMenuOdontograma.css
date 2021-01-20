@@ -66,6 +66,7 @@
 	background-position: center;
 	background-size: cover;
 	width: 35px;
+	cursor: pointer;
 	height: 50px;
 }
 .odontograma-tabla-data .odontograma-actual .container-superior-options {
@@ -75,6 +76,78 @@
 	grid-template-rows: 50px;
 }
 
+.odontograma-tabla-data .odontograma-actual .container-inferior {
+	display: grid;
+	grid-template-rows: 50px 50px 30px;
+	width: 100%;
+	height: auto;
+	max-height: 300px;
+	gap: 0px;
+}
+.odontograma-tabla-data .odontograma-actual .container-inferior-images {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	grid-template-rows: 50px;
+}
+.odontograma-tabla-data .odontograma-actual .container-inferior-images > div {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 35px;
+	height: 50px;
+	cursor: pointer;
+}
+.odontograma-tabla-data .odontograma-actual .container-inferior-options {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	grid-template-rows: 50px;
+}
+
+.odontograma-tabla-data .odontograma-actual .container-inferior-numbers {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	grid-template-rows: 30px;
+}
+.odontograma-tabla-data .odontograma-actual .container-inferior-numbers > span {
+	text-align: center;
+}
+
+.odontograma-tabla-data .odontograma-actual .detalles-odontograma {
+	margin-top: 15px;
+	width: 100%;
+	height: auto;
+	background-color: rgb(255, 255, 255);
+}
+.odontograma-actual .detalles-odontograma > h3,
+p {
+	font-size: 19px;
+	line-height: 2.1em;
+}
+
+/* Estilos Contenedores de los dientes*/
+
+.hallazgo_default {
+	background-color: none;
+}
+
+/* Estilos Caras de los dientes*/
+.cara_default {
+	background-color: var(--background4);
+}
+
+.cara_caries {
+	background-color: red;
+}
+.cara_restauración {
+	background-color: var(--main-color);
+}
+.cara_restauración_deficiente {
+	background-color: red;
+}
+/* Estilos Caras de los dientes Superiores*/
 .container-superior-options ul.menu {
 	margin: 0px 0px 0px 7px;
 	text-align: center;
@@ -99,36 +172,34 @@
 	transition: all 0.5s ease;
 }
 
-.container-superior-options ul.menu li:hover {
-	cursor: pointer;
-}
-
 .container-superior-options ul.menu li:nth-child(1) {
 	top: 0;
 	left: 0;
-	background: #939caf;
 	border-top-left-radius: 100%;
+	border: 2px solid;
 }
 
 .container-superior-options ul.menu li:nth-child(2) {
 	top: 0em;
 	left: 20px;
-	background: var(--background4);
+
 	border-top-right-radius: 100%;
+	border: 2px solid;
 }
 
 .container-superior-options ul.menu li:nth-child(3) {
 	top: 20px;
 	left: 0;
-	background: var(--background4);
 	border-bottom-left-radius: 100%;
+	border: 2px solid;
 }
 
 .container-superior-options ul.menu li:nth-child(4) {
 	top: 20px;
 	left: 20px;
-	background: #939caf;
+
 	border-bottom-right-radius: 100%;
+	border: 2px solid;
 }
 
 .container-superior-options ul.menu li:nth-child(5) {
@@ -137,8 +208,8 @@
 	top: 10px;
 	left: 10px;
 	line-height: 8em;
-	background: rgb(255, 255, 255);
 	border-radius: 100%;
+	border: 2px solid;
 	z-index: 11;
 }
 
@@ -148,34 +219,7 @@
 	height: 100%;
 }
 
-.odontograma-tabla-data .odontograma-actual .container-inferior {
-	display: grid;
-	grid-template-rows: 50px 50px 30px;
-	width: 100%;
-	height: auto;
-	max-height: 300px;
-	gap: 0px;
-}
-.odontograma-tabla-data .odontograma-actual .container-inferior-images {
-	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(16, 1fr);
-	grid-template-rows: 50px;
-}
-.odontograma-tabla-data .odontograma-actual .container-inferior-images > div {
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	width: 35px;
-	height: 50px;
-}
-.odontograma-tabla-data .odontograma-actual .container-inferior-options {
-	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(16, 1fr);
-	grid-template-rows: 50px;
-}
-
+/* Estilos Caras de los dientes Inferiores*/
 .container-inferior-options ul.menu {
 	margin: 0px 0px 0px 7px;
 	text-align: center;
@@ -200,36 +244,34 @@
 	transition: all 0.5s ease;
 }
 
-.container-inferior-options ul.menu li:hover {
-	cursor: pointer;
-}
-
 .container-inferior-options ul.menu li:nth-child(1) {
 	top: 0;
 	left: 0;
-	background: #939caf;
 	border-top-left-radius: 100%;
+	border: 2px solid;
 }
 
 .container-inferior-options ul.menu li:nth-child(2) {
 	top: 0em;
 	left: 20px;
-	background: var(--background4);
+
 	border-top-right-radius: 100%;
+	border: 2px solid;
 }
 
 .container-inferior-options ul.menu li:nth-child(3) {
 	top: 20px;
 	left: 0;
-	background: var(--background4);
 	border-bottom-left-radius: 100%;
+	border: 2px solid;
 }
 
 .container-inferior-options ul.menu li:nth-child(4) {
 	top: 20px;
 	left: 20px;
-	background: #939caf;
+
 	border-bottom-right-radius: 100%;
+	border: 2px solid;
 }
 
 .container-inferior-options ul.menu li:nth-child(5) {
@@ -238,8 +280,8 @@
 	top: 10px;
 	left: 10px;
 	line-height: 8em;
-	background: rgb(255, 255, 255);
 	border-radius: 100%;
+	border: 2px solid;
 	z-index: 11;
 }
 
@@ -247,13 +289,4 @@
 	display: table;
 	width: 100%;
 	height: 100%;
-}
-.odontograma-tabla-data .odontograma-actual .container-inferior-numbers {
-	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(16, 1fr);
-	grid-template-rows: 30px;
-}
-.odontograma-tabla-data .odontograma-actual .container-inferior-numbers > span {
-	text-align: center;
 }
