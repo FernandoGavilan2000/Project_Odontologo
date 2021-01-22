@@ -9,8 +9,11 @@ export const HomeScreen = () => {
 		'https://images.pexels.com/photos/3884103/pexels-photo-3884103.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260';
 
 	const handleSubmit = async () => {
-		let inputs = await AlertForm();
-		console.log(inputs);
+		let form = await AlertForm();
+		if (form.isConfirmed) {
+			if (form.value[0].length >= 4 && form.value[1].length >= 9) {
+			}
+		}
 	};
 
 	return (

@@ -1,18 +1,18 @@
-.paciente-menu-odontograma-fila{
-    display: grid;
-    grid-template-columns: 40% 60%;
-    padding-left: 30px;
-    padding-right: 30px;
-    text-align: center;
-    margin-bottom: 30px;
-    /* background-color: red; */
+.paciente-menu-odontograma-fila {
+	display: grid;
+	grid-template-columns: 40% 60%;
+	padding-left: 10px;
+	padding-right: 50px;
+	text-align: center;
+	margin-bottom: 30px;
+	/* background-color: red; */
 }
 
-.paciente-menu-odontograma-fila a{
-    cursor: pointer;
+.paciente-menu-odontograma-fila a {
+	cursor: pointer;
 }
 
-.paciente-menu-odontograma-fila a img{
-    transform: translateY(5px);
-    margin-right: 8px;
+.paciente-menu-odontograma-fila a img {
+	transform: translateY(5px);
+	margin-right: 8px;
 }

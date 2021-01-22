@@ -68,13 +68,13 @@ export const PacienteRegistro = () => {
 			</div>
 			<div className="mas-informacion">
 				<h3>Mas Información</h3>
-				<button id="agregarHistoria" class="agregar-historia" onClick={() => { document.getElementById('agregarHistoriaInput').click() }}>
+				<button id="agregarHistoria" className="agregar-historia" onClick={() => { document.getElementById('agregarHistoriaInput').click() }}>
 
 					<img src={file} alt="file" />
 					<span>Agregar historia clinica</span>
 
 				</button>
-				<button id="agregarImagen" class="agregar-imagen" onClick={() => { document.getElementById('agregarImagenInput').click() }}>
+				<button id="agregarImagen" className="agregar-imagen" onClick={() => { document.getElementById('agregarImagenInput').click() }}>
 
 					<img src={image} alt="image" />
 					<span>Subir foto de perfil</span>
@@ -84,7 +84,7 @@ export const PacienteRegistro = () => {
 				<input type="file" id="agregarHistoriaInput" style={{ display: 'none' }} />
 				<input type="file" id="agregarImagenInput" style={{ display: 'none' }} />
 
-				<button class="guardar" >
+				<button className="guardar" >
 
 					<img src={save} alt="add" />
 					<span>Guardar</span>

@@ -1,23 +1,29 @@
-import React from 'react'
-import '../../../styles/Odontologo/Pacientes/PacienteMenuOdontogramaFila.css'
-import see from '../../../assets/images/see.svg'
+import React from 'react';
+import '../../../styles/Odontologo/Pacientes/PacienteMenuOdontogramaFila.css';
 
+function PacienteMenuOdontogramaFila({ handleChangeArray, OdontogramaArray, fecha }) {
+	return (
+		<div className="paciente-menu-odontograma-fila">
+			{/* Fecha */}
+			<p
+				onClick={() => {
+					handleChangeArray(OdontogramaArray);
+				}}
+			>
+				{fecha}
+			</p>
 
-function PacienteMenuOdontogramaFila() {
-    return (
-        <div className="paciente-menu-odontograma-fila">
-            {/* Fecha */}
-            <p>20 Dic 2020</p>
-
-            {/* Ver Detalles */}
-            <div>
-                <a>
-                    <img src={see} alt="see" />
-                    <span>Ver Detalles</span>
-                </a>
-            </div>
-        </div>
-    )
+			{/* Ver Detalles */}
+			{/*
+				<div>
+					<button style={styleShowMore}>
+						<img src={see} alt="see" />
+						<span>Ver Detalles</span>
+					</button>
+				</div>
+				*/}
+		</div>
+	);
 }
 
-export default PacienteMenuOdontogramaFila
+export default PacienteMenuOdontogramaFila;

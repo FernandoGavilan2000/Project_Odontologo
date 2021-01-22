@@ -48,6 +48,10 @@
 	flex-direction: column;
 	gap: 20px;
 }
+.login-container .text img {
+	width: 120px;
+	margin: 0 auto;
+}
 .login-container form {
 	margin-top: -20px;
 }

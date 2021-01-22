@@ -100,7 +100,6 @@ export const AdminDashboard = () => {
 				<div className="charts__right">
 					<div className="charts__right__title">
 						<div>
-							<h1></h1>
 							<p>Solicitudes Pendientes :</p>
 						</div>
 						<i className="fa fa-usd" aria-hidden="true"></i>
