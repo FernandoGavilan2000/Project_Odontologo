@@ -78,8 +78,6 @@
 	padding-bottom: 8px;
 }
 
-.inicio-contenedor .patients-table table tbody {
-}
 .inicio-contenedor .patients-table table tbody tr td {
 	padding: 10px 0;
 }
@@ -116,4 +114,21 @@
 
 .inicio-contenedor .patients-table table tbody tr td.columna-ver-perfil a span {
 	margin-left: 9px;
+}
+
+.inicio-contenedor .cards-container {
+	width: 100%;
+	margin: 0 auto;
+	height: auto;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-auto-rows: 200px;
+	gap: 15px;
+	display: grid;
+}
+.inicio-contenedor .cards-container > div {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
