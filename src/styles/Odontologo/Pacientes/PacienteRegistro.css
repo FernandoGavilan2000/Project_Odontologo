@@ -1,0 +1,72 @@
+#pacienteRegistroContenedor{
+    width: 100%;
+    height: 600px;
+    padding: 50px 90px 0 90px;
+    
+}
+.paciente-registro-contenedor p{
+    margin-bottom: 30px;
+}
+
+.datos-personales h3{
+    margin-bottom: 10px;
+}
+
+.datos-personales .datos-personales-inputs{
+    display: grid;
+    background: var(--background2);
+    border-radius: 10px;
+    padding: 25px 30px 30px 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 35px;
+}
+.datos-personales .datos-personales-inputs input[type=text]{
+    width: 100%;
+}
+
+.mas-informacion h3{
+    color: var(--paragraph);
+    text-transform: uppercase;
+    margin-right: 35px;
+}
+
+
+.mas-informacion{
+        position: relative;
+
+    display: flex;
+    margin-top: 35px;
+    align-items: center;
+}
+
+
+.mas-informacion button {
+    display: flex;
+    font-size: 14px;
+    background-color: var(--second-color);
+    color: var(--background1);
+    padding: 10px 15px;
+    font-weight: bolder;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+.mas-informacion button img{
+    margin-right: 10px;
+}
+
+.mas-informacion button:hover{
+    transform: translateY(-10px);
+}
+
+.mas-informacion button.agregar-historia{
+    margin-right: 15px;
+}
+
+button.guardar{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: var(--main-color);
+}
