@@ -6,11 +6,18 @@ import '../../styles/Login/Login.css';
 import logo from '../../assets/images/logo.svg';
 import { NavLink } from 'react-router-dom';
 import { SuccesfullLogin } from '../../helpers/Alerts/SuccessfulLogin';
+import { useForm } from '../../hooks/useForm';
 
 export const LoginScreen = ({ history }) => {
 	const { dispatch } = useContext(AuthContext);
 
-	const handleLogin = () => {
+	const [FormValues, handleForm, resetForm] = useForm({
+		email: '',
+		password: '',
+	});
+
+	const handleLogin = (e) => {
+		e.preventDefault();
 		const lastPath = localStorage.getItem('lastPathOdontologo') || '/app';
 
 		dispatch({
@@ -35,11 +42,23 @@ export const LoginScreen = ({ history }) => {
 				<form>
 					<div className="data">
 						<label>Email User</label>
-						<input type="text" required />
+						<input
+							type="text"
+							name="email"
+							required
+							onChange={handleForm}
+							autoComplete="off"
+						/>
 					</div>
 					<div className="data">
 						<label>Password</label>
-						<input type="password" required />
+						<input
+							type="password"
+							name="password"
+							required
+							onChange={handleForm}
+							autoComplete="off"
+						/>
 					</div>
 					<div className="forgot-pass">
 						<NavLink to="/help">Forgot Password?</NavLink>
