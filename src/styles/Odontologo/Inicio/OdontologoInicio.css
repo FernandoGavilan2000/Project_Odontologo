@@ -8,11 +8,11 @@
 	margin-bottom: 50px;
 }
 
-.inicio-contenedor .title button {
+.inicio-contenedor .title .btn_showmore {
 	display: flex;
 	align-items: center;
 	border-radius: 5px;
-	font-family: var(--font-family-second);
+	background-color: var(--background2);
 	font-size: 14px;
 	padding: 8px 14px;
 	margin-left: 280px;
@@ -23,6 +23,9 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+.inicio-contenedor .title > img {
+	fill: var(--background1) !important;
 }
 
 .inicio-contenedor .title button span {
