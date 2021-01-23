@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import '../../../styles/Odontologo/Inicio/OdontologoInicio.css';
@@ -10,18 +10,32 @@ import { Spinner } from '../../Tools/Spinner';
 
 function Inicio() {
 	const [comunicados, setComunicados] = useState(null);
+	const _isMounted = useRef(true);
 
 	const fetchImages = async () => {
 		try {
 			let urls = await FetchComunicados();
-			setComunicados(urls);
+			return urls;
 		} catch (error) {
 			console.error('Error con las imagenes en FireBase Pagina Inicio', error);
 		}
 	};
 
 	useEffect(() => {
-		fetchImages();
+		fetchImages()
+			.then((urls) => {
+				if (_isMounted.current) {
+					setComunicados(urls);
+				} else {
+					console.warn('Cambiaste de vista');
+				}
+			})
+			.catch((error) => {
+				console.log('Error con la funcion FetchImages', error);
+			});
+		return () => {
+			_isMounted.current = false;
+		};
 	}, []);
 	return (
 		<div id="inicioContenedor" className="inicio-contenedor">
@@ -31,7 +45,7 @@ function Inicio() {
 			<br />
 			<div className="title">
 				<h2>Tus proximas citas :</h2>
-				<button>
+				<button className="btn_showmore">
 					<NavLink to="/app/horarios">
 						<img src={see} alt="see" />
 						<span>Ver Horario de Citas</span>
