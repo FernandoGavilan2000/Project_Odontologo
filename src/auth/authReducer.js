@@ -12,6 +12,11 @@ export const authReducer = (state = {}, action) => {
 				...action.payload,
 				logged: true,
 			};
+		case types.updateprofile:
+			return {
+				...action.payload,
+				logged: true,
+			};
 
 		case types.logout:
 			return {

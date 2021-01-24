@@ -16,10 +16,7 @@ import { AuthContext } from '../../../auth/AuthContext';
 import { types } from '../../../types/types';
 
 function BarraLateral() {
-	const {
-		user: { name },
-		dispatch,
-	} = useContext(AuthContext);
+	const { user, dispatch } = useContext(AuthContext);
 	const history = useHistory();
 
 	const handleLogout = () => {
@@ -52,13 +49,9 @@ function BarraLateral() {
 			</li>
 			<div className="user-doctor">
 				{/* <!-- Doctor Picture --> */}
-				<img
-					src="https://plataformas.news/online/nota_the-good-doctor-posiciona-sony-channel-en-la-region.jpg"
-					alt="doctor"
-					className="doctor-picture"
-				/>
+				<img src={user.imageurl} alt="doctor" className="doctor-picture" />
 				{/* <!-- Doctor Name --> */}
-				<h3 className="doctor-name">{name}</h3>
+				<h3 className="doctor-name">{user.name}</h3>
 
 				<NavLink to="/app/perfil" activeClassName="selected">
 					<img src={profile} alt="profile" />
