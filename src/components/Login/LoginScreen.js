@@ -18,13 +18,18 @@ export const LoginScreen = ({ history }) => {
 
 	const handleLogin = (e) => {
 		e.preventDefault();
+		//Hacer la verificacion en la API , confirmar autenticacion --> Tipo POST , responder con un 200 OK
+		//Segundo: La Api debe devolver lo del payload
 		const lastPath = localStorage.getItem('lastPathOdontologo') || '/app';
 
 		dispatch({
 			type: types.login,
 			payload: {
-				name: 'Fernando',
+				cod: '1003',
+				name: 'Fernando Ramiro',
 				type: 'odontologo',
+				imageurl:
+					'https://plataformas.news/online/nota_the-good-doctor-posiciona-sony-channel-en-la-region.jpg',
 			},
 		});
 
