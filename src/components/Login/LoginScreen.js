@@ -24,7 +24,7 @@ export const LoginScreen = ({ history }) => {
 			type: types.login,
 			payload: {
 				name: 'Fernando',
-				type: 'odontologo',
+				type: 'admin',
 			},
 		});
 

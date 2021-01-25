@@ -1,0 +1,41 @@
+.doctores-seccion{
+    padding: 30px 90px;
+}
+h2{
+    margin-bottom: 50px;
+}
+.grid-doctores{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 50px;
+    height: 590px;
+    overflow-y: scroll;
+}
+.card-doctor{
+    padding: 22px;
+    background-color: var(--background2);
+    border-radius: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-doctor img{
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.card-doctor h4{
+    margin-top: 10px;
+}
+.card-doctor .doctor-name{
+    margin-top: -6px;
+    font-family: var(--font-family-main);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--header);
+}
+.card-doctor .doctor-code{
+    margin-top: -5px;
+}
