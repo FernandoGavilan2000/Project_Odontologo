@@ -1,23 +1,24 @@
 import React from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuPlanesTratFila.css';
 
-function PacienteMenuPlanesTratFila() {
+function PacienteMenuPlanesTratFila({ tratamiento }) {
+	//let doctor = doctors.filter((doctor) => doctor.auth_id === tratamiento.tp_did);
 	return (
 		<div className="paciente-menu-planestrat-fila">
 			{/* Cod plan de tratamiento */}
-			<p>165132</p>
+			<p>{tratamiento.tp_id}</p>
 
-			{/* Nombre P.T  */}
-			<p>Ordodoncia</p>
+			{/* Cantidad de Citas */}
+			<p>{tratamiento.tp_ndates}</p>
 
 			{/* Inicio */}
-			<p>15/12/20</p>
+			<p>{tratamiento.tp_start}</p>
 
 			{/* Final */}
-			<p>16/05/21</p>
+			<p>{tratamiento.tp_end}</p>
 
 			{/* Doctor */}
-			<p>Annette Quispe</p>
+			<p>{tratamiento.tp_did}</p>
 
 			{/* Ver Detalles */}
 		</div>
