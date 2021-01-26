@@ -3,6 +3,9 @@ import '../../../styles/Odontologo/Pacientes/PacienteMenuCitasFila.css';
 
 import see from '../../../assets/images/see.svg';
 
+import Swal from 'sweetalert2';
+import { useHistory } from 'react-router-dom';
+
 const styleShowMore = {
 	backgroundColor: '#FFFF',
 	display: 'flex',
@@ -13,25 +16,76 @@ const styleShowMore = {
 	cursor: 'pointer',
 };
 
-function PacienteMenuCitasFila() {
+function PacienteMenuCitasFila({ cita }) {
+	const history = useHistory();
+	const DeleteCita = async () => {
+		const response = await fetch(
+			`${process.env.REACT_APP_API_URL}/api/citas/${cita.c_id}`,
+			{
+				method: 'DELETE',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+			}
+		);
+		return await response.json();
+	};
+
+	const ShowDetails = async () => {
+		Swal.fire({
+			title: `ID_Cita ${cita.c_title}`,
+			text: `${cita.c_description}`,
+			icon: 'info',
+			footer: `Inicio: ${cita.c_start} <br/> Fin: ${cita.c_end}`,
+			showCancelButton: true,
+			confirmButtonColor: '#FF4034',
+			cancelButtonColor: '#1d47cd',
+			confirmButtonText: 'Eliminar Cita!',
+			cancelButtonText: 'Regresar',
+		}).then((result) => {
+			if (result.isConfirmed) {
+				Swal.fire({
+					title: 'Seguro de Eliminar esta Cita?',
+					text: '¡No podrás revertir esto! ',
+					icon: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#FF4034',
+					cancelButtonColor: '#1d47cd',
+					confirmButtonText: 'Si,Confirmar!',
+				}).then((result) => {
+					if (result.isConfirmed) {
+						DeleteCita()
+							.then((response) => {
+								Swal.fire('Eliminado!', 'Se borro correctamente la cita', 'success');
+								history.replace(`/app/pacientes/${cita.c_pid}`);
+							})
+							.catch((error) => {
+								Swal.fire('Oops...!', 'No se puedo eliminar la cita.', 'error');
+							});
+					}
+				});
+			}
+		});
+	};
 	return (
 		<div className="paciente-menu-citas-fila">
-			{/* Fecha */}
-			<p>20 Dic 2020</p>
+			{/* ID_Cita */}
+			<p>{cita.c_id}</p>
 
-			{/* Hora */}
-			<p>08:00pm</p>
+			{/* ID_Tratamiento*/}
+			<p>{cita.c_tpid}</p>
 
-			{/* Plan de Tratamiento */}
-			<p>Ortodoncia</p>
+			{/* Hora Inicio*/}
+			<p>{cita.c_start}</p>
 
-			{/* Dentista */}
-			<p>Courtney Henry</p>
+			{/* Status*/}
+			<p>{cita.c_status}</p>
 
 			{/* Comentarios */}
 
 			<div>
-				<button style={styleShowMore}>
+				<button style={styleShowMore} onClick={ShowDetails}>
 					<img src={see} alt="see" />
 					<span>Ver Comentario</span>
 				</button>

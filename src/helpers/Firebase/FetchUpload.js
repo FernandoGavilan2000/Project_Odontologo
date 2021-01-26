@@ -1,20 +1,25 @@
 import { storage } from '../../firebase/config';
 
 export const FetchUpload = async (PathRef, file) => {
-	let date = new Date();
-	let refImage = storage.ref(
-		`${PathRef}+${file.name}+${
-			(date.getDate(),
-			date.getMonth(),
-			date.getFullYear(),
-			date.getHours(),
-			date.getMinutes(),
-			date.getSeconds(),
-			date.getMilliseconds())
-		}`
-	);
-	let respuesta = await refImage.put(file);
-	return refImage.getDownloadURL();
+	try {
+		let date = new Date();
+		let refImage = storage.ref(
+			`${PathRef}+${file.name}+${
+				(date.getDate(),
+				date.getMonth(),
+				date.getFullYear(),
+				date.getHours(),
+				date.getMinutes(),
+				date.getSeconds(),
+				date.getMilliseconds())
+			}`
+		);
+		let respuesta = await refImage.put(file);
+		return refImage.getDownloadURL();
+	} catch (error) {
+		console.error('No se pudo subir la Imagen', error);
+	}
+
 	/*
 	task.on(
 		'state_changed',

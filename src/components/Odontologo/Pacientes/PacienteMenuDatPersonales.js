@@ -5,20 +5,19 @@ import '../../../styles/Odontologo/Pacientes/PacienteMenuDatPersonales.css';
 import seewhite from '../../../assets/images/see-white.svg';
 import { useForm } from '../../../hooks/useForm';
 
-function PacienteMenuDatPersonales() {
+function PacienteMenuDatPersonales({ Patient }) {
 	const [inputDisabled, setinputDisabled] = useState(true);
 	const [TextButton, setTextButton] = useState('Editar');
 
 	const [UserData, setUserData] = useForm({
-		nombres: 'Emily',
-		apellidos: 'Diaz Ramirez',
-		sexo: 'Femenino',
-		alergia: '',
-		fecha: '15-06-1975',
-		dni: '74512453',
-		domicilio: 'Urb.Los Portales A-32',
-		ciudad: 'Ica',
-		estado: 'Casada',
+		p_name: Patient.p_name,
+		p_lastname: Patient.p_lastname,
+		p_gender: Patient.p_gender,
+		p_allergy: Patient.p_allergy,
+		p_birthday: Patient.p_birthday,
+		p_dni: Patient.p_dni,
+		p_address: Patient.p_address,
+		p_cellphone: Patient.p_cellphone,
 	});
 
 	const changeDisabled = () => {
@@ -38,11 +37,11 @@ function PacienteMenuDatPersonales() {
 						<label htmlFor="">Nombres :</label>
 						<input
 							type="text"
-							name="nombres"
+							name="p_name"
 							autoComplete="off"
-							placeholder={UserData.nombres}
+							placeholder={UserData.p_name}
 							disabled={inputDisabled}
-							value={UserData.nombres}
+							value={UserData.p_name}
 							onChange={setUserData}
 						/>
 					</div>
@@ -50,23 +49,23 @@ function PacienteMenuDatPersonales() {
 						<label htmlFor="">Apellidos :</label>
 						<input
 							type="text"
-							name="apellidos"
+							name="p_lastname"
 							autoComplete="off"
-							placeholder={UserData.apellidos}
+							placeholder={UserData.p_lastname}
 							disabled={inputDisabled}
-							value={UserData.apellidos}
+							value={UserData.p_lastname}
 							onChange={setUserData}
 						/>
 					</div>
 					<div className="txt-input">
-						<label htmlFor="">Sexo :</label>
+						<label htmlFor="">Genero:</label>
 						<input
 							type="text"
-							name="sexo"
+							name="p_gender"
 							autoComplete="off"
-							placeholder={UserData.sexo}
+							placeholder={UserData.p_gender}
 							disabled={inputDisabled}
-							value={UserData.sexo}
+							value={UserData.p_gender}
 							onChange={setUserData}
 						/>
 					</div>
@@ -74,11 +73,11 @@ function PacienteMenuDatPersonales() {
 						<label htmlFor="">Alergia :</label>
 						<input
 							type="text"
-							name="alergia"
+							name="p_allergy"
 							autoComplete="off"
-							placeholder={UserData.alergia}
+							placeholder={UserData.p_allergy}
 							disabled={inputDisabled}
-							value={UserData.alergia}
+							value={UserData.p_allergy}
 							onChange={setUserData}
 						/>
 					</div>
@@ -86,11 +85,11 @@ function PacienteMenuDatPersonales() {
 						<label htmlFor="">Fecha de Nacimiento :</label>
 						<input
 							type="text"
-							name="fecha"
+							name="p_birthday"
 							autoComplete="off"
-							placeholder={UserData.fecha}
+							placeholder={UserData.p_birthday}
 							disabled={inputDisabled}
-							value={UserData.fecha}
+							value={UserData.p_birthday}
 							onChange={setUserData}
 						/>
 					</div>
@@ -98,11 +97,11 @@ function PacienteMenuDatPersonales() {
 						<label htmlFor="">DNI :</label>
 						<input
 							type="text"
-							name="dni"
+							name="p_dni"
 							autoComplete="off"
-							placeholder={UserData.dni}
+							placeholder={UserData.p_dni}
 							disabled={inputDisabled}
-							value={UserData.dni}
+							value={UserData.p_dni}
 							onChange={setUserData}
 						/>
 					</div>
@@ -110,35 +109,23 @@ function PacienteMenuDatPersonales() {
 						<label htmlFor="">Domicilio :</label>
 						<input
 							type="text"
-							name="domicilio"
+							name="p_address"
 							autoComplete="off"
-							placeholder={UserData.domicilio}
+							placeholder={UserData.p_address}
 							disabled={inputDisabled}
-							value={UserData.domicilio}
+							value={UserData.p_address}
 							onChange={setUserData}
 						/>
 					</div>
 					<div className="txt-input">
-						<label htmlFor="">Ciudad/Distrito :</label>
+						<label htmlFor="">Telefono:</label>
 						<input
 							type="text"
-							name="ciudad"
+							name="p_cellphone"
 							autoComplete="off"
-							placeholder={UserData.ciudad}
+							placeholder={UserData.p_cellphone}
 							disabled={inputDisabled}
-							value={UserData.ciudad}
-							onChange={setUserData}
-						/>
-					</div>
-					<div className="txt-input">
-						<label htmlFor="">Estado Civil :</label>
-						<input
-							type="text"
-							name="estado"
-							autoComplete="off"
-							placeholder={UserData.estado}
-							disabled={inputDisabled}
-							value={UserData.estado}
+							value={UserData.p_cellphone}
 							onChange={setUserData}
 						/>
 					</div>
