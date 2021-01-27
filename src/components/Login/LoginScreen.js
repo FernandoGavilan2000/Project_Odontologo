@@ -25,8 +25,9 @@ export const LoginScreen = ({ history }) => {
 		dispatch({
 			type: types.login,
 			payload: {
-				cod: '1003',
-				name: 'Fernando Ramiro',
+				d_id: 1004,
+				d_name: 'Fernando Ramiro',
+				d_lastname: 'Gavilan Hernandez',
 				type: 'odontologo',
 				imageurl:
 					'https://plataformas.news/online/nota_the-good-doctor-posiciona-sony-channel-en-la-region.jpg',

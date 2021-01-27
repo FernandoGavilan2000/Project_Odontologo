@@ -3,7 +3,7 @@ import React from 'react';
 //Icon
 import see from '../../../assets/images/see.svg';
 
-import patientImage from '../../../assets/images/patient3.jpg';
+//import patientImage from '../../../assets/images/patient3.jpg';
 import { Link } from 'react-router-dom';
 
 function PacienteFila({ patient }) {

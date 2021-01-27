@@ -5,7 +5,7 @@ import '../../../styles/Odontologo/Perfil/OdontologoPerfil.css';
 import { AuthContext } from '../../../auth/AuthContext';
 import { types } from '../../../types/types';
 import { FetchUpload } from '../../../helpers/Firebase/FetchUpload';
-import { storage } from '../../../firebase/config';
+//import { storage } from '../../../firebase/config';
 
 //Aqui cuando ocurra un cambio en el perfil debo llamara al context User , para que el effect de arriba grabe los cambios
 

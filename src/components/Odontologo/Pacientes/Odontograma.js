@@ -106,6 +106,7 @@ export const Odontograma = ({ ArrayDiente }) => {
 			<div className="odontograma-actual">
 				<div className="odontograma-actual container-superior">
 					<BarraNumerosSuperior key={'Barra1'} />
+
 					<div className="odontograma-actual container-superior-options">
 						{DientesCollection.filter((diente) => diente.cuadrante === 'Primer Cuadrante')
 							.sort((a, b) => b.numero - a.numero)

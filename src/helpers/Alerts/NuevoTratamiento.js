@@ -1,5 +1,4 @@
 import Swal from 'sweetalert2';
-
 let DateFormat = new Date();
 
 export const NuevoTratamiento = async () => {

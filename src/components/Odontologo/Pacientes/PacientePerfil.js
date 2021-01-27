@@ -23,8 +23,6 @@ const menus = [
 
 function PacientePerfil({ history }) {
 	const { pacientes_id } = useParams();
-	console.log(pacientes_id);
-
 	const [Patient, setPatient] = useState(null);
 	const _isMounted = useRef(true);
 
@@ -38,7 +36,7 @@ function PacientePerfil({ history }) {
 				}
 			})
 			.catch((error) => {
-				console.error('No se pudo encontrar al Paciente', error);
+				console.info('No se pudo encontrar al Paciente', error);
 				Swal.fire({
 					icon: 'error',
 					title: 'Oops...',
@@ -50,7 +48,7 @@ function PacientePerfil({ history }) {
 		return () => {
 			_isMounted.current = false;
 		};
-	}, [pacientes_id]);
+	}, [pacientes_id, history]);
 
 	const SearchPatient = async (id_paciente) => {
 		const response = await fetch(
@@ -104,8 +102,12 @@ function PacientePerfil({ history }) {
 						{Menu.menuName === menus[2] && (
 							<PacienteMenuPlanesTrat Patient={Patient[0].p_id} />
 						)}
-						{Menu.menuName === menus[3] && <PacienteMenuOdontograma />}
-						{Menu.menuName === menus[4] && <PacienteMenuFacturacion />}
+						{Menu.menuName === menus[3] && (
+							<PacienteMenuOdontograma Patient={Patient[0].p_id} />
+						)}
+						{Menu.menuName === menus[4] && (
+							<PacienteMenuFacturacion Patient={Patient[0].p_id} />
+						)}
 					</div>
 				</div>
 			) : (

@@ -18,19 +18,19 @@ function PacienteMenuCitas({ Patient }) {
 				}
 			})
 			.catch((error) => {
-				console.error('No se pudo encontrar las Citas del Paciente', error);
+				console.info('No se pudo encontrar las Citas del Paciente', error);
 				Swal.fire({
 					icon: 'error',
 					title: 'Oops...',
 					text: 'No hay registro de citas!',
 				});
-				history.replace('/app/pacientes');
+				history.replace(`/app/pacientes/${Patient}`);
 			});
 
 		return () => {
 			_isMounted.current = false;
 		};
-	}, []);
+	}, [Patient, history]);
 
 	const SearchAppointment = async (id_paciente) => {
 		const response = await fetch(

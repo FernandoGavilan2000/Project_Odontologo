@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuDatPersonales.css';
+import moment from 'moment';
+import 'moment/locale/es';
 
 //Icon
 import seewhite from '../../../assets/images/see-white.svg';
@@ -64,7 +66,7 @@ function PacienteMenuDatPersonales({ Patient }) {
 							name="p_gender"
 							autoComplete="off"
 							placeholder={UserData.p_gender}
-							disabled={inputDisabled}
+							disabled={true}
 							value={UserData.p_gender}
 							onChange={setUserData}
 						/>
@@ -87,9 +89,9 @@ function PacienteMenuDatPersonales({ Patient }) {
 							type="text"
 							name="p_birthday"
 							autoComplete="off"
-							placeholder={UserData.p_birthday}
-							disabled={inputDisabled}
-							value={UserData.p_birthday}
+							placeholder={moment(UserData.p_birthday).local().format('LLL')}
+							disabled={true}
+							value={moment(UserData.p_birthday).local().format('LL')}
 							onChange={setUserData}
 						/>
 					</div>

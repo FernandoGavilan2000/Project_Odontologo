@@ -1,5 +1,7 @@
 import React from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuCitasFila.css';
+import moment from 'moment';
+import 'moment/locale/es';
 
 import see from '../../../assets/images/see.svg';
 
@@ -77,7 +79,7 @@ function PacienteMenuCitasFila({ cita }) {
 			<p>{cita.c_tpid}</p>
 
 			{/* Hora Inicio*/}
-			<p>{cita.c_start}</p>
+			<p>{moment(cita.c_start).local().format('LLL')}</p>
 
 			{/* Status*/}
 			<p>{cita.c_status}</p>

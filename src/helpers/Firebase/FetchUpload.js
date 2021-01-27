@@ -13,8 +13,8 @@ export const FetchUpload = async (PathRef, file) => {
 				date.getSeconds(),
 				date.getMilliseconds())
 			}`
-		);
-		let respuesta = await refImage.put(file);
+		); //Ojo aqui antes coloque un let respuesta= await refImage.put...
+		await refImage.put(file);
 		return refImage.getDownloadURL();
 	} catch (error) {
 		console.error('No se pudo subir la Imagen', error);
