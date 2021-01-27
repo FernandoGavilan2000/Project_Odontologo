@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuPlanesTratFila.css';
-
+import moment from 'moment';
+import 'moment/locale/es';
 function PacienteMenuPlanesTratFila({ tratamiento }) {
 	//let doctor = doctors.filter((doctor) => doctor.auth_id === tratamiento.tp_did);
 	return (
@@ -12,10 +13,10 @@ function PacienteMenuPlanesTratFila({ tratamiento }) {
 			<p>{tratamiento.tp_ndates}</p>
 
 			{/* Inicio */}
-			<p>{tratamiento.tp_start}</p>
+			<p>{moment(tratamiento.tp_start).local().format('LL')}</p>
 
 			{/* Final */}
-			<p>{tratamiento.tp_end}</p>
+			<p>{moment(tratamiento.tp_end).local().format('LL')}</p>
 
 			{/* Doctor */}
 			<p>{tratamiento.tp_did}</p>

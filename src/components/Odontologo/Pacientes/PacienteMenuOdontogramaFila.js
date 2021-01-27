@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuOdontogramaFila.css';
-
+import moment from 'moment';
+import 'moment/locale/es';
 function PacienteMenuOdontogramaFila({ handleChangeArray, OdontogramaArray, fecha }) {
 	return (
 		<div className="paciente-menu-odontograma-fila">
@@ -9,8 +10,9 @@ function PacienteMenuOdontogramaFila({ handleChangeArray, OdontogramaArray, fech
 				onClick={() => {
 					handleChangeArray(OdontogramaArray);
 				}}
+				style={{ cursor: 'pointer' }}
 			>
-				{fecha}
+				{moment(fecha).local().format('L')}
 			</p>
 
 			{/* Ver Detalles */}

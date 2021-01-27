@@ -4,8 +4,7 @@ import '../../../styles/Odontologo/Pacientes/PacientePerfilInfo.css';
 //Icon
 import male from '../../../assets/images/male.svg';
 import female from '../../../assets/images/female.svg';
-
-import perfil3 from '../../../assets/images/patient3.jpg';
+import moment from 'moment';
 
 function PacientePerfilInfo({ Patient }) {
 	return (
@@ -27,7 +26,7 @@ function PacientePerfilInfo({ Patient }) {
 				<p>
 					<span>{Patient.p_age} años</span>
 					<img src={Patient.p_gender === 'Hombre' ? male : female} alt="icon_genero" />
-					<span>{Patient.p_birthday}</span>
+					<span>{moment(Patient.p_birthday).utc().format('DD-MM-YYYY')}</span>
 				</p>
 				<p>
 					Estatura: <span>{Patient.p_height} cm</span>

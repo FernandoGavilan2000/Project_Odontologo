@@ -1,0 +1,44 @@
+.cuentas-seccion {
+	padding: 30px 90px;
+	width: 100%;
+}
+
+h2 {
+	margin-bottom: 50px;
+}
+.cuentas-tabla {
+	height: 590px;
+	overflow-y: scroll;
+}
+.cuentas-tabla-top {
+	display: grid;
+	grid-template-columns: 20% 16% 16% 16% 16% 16%;
+	text-align: center;
+	margin-bottom: 35px;
+}
+.red {
+	color: var(--red);
+}
+
+.blue {
+	color: var(--main-color);
+}
+
+.cuentas-tabla-datos .cuentas-fila {
+	display: grid;
+	grid-template-columns: 20% 16% 16% 16% 16% 16%;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.cuentas-tabla-datos .cuentas-fila p:nth-child(1) {
+	font-family: var(--font-family-main);
+	font-weight: 700;
+}
+.cuentas-tabla-datos .cuentas-fila p:nth-child(5) {
+	color: var(--main-color);
+}
+
+.cuentas-tabla-datos .cuentas-fila p:nth-child(6) {
+	color: var(--red);
+}

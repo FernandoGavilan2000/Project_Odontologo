@@ -37,12 +37,11 @@ body {
 	height: 100%;
 }
 
-
-.App{
-    height: 100%;
-    width: 100%;
-    height: 100%;
-    display: flex;
+.App {
+	height: 100%;
+	width: 100%;
+	height: 100%;
+	display: flex;
 }
 .App {
 	height: 100%;
@@ -50,7 +49,6 @@ body {
 	height: 100%;
 	background-color: orange;
 	display: flex;
-
 }
 
 h1 {
@@ -62,6 +60,7 @@ h2 {
 	font-size: 24px;
 	font-family: var(--font-family-main);
 	color: var(--header);
+	margin: 5px 5px;
 }
 h3 {
 	font-size: 15px;
@@ -69,10 +68,10 @@ h3 {
 	color: var(--paragraph);
 	text-transform: uppercase;
 }
-h4{
-    font-size: 14px;
-    font-family: var(--font-family-main);
-    color: var(--paragraph);
+h4 {
+	font-size: 14px;
+	font-family: var(--font-family-main);
+	color: var(--paragraph);
 }
 
 a {
@@ -97,16 +96,16 @@ td {
 	color: var(--paragraph);
 }
 
-button{
-    font-family: var(--font-family-second);
-    font-size: 16px;
+button {
+	font-family: var(--font-family-second);
+	font-size: 16px;
 	outline: none;
-}	
-button{
+}
+button {
 	font-family: var(--font-family-second);
 	font-size: 16px;
 }
-button{
+button {
 	font-family: var(--font-family-second);
 	font-size: 16px;
 }
@@ -116,28 +115,25 @@ ul {
 	padding: 0;
 }
 
-
-.txt-input label{
-    font-size:14px;
-    font-weight: bolder;
-    font-family: var(--font-family-main);
-    color: var(--paragraph);
-    text-transform: capitalize;
-    display: block;
+.txt-input label {
+	font-size: 14px;
+	font-weight: bolder;
+	font-family: var(--font-family-main);
+	color: var(--paragraph);
+	text-transform: capitalize;
+	display: block;
 }
-.txt-input input[type=text]{
-    border-bottom: 0.75px solid var(--background4);
-    padding: 6px 4px;
-    background: none;
-    font-size: 16px;
-    font-family: var(--font-family-second);
-    color: var(--paragraph);
+.txt-input input[type='text'] {
+	border-bottom: 0.75px solid var(--background4);
+	padding: 6px 4px;
+	background: none;
+	font-size: 16px;
+	font-family: var(--font-family-second);
+	color: var(--paragraph);
 }
-.txt-input input[type=text]:focus{
-    outline-color: var(--background3);
-    
+.txt-input input[type='text']:focus {
+	outline-color: var(--background3);
 }
-
 
 .contenedor-scroll::-webkit-scrollbar-track {
 	-webkit-box-shadow: 0 0 6px rgb(255, 255, 255);

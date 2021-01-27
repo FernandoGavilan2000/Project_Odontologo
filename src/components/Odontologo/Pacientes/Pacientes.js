@@ -32,7 +32,7 @@ function Pacientes({ history }) {
 		return () => {
 			_isMounted.current = false;
 		};
-	}, []);
+	}, [history]);
 
 	const SearchPatients = async () => {
 		const response = await fetch(`${process.env.REACT_APP_API_URL}/api/pacientes`, {
