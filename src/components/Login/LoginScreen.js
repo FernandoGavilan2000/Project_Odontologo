@@ -45,7 +45,7 @@ export const LoginScreen = ({ history }) => {
 					<img src={logo} alt="logo" />
 					Login
 				</div>
-				<form onSubmit={handleLogin} action="/signin" method="POST">
+				<form>
 					<div className="data">
 						<label>Email User</label>
 						<input
@@ -67,11 +67,13 @@ export const LoginScreen = ({ history }) => {
 						/>
 					</div>
 					<div className="forgot-pass">
-						<NavLink to="/help">Forgot Password?</NavLink>
+						{/*<NavLink to="/help">Forgot Password?</NavLink>*/}
 					</div>
 					<div className="btn">
 						<div className="inner"></div>
-						<button type="submit">Login</button>
+						<button type="submit" onClick={handleLogin}>
+							Login
+						</button>
 					</div>
 				</form>
 			</div>

@@ -6,7 +6,7 @@
 }
 .planestrat-tabla-top {
 	display: grid;
-	grid-template-columns: 15% 15% 20% 20% 20%;
+	grid-template-columns: 20% 20% 20% 20% 20%;
 	padding-left: 30px;
 	padding-right: 30px;
 	text-align: center;

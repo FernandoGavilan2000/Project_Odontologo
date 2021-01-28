@@ -53,32 +53,43 @@ function PacienteMenuCitas({ Patient }) {
 	const CreateNewCitaAdd = async () => {
 		NewCita()
 			.then((data) => {
-				CreateNewCita(data[0], Patient, user.d_id, data[1], data[2], data[3], data[4])
-					.then((response) => {
-						if (response.ok) {
-							Swal.close();
-							Swal.fire({
-								icon: 'success',
-								title: 'Nueva Cita Creada con Exito!',
-								text: 'Se registro correctamente!',
-							});
-						} else {
+				if (data.value) {
+					console.log(data.value);
+					CreateNewCita(
+						parseInt(data.value[0]),
+						Patient,
+						user.d_id,
+						data.value[1],
+						data.value[2],
+						data.value[3],
+						data.value[4]
+					)
+						.then((response) => {
+							if (response.ok) {
+								Swal.close();
+								Swal.fire({
+									icon: 'success',
+									title: 'Nueva Cita Creada con Exito!',
+									text: 'Se registro correctamente!',
+								});
+							} else {
+								Swal.close();
+								Swal.fire({
+									icon: 'error',
+									title: 'Oopsss!',
+									text: 'No se pudo registrar la Cita!',
+								});
+							}
+						})
+						.catch((error) => {
 							Swal.close();
 							Swal.fire({
 								icon: 'error',
 								title: 'Oopsss!',
 								text: 'No se pudo registrar la Cita!',
 							});
-						}
-					})
-					.catch((error) => {
-						Swal.close();
-						Swal.fire({
-							icon: 'error',
-							title: 'Oopsss!',
-							text: 'No se pudo registrar la Cita!',
 						});
-					});
+				}
 			})
 			.catch((error) => {
 				console.info('El usuario descarto el formulario Nueva Cita');

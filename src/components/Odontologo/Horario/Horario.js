@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'moment/locale/es';
 import moment from 'moment';
 
 import '../../../styles/Odontologo/Horarios/OdontologoHorario.css';
+import { gellAllEventsDoctor } from '../../../helpers/Backend/getAllEventsDoctor';
+import { AuthContext } from '../../../auth/AuthContext';
 
 const localizer = momentLocalizer(moment);
 
@@ -66,6 +68,22 @@ const myEventsList = [
 ];
 
 function Horario() {
+	const { user, dispatch } = useContext(AuthContext);
+	const [Events, setEvents] = useState(null);
+	const _isMounted = useRef(true);
+
+	useEffect(() => {
+		gellAllEventsDoctor(user.d_id)
+			.then((events) => {
+				//Aqui antes Limpiarlos Fecha
+				setEvents(events);
+				console.log(events);
+			})
+			.catch((error) => {
+				console.info('Error en Eventos del Paciente Calendario');
+			});
+	}, []);
+
 	return (
 		<div id="horarioContenedor" className="horario-contenedor">
 			<h1>Horario de Trabajo</h1>

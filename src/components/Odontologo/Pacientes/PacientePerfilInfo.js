@@ -38,8 +38,7 @@ function PacientePerfilInfo({ Patient }) {
 			<div className="contacto">
 				<h3>CONTACTO</h3>
 				<p>
-					Telef:
-					<span>{Patient.p_cellphone}</span>
+					Telef: <span>{Patient.p_cellphone}</span>
 				</p>
 				<p>
 					Email: <span>{Patient.p_email}</span>

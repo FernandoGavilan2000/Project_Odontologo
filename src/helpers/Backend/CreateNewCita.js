@@ -25,8 +25,10 @@ export const CreateNewCita = async (
 					c_tpid: trat_id,
 					c_title: title_cita,
 					c_description: descript_cita,
-					c_start: moment(cita_start).format('YYYY-MM-DD HH:mm:ss'),
-					c_end: moment(cita_end).format('YYYY-MM-DD HH:mm:ss'),
+					c_start: moment(cita_start, 'DD.MM.YYYY HH:mm:ss').format(
+						'YYYY-MM-DD HH:mm:ss'
+					),
+					c_end: moment(cita_end, 'DD.MM.YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss'),
 					c_status: 'Pendiente',
 				}),
 			}

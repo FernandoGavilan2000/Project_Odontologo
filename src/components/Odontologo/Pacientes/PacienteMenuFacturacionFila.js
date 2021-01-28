@@ -1,23 +1,23 @@
 import React from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuFacturacionFila.css';
 
-function PacienteMenuFacturacionFila() {
+function PacienteMenuFacturacionFila({ factura }) {
 	return (
 		<div className="paciente-menu-facturacion-fila">
 			{/* Plan de Tratamiento */}
-			<p>Ordodoncia</p>
+			<p>{factura.f_id}</p>
 
-			{/* Total a pagar */}
-			<p>s/3 400.00</p>
+			{/* COD Tratamiento Paciente*/}
+			<p>{factura.f_tpid}</p>
 
 			{/* Total Pagado */}
-			<p>s/1 400.00</p>
+			<p>s/ {factura.f_topay}</p>
 
 			{/* Pago Restante */}
-			<p>s/2 000.00</p>
+			<p>s/ {factura.f_discharged}</p>
 
 			{/* Estado */}
-			<p>Faltante</p>
+			<p>{factura.f_status}</p>
 
 			{/* Ver Detalles */}
 			{/* <div>

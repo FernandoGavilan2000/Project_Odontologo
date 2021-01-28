@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuDatPersonales.css';
 import moment from 'moment';
 import 'moment/locale/es';
+import Swal from 'sweetalert2';
 
 //Icon
 import seewhite from '../../../assets/images/see-white.svg';
 import { useForm } from '../../../hooks/useForm';
+import { getAnamnesis } from '../../../helpers/Backend/getAnamnesis';
 
 function PacienteMenuDatPersonales({ Patient }) {
 	const [inputDisabled, setinputDisabled] = useState(true);
 	const [TextButton, setTextButton] = useState('Editar');
 
-	const [UserData, setUserData] = useForm({
+	const [UserData, setUserData, reset] = useForm({
 		p_name: Patient.p_name,
 		p_lastname: Patient.p_lastname,
 		p_gender: Patient.p_gender,
@@ -23,17 +25,50 @@ function PacienteMenuDatPersonales({ Patient }) {
 	});
 
 	const changeDisabled = () => {
-		setinputDisabled(inputDisabled === true ? false : true);
-		setTextButton(TextButton === 'Editar' ? 'Guardar' : 'Editar');
+		//setinputDisabled(inputDisabled === true ? false : true);
+		//setTextButton(TextButton === 'Editar' ? 'Cancelar' : 'Editar');
+		if (TextButton === 'Cancelar') {
+			reset();
+			setTextButton('Editar');
+		} else {
+			setinputDisabled(false);
+			setTextButton('Cancelar');
+		}
+	};
+	const ShowAnamnesis = async () => {
+		const urlData = await getAnamnesis(Patient.p_id);
+		if (urlData !== 'abc' || urlData === '') {
+			window.open(urlData, '_blank');
+		} else {
+			Swal.fire({
+				icon: 'warning',
+				title: 'Oops...',
+				text: 'Este Paciente No Tiene Archivo Anamnesis ',
+			});
+		}
 	};
 
 	return (
 		<div id="pacienteMenuDatPersonales" className="paciente-menu-dat-personales">
 			<div className="datos-personales">
 				<h2>Datos Principales</h2>
-				<button onClick={changeDisabled} className="btn_changeEdit">
+				<button
+					onClick={changeDisabled}
+					className="btn_changeEdit"
+					style={{ display: 'inline-block' }}
+				>
 					{TextButton}
 				</button>
+
+				{TextButton === 'Cancelar' && (
+					<button
+						onClick={changeDisabled}
+						className="btn_changeEdit"
+						style={{ display: 'inline-block' }}
+					>
+						Guardar
+					</button>
+				)}
 				<div className="datos-personales-inputs">
 					<div className="txt-input">
 						<label htmlFor="">Nombres :</label>
@@ -66,7 +101,7 @@ function PacienteMenuDatPersonales({ Patient }) {
 							name="p_gender"
 							autoComplete="off"
 							placeholder={UserData.p_gender}
-							disabled={true}
+							disabled={inputDisabled}
 							value={UserData.p_gender}
 							onChange={setUserData}
 						/>
@@ -135,9 +170,9 @@ function PacienteMenuDatPersonales({ Patient }) {
 			</div>
 			<div className="mas-informacion">
 				<h3>Mas Información</h3>
-				<button>
+				<button onClick={ShowAnamnesis}>
 					<img src={seewhite} alt="see" />
-					<span>Ver Historia Clinica Completa</span>
+					<span>Ver Anamnesis</span>
 				</button>
 			</div>
 		</div>
