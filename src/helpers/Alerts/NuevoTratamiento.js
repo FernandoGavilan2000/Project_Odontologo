@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2';
-let DateFormat = new Date();
+import moment from 'moment';
 
 export const NuevoTratamiento = async () => {
 	return Swal.mixin({
@@ -9,22 +9,18 @@ export const NuevoTratamiento = async () => {
 		progressSteps: ['1', '2', '3', '4', '5'],
 	}).queue([
 		{
-			title: 'ID de Tratamiento',
+			title: 'ID Tipo de Tratamiento',
 			text: 'Inserte aqui el ID :',
 		},
 		{
 			title: 'Fecha de Inicio',
-			text: 'Escriba aqui la Fecha :  YY/MM/DD',
-			inputValue: `${DateFormat.getFullYear()}-${
-				DateFormat.getMonth() + 1
-			}-${DateFormat.getDate()}`,
+			text: 'Escriba aqui la Fecha :  DD-MM-YYYY',
+			inputValue: `${moment().format('DD-MM-YYYY HH:mm:ss')}`,
 		},
 		{
 			title: 'Fecha de Finalizacion',
-			text: 'Escriba aqui la Fecha : YY/MM/DD',
-			inputValue: `${DateFormat.getFullYear()}-${
-				DateFormat.getMonth() + 1
-			}-${DateFormat.getDate()}`,
+			text: 'Escriba aqui la Fecha : DD-MM-YYYY',
+			inputValue: `${moment().format('DD-MM-YYYY HH:mm:ss')}`,
 		},
 		{
 			title: 'Numero de Citas Trazadas',

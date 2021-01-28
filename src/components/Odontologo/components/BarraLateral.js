@@ -51,7 +51,8 @@ function BarraLateral() {
 				{/* <!-- Doctor Picture --> */}
 				<img src={user.imageurl} alt="doctor" className="doctor-picture" />
 				{/* <!-- Doctor Name --> */}
-				<h3 className="doctor-name">{user.name}</h3>
+
+				<h3 className="doctor-name">{user.d_name}</h3>
 
 				<NavLink to="/app/perfil" activeClassName="selected">
 					<img src={profile} alt="profile" />

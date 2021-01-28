@@ -1,25 +1,25 @@
-.paciente-menu-facturacion-fila{
-    display: grid;
-    grid-template-columns: 20% 16% 16% 16% 16% 16%;
-    padding-left: 30px;
-    padding-right: 30px;
-    text-align: center;
-    margin-bottom: 30px;
-    /* background-color: red; */
+.paciente-menu-facturacion-fila {
+	display: grid;
+	grid-template-columns: 20% 20% 20% 20% 20%;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: center;
+	margin-bottom: 30px;
+	/* background-color: red; */
 }
 
-.paciente-menu-facturacion-fila a{
-    cursor: pointer;
+.paciente-menu-facturacion-fila a {
+	cursor: pointer;
 }
 
-.paciente-menu-facturacion-fila a img{
-    transform: translateY(5px);
-    margin-right: 8px;
+.paciente-menu-facturacion-fila a img {
+	transform: translateY(5px);
+	margin-right: 8px;
 }
 
-.paciente-menu-facturacion-fila p:nth-child(1){
-    width: 160px;
-    word-wrap: break-word;
-    text-align: center;
-    justify-self: center;
+.paciente-menu-facturacion-fila p:nth-child(1) {
+	width: 160px;
+	word-wrap: break-word;
+	text-align: center;
+	justify-self: center;
 }

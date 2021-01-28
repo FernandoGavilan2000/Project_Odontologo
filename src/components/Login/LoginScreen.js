@@ -12,8 +12,8 @@ export const LoginScreen = ({ history }) => {
 	const { dispatch } = useContext(AuthContext);
 
 	const [FormValues, handleForm, resetForm] = useForm({
-		email: '',
-		password: '',
+		auth_user: '',
+		auth_password: '',
 	});
 
 	const handleLogin = (e) => {
@@ -50,7 +50,7 @@ export const LoginScreen = ({ history }) => {
 						<label>Email User</label>
 						<input
 							type="text"
-							name="email"
+							name="auth_user"
 							required
 							onChange={handleForm}
 							autoComplete="off"
@@ -60,14 +60,14 @@ export const LoginScreen = ({ history }) => {
 						<label>Password</label>
 						<input
 							type="password"
-							name="password"
+							name="auth_password"
 							required
 							onChange={handleForm}
 							autoComplete="off"
 						/>
 					</div>
 					<div className="forgot-pass">
-						<NavLink to="/help">Forgot Password?</NavLink>
+						{/*<NavLink to="/help">Forgot Password?</NavLink>*/}
 					</div>
 					<div className="btn">
 						<div className="inner"></div>
