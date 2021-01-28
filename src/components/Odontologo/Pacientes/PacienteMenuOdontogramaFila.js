@@ -2,13 +2,24 @@ import React from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuOdontogramaFila.css';
 import moment from 'moment';
 import 'moment/locale/es';
-function PacienteMenuOdontogramaFila({ handleChangeArray, OdontogramaArray, fecha }) {
+function PacienteMenuOdontogramaFila({
+	handleChangeArray,
+	OdontogramaArray,
+	fecha,
+	setStatus,
+	type,
+	idOdonto,
+}) {
 	return (
 		<div className="paciente-menu-odontograma-fila">
 			{/* Fecha */}
 			<p
 				onClick={() => {
 					handleChangeArray(OdontogramaArray);
+					setStatus({
+						type: type,
+						idOdonto: idOdonto,
+					});
 				}}
 				style={{ cursor: 'pointer' }}
 			>

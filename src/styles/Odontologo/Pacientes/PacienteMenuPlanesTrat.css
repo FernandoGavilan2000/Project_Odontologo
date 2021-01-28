@@ -25,3 +25,19 @@
 	overflow: scroll;
 	overflow-x: hidden;
 }
+
+button {
+	display: flex;
+	font-size: 14px;
+	background-color: var(--main-color-dark);
+	color: var(--background1);
+	padding: 10px 15px;
+	font-weight: bolder;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: 0.3s ease-in-out;
+	margin-bottom: 10px;
+}
+button img {
+	margin-right: 10px;
+}

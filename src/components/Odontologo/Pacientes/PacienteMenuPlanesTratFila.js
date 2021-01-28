@@ -2,6 +2,7 @@ import React from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuPlanesTratFila.css';
 import moment from 'moment';
 import 'moment/locale/es';
+import { ShowDoctor } from '../../../helpers/Backend/ShowDoctor';
 function PacienteMenuPlanesTratFila({ tratamiento }) {
 	//let doctor = doctors.filter((doctor) => doctor.auth_id === tratamiento.tp_did);
 	return (
@@ -19,7 +20,14 @@ function PacienteMenuPlanesTratFila({ tratamiento }) {
 			<p>{moment(tratamiento.tp_end).local().format('LL')}</p>
 
 			{/* Doctor */}
-			<p>{tratamiento.tp_did}</p>
+			<p
+				style={{ cursor: 'pointer' }}
+				onClick={() => {
+					ShowDoctor(tratamiento.tp_did);
+				}}
+			>
+				{tratamiento.tp_did}
+			</p>
 
 			{/* Ver Detalles */}
 		</div>

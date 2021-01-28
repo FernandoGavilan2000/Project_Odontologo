@@ -18,7 +18,7 @@ const styleShowMore = {
 	cursor: 'pointer',
 };
 
-function PacienteMenuCitasFila({ cita }) {
+function PacienteMenuCitasFila({ cita, setUpdate }) {
 	const history = useHistory();
 	const DeleteCita = async () => {
 		const response = await fetch(
@@ -39,7 +39,11 @@ function PacienteMenuCitasFila({ cita }) {
 			title: `ID_Cita ${cita.c_title}`,
 			text: `${cita.c_description}`,
 			icon: 'info',
-			footer: `Inicio: ${cita.c_start} <br/> Fin: ${cita.c_end}`,
+			footer: `Inicio: ${moment(cita.c_start).local().format('LLL')} <br/> Fin: ${moment(
+				cita.c_end
+			)
+				.local()
+				.format('LLL')}`,
 			showCancelButton: true,
 			confirmButtonColor: '#FF4034',
 			cancelButtonColor: '#1d47cd',
@@ -59,8 +63,9 @@ function PacienteMenuCitasFila({ cita }) {
 					if (result.isConfirmed) {
 						DeleteCita()
 							.then((response) => {
+								setUpdate(true);
 								Swal.fire('Eliminado!', 'Se borro correctamente la cita', 'success');
-								history.replace(`/app/pacientes/${cita.c_pid}`);
+								//history.replace(`/app/pacientes/${cita.c_pid}`);
 							})
 							.catch((error) => {
 								Swal.fire('Oops...!', 'No se puedo eliminar la cita.', 'error');

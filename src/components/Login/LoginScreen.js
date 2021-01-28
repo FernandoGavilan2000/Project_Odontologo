@@ -12,8 +12,8 @@ export const LoginScreen = ({ history }) => {
 	const { dispatch } = useContext(AuthContext);
 
 	const [FormValues, handleForm, resetForm] = useForm({
-		email: '',
-		password: '',
+		auth_user: '',
+		auth_password: '',
 	});
 
 	const handleLogin = (e) => {
@@ -45,12 +45,12 @@ export const LoginScreen = ({ history }) => {
 					<img src={logo} alt="logo" />
 					Login
 				</div>
-				<form>
+				<form onSubmit={handleLogin} action="/signin" method="POST">
 					<div className="data">
 						<label>Email User</label>
 						<input
 							type="text"
-							name="email"
+							name="auth_user"
 							required
 							onChange={handleForm}
 							autoComplete="off"
@@ -60,7 +60,7 @@ export const LoginScreen = ({ history }) => {
 						<label>Password</label>
 						<input
 							type="password"
-							name="password"
+							name="auth_password"
 							required
 							onChange={handleForm}
 							autoComplete="off"
@@ -71,9 +71,7 @@ export const LoginScreen = ({ history }) => {
 					</div>
 					<div className="btn">
 						<div className="inner"></div>
-						<button type="submit" onClick={handleLogin}>
-							Login
-						</button>
+						<button type="submit">Login</button>
 					</div>
 				</form>
 			</div>

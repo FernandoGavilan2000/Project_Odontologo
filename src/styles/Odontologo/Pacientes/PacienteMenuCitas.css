@@ -1,29 +1,43 @@
+#pacienteMenuCitas {
+	background-color: var(--background2);
+	width: 100%;
+	padding: 35px;
+	border-radius: 13px;
+}
+.cita-tabla-top {
+	display: grid;
+	grid-template-columns: 20% 20% 20% 20% 20%;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: center;
+	margin-bottom: 15px;
+	/* background-color: rebeccapurple; */
+}
 
-#pacienteMenuCitas{
-    background-color: var(--background2);
-    width: 100%;
-    padding: 35px;
-    border-radius: 13px;
+.cita-tabla-datos {
+	background-color: var(--background1);
+	padding-top: 30px;
+	padding-bottom: 20px;
+	border-radius: 8px;
 }
-.cita-tabla-top{
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    padding-left: 30px;
-    padding-right: 30px;
-    text-align: center;    
-    margin-bottom: 15px;
-    /* background-color: rebeccapurple; */
+.cita-tabla-datos {
+	height: 400px;
+	overflow: scroll;
+	overflow-x: hidden;
 }
 
-.cita-tabla-datos{
-    background-color: var(--background1);
-    padding-top: 30px;
-    padding-bottom: 20px;
-    border-radius: 8px;
-    
+button {
+	display: flex;
+	font-size: 14px;
+	background-color: var(--main-color-dark);
+	color: var(--background1);
+	padding: 10px 15px;
+	font-weight: bolder;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: 0.3s ease-in-out;
+	margin-bottom: 10px;
 }
-.cita-tabla-datos{
-    height: 400px;
-    overflow: scroll;
-    overflow-x: hidden;
+button img {
+	margin-right: 10px;
 }

@@ -32,6 +32,6 @@ export const NewFactura = async (id_trat, id_paciente, id_doctor, cod_tipo) => {
 			f_total: CostTratamiento[0].t_price,
 		}),
 	});
-	console.log('Aqui', ResponseAPIFact);
+	//console.log('Aqui', ResponseAPIFact);
 	return ResponseAPIFact;
 };

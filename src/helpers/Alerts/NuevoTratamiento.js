@@ -9,7 +9,7 @@ export const NuevoTratamiento = async () => {
 		progressSteps: ['1', '2', '3', '4', '5'],
 	}).queue([
 		{
-			title: 'ID de Tratamiento',
+			title: 'ID Tipo de Tratamiento',
 			text: 'Inserte aqui el ID :',
 		},
 		{

@@ -1,14 +1,18 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useRef, useState, useEffect, useContext } from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuCitas.css';
 import { Spinner } from '../../Tools/Spinner';
+import add from '../../../assets/images/add.svg';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../../auth/AuthContext';
 import PacienteMenuCitasFila from './PacienteMenuCitasFila';
+import { NewCita } from '../../../helpers/Backend/NewCita';
+import { CreateNewCita } from '../../../helpers/Backend/CreateNewCita';
 
 function PacienteMenuCitas({ Patient }) {
 	const [Citas, setCitas] = useState(null);
 	const _isMounted = useRef(true);
-	const history = useHistory();
+	const [Update, setUpdate] = useState(false);
+	const { user } = useContext(AuthContext);
 
 	useEffect(() => {
 		SearchAppointment(Patient)
@@ -24,13 +28,13 @@ function PacienteMenuCitas({ Patient }) {
 					title: 'Oops...',
 					text: 'No hay registro de citas!',
 				});
-				history.replace(`/app/pacientes/${Patient}`);
+				//history.replace(`/app/pacientes/${Patient}`);
 			});
 
 		return () => {
 			_isMounted.current = false;
 		};
-	}, [Patient, history]);
+	}, [Update, setUpdate]);
 
 	const SearchAppointment = async (id_paciente) => {
 		const response = await fetch(
@@ -45,25 +49,72 @@ function PacienteMenuCitas({ Patient }) {
 		);
 		return await response.json();
 	};
+
+	const CreateNewCitaAdd = async () => {
+		NewCita()
+			.then((data) => {
+				CreateNewCita(data[0], Patient, user.d_id, data[1], data[2], data[3], data[4])
+					.then((response) => {
+						if (response.ok) {
+							Swal.close();
+							Swal.fire({
+								icon: 'success',
+								title: 'Nueva Cita Creada con Exito!',
+								text: 'Se registro correctamente!',
+							});
+						} else {
+							Swal.close();
+							Swal.fire({
+								icon: 'error',
+								title: 'Oopsss!',
+								text: 'No se pudo registrar la Cita!',
+							});
+						}
+					})
+					.catch((error) => {
+						Swal.close();
+						Swal.fire({
+							icon: 'error',
+							title: 'Oopsss!',
+							text: 'No se pudo registrar la Cita!',
+						});
+					});
+			})
+			.catch((error) => {
+				console.info('El usuario descarto el formulario Nueva Cita');
+				Swal.close();
+				Swal.fire({
+					icon: 'warning',
+					title: 'Error al Ingresar la Informacion',
+					text: 'Por favor, intentelo de Nuevo',
+				});
+			});
+	};
 	return (
-		<div id="pacienteMenuCitas" className="paciente-menu-citas">
-			<div className="cita-tabla-top">
-				<h4>ID Cita</h4>
-				<h4>ID Tratamiento</h4>
-				<h4>Hora</h4>
-				<h4>Estado</h4>
-				<h4>Comentarios</h4>
+		<>
+			<button onClick={CreateNewCitaAdd}>
+				<img alt="see" src={add} />
+				<span>NUEVA CITA</span>
+			</button>
+			<div id="pacienteMenuCitas" className="paciente-menu-citas">
+				<div className="cita-tabla-top">
+					<h4>ID Cita</h4>
+					<h4>ID Tratamiento</h4>
+					<h4>Hora</h4>
+					<h4>Estado</h4>
+					<h4>Comentarios</h4>
+				</div>
+				<div className="cita-tabla-datos contenedor-scroll">
+					{Citas ? (
+						Citas.map((cita, index) => (
+							<PacienteMenuCitasFila cita={cita} key={cita.c_id} setUpdate={setUpdate} />
+						))
+					) : (
+						<Spinner />
+					)}
+				</div>
 			</div>
-			<div className="cita-tabla-datos contenedor-scroll">
-				{Citas ? (
-					Citas.map((cita, index) => (
-						<PacienteMenuCitasFila cita={cita} key={cita.c_id} />
-					))
-				) : (
-					<Spinner />
-				)}
-			</div>
-		</div>
+		</>
 	);
 }
 

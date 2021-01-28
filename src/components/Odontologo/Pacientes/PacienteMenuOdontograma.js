@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuOdontograma.css';
 import PacienteMenuOdontogramaFila from './PacienteMenuOdontogramaFila';
+import Swal from 'sweetalert2';
 
 //import { ArrayDiente } from '../../../helpers/Odontograma/ArrayDiente';
 //import { ArrayDiente2 } from '../../../helpers/Odontograma/ArrayDiente2';
@@ -10,8 +11,12 @@ import { getIDHistoria } from '../../../helpers/Backend/getIDHistoria';
 
 function PacienteMenuOdontograma({ Patient }) {
 	const [ShowArray, setShowArray] = useState(ArrayDienteModelo);
-	const _isMounted = useRef(true);
 	const [ListArray, setListArray] = useState(null);
+	const [status, setStatus] = useState({
+		type: 'new',
+		idOdonto: 0,
+	});
+	const _isMounted = useRef(true);
 
 	useEffect(() => {
 		SearchOdontogramas(Patient)
@@ -60,6 +65,9 @@ function PacienteMenuOdontograma({ Patient }) {
 						OdontogramaArray={ArrayDienteModelo}
 						fecha={new Date()}
 						handleChangeArray={handleChangeArray}
+						setStatus={setStatus}
+						idOdonto={0}
+						type="new"
 					></PacienteMenuOdontogramaFila>
 					{ListArray
 						? ListArray.map((odontograma, index) => (
@@ -67,13 +75,16 @@ function PacienteMenuOdontograma({ Patient }) {
 									OdontogramaArray={JSON.parse(odontograma.o_teethcollection)}
 									fecha={odontograma.o_datecapture}
 									handleChangeArray={handleChangeArray}
-									key={odontograma.o_datecapture}
+									key={odontograma.o_id}
+									idOdonto={odontograma.o_id}
+									setStatus={setStatus}
+									type="registered"
 								/>
 						  ))
 						: null}
 				</div>
 
-				<Odontograma ArrayDiente={ShowArray} />
+				<Odontograma ArrayDiente={ShowArray} Patient={Patient} status={status} />
 			</div>
 		</div>
 	);

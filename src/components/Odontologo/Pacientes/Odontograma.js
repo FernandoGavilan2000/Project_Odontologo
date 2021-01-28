@@ -19,11 +19,18 @@ import { CuartoCuadranteRadar } from './Odontograma/CuartoCuadranteRadar';
 import { EstadosArray } from '../../../helpers/Odontograma/EstadosArray';
 import { HallazgosArray } from '../../../helpers/Odontograma/HallazgosArray';
 import { CarasDientesArray } from '../../../helpers/Odontograma/CarasDientesArray';
+import { NewOdontograma } from '../../../helpers/Backend/NewOdontograma';
+import { getIDHistoria } from '../../../helpers/Backend/getIDHistoria';
 //EstadosDientes
+import Swal from 'sweetalert2';
+import { useHistory } from 'react-router-dom';
+import { UpdateOdonto } from '../../../helpers/Backend/UpdateOdonto';
+import { useCallback } from 'react';
 
-export const Odontograma = ({ ArrayDiente }) => {
+export const Odontograma = ({ ArrayDiente, Patient, status }) => {
 	const [DientesCollection, setDientesCollection] = useState(ArrayDiente);
 	const [Diente, setDiente] = useState(ArrayDiente[0]);
+	const History = useHistory();
 	/*
 	console.log(DientesCollection);
 	console.log(Diente);
@@ -98,6 +105,74 @@ export const Odontograma = ({ ArrayDiente }) => {
 		setDientesCollection(ArrayDiente);
 		setDiente(ArrayDiente[0]);
 	}, [ArrayDiente]);
+
+	const handleSubmit = async () => {
+		Swal.fire({
+			title: 'Guardando Odontograma',
+			text: 'Por favor espere...',
+			allowOutsideClick: false,
+			showCancelButton: false,
+			showConfirmButton: false,
+			willOpen: () => {
+				Swal.showLoading();
+			},
+		});
+
+		getIDHistoria(Patient)
+			.then((response) => {
+				if (status.type === 'new') {
+					NewOdontograma(response[0].hc_id, DientesCollection)
+						.then((response) => {
+							if (response.ok) {
+								Swal.close();
+								Swal.fire({
+									icon: 'success',
+									title: 'Nuevo Registro Guardado',
+									text: 'Odontograma Guardado',
+								});
+							} else {
+								Swal.close();
+								console.error('No se pudo guardar el Odontograma');
+							}
+						})
+						.catch((error) => {
+							Swal.close();
+							Swal.fire({
+								icon: 'error',
+								title: 'Oops...',
+								text: 'No se pudo guardar el Odontograma!',
+							});
+						});
+				} else {
+					UpdateOdonto(status.idOdonto, response[0].hc_id, DientesCollection)
+						.then((response) => {
+							if (response.ok) {
+								Swal.close();
+								Swal.fire({
+									icon: 'success',
+									title: 'Registro Guardado',
+									text: 'Odontograma Actualizado',
+								});
+							} else {
+								Swal.close();
+								console.error('No se pudo actualizar el Odontograma');
+							}
+						})
+						.catch((error) => {
+							Swal.close();
+							Swal.fire({
+								icon: 'error',
+								title: 'Oops...',
+								text: 'No se pudo guardar el Odontograma!',
+							});
+						});
+				}
+			})
+			.catch((error) => {
+				Swal.close();
+				console.info('Error en conseguir el ID de la Historia');
+			});
+	};
 
 	//Efecto cuando inserte nuevo Odontograma
 
@@ -216,7 +291,10 @@ export const Odontograma = ({ ArrayDiente }) => {
 					</select>
 
 					<br />
-					<button style={{ backgroundColor: 'lightblue', padding: '12px' }}>
+					<button
+						style={{ backgroundColor: 'lightblue', padding: '12px' }}
+						onClick={handleSubmit}
+					>
 						Guardar Cambios
 					</button>
 				</div>
