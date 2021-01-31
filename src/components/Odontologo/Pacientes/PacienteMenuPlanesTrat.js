@@ -130,12 +130,14 @@ function PacienteMenuPlanesTrat({ Patient }) {
 				<div className="planestrat-tabla-datos contenedor-scroll">
 					{Tratamientos ? (
 						<>
-							{Tratamientos.map((tratamiento, index) => (
-								<PacienteMenuPlanesTratFila
-									tratamiento={tratamiento}
-									key={tratamiento.tp_id}
-								/>
-							))}
+							{Tratamientos.sort((a, b) => parseInt(b.c_id) - parseInt(a.c_id)).map(
+								(tratamiento, index) => (
+									<PacienteMenuPlanesTratFila
+										tratamiento={tratamiento}
+										key={tratamiento.tp_id}
+									/>
+								)
+							)}
 						</>
 					) : (
 						<Spinner />

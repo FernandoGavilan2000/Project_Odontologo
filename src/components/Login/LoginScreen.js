@@ -4,7 +4,6 @@ import { AuthContext } from '../../auth/AuthContext';
 import '../../styles/Login/Login.css';
 
 import logo from '../../assets/images/logo.svg';
-import { NavLink } from 'react-router-dom';
 import { SuccesfullLogin } from '../../helpers/Alerts/SuccessfulLogin';
 import { useForm } from '../../hooks/useForm';
 
@@ -28,8 +27,8 @@ export const LoginScreen = ({ history }) => {
 				d_id: 1004,
 				d_name: 'Fernando Ramiro',
 				d_lastname: 'Gavilan Hernandez',
-				type: 'odontologo',
-				imageurl:
+				type: 'admin',
+				d_img:
 					'https://plataformas.news/online/nota_the-good-doctor-posiciona-sony-channel-en-la-region.jpg',
 			},
 		});
@@ -47,10 +46,10 @@ export const LoginScreen = ({ history }) => {
 				</div>
 				<form>
 					<div className="data">
-						<label>Email User</label>
+						<label>User Name</label>
 						<input
 							type="text"
-							name="auth_user"
+							name="email"
 							required
 							onChange={handleForm}
 							autoComplete="off"
@@ -60,19 +59,16 @@ export const LoginScreen = ({ history }) => {
 						<label>Password</label>
 						<input
 							type="password"
-							name="auth_password"
+							name="password"
 							required
 							onChange={handleForm}
 							autoComplete="off"
 						/>
 					</div>
-					<div className="forgot-pass">
-						{/*<NavLink to="/help">Forgot Password?</NavLink>*/}
-					</div>
 					<div className="btn">
 						<div className="inner"></div>
 						<button type="submit" onClick={handleLogin}>
-							Login
+							<span>Login</span>
 						</button>
 					</div>
 				</form>

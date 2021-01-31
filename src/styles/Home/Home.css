@@ -1,55 +1,213 @@
 .Home-Container {
 	width: 100%;
-	height: 100vh;
-	background-color: var(--background2);
-}
-.navbar1 {
-	display: flex;
-	background-color: var(--background2);
-	flex-direction: row;
-	width: 100%;
-	height: 50px;
-	align-items: center;
-	display: flex;
-	justify-content: center;
-	text-align: center;
-}
-.navbar1 > div {
-	width: 130px;
-	height: 40px;
-	display: flex;
-	align-items: center;
-	display: flex;
-}
-li {
-	list-style: none;
-	align-items: center;
-	text-align: center;
-}
-
-.Home_presentation {
-	width: 100%;
-	justify-content: left;
-	align-content: center;
-	height: 75vh;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+}
+
+/*---------------*/
+/*---------------*/
+/*---------------*/
+.section {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.main-container {
+	width: 1200px;
+	max-width: 100%;
+}
+
+.nav-section {
+	background-color: #eaeefc;
+	position: fixed;
+	z-index: 100;
+}
+.nav-container {
+	display: flex;
+	height: 60px;
+
+	justify-content: space-between;
+	align-items: center;
+}
+.nav-links {
+	display: flex;
+}
+.nav-links div {
+	margin-left: 50px;
+}
+.nav-links div a {
+	color: var(--main-color);
+}
+/*------------*/
+.hero-section {
+	background-color: #eaeefc;
+	height: 630px;
+	overflow: hidden;
+	margin-top: 55px;
+}
+.hero-container {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	height: 100%;
+}
+.hero-container .title {
+	align-self: center;
+}
+.hero-container .title h1 {
+	font-weight: 700;
+	font-size: 70px;
+	line-height: 120%;
+}
+.hero-container .title p {
+	line-height: 160%;
+	margin-bottom: 50px;
+}
+.hero-container .title button {
+	cursor: pointer;
+	background: var(--main-color);
+	color: var(--background1);
+	padding: 12px 30px;
+	font-weight: bolder;
+	border-radius: 8px;
+	transition: 0.3s;
+}
+.hero-container .title button:hover {
+	background-color: blue;
+}
+.hero-container .hero-image {
+	display: flex;
+	align-self: flex-end;
+}
+.hero-container .hero-image img {
+	width: 115%;
+	transform: translateY(30px);
+}
+
+.services-container {
+	padding-top: 100px;
+}
+.services-container h2 {
+	font-size: 36px;
+}
+.services-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	column-gap: 50px;
+	row-gap: 100px;
+}
+
+.service .service-img {
+	width: 100%;
+	height: 164px;
 	position: relative;
 }
 
-.Home_presentation > p {
-	color: black;
+.service .service-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 10;
+	border-radius: 15px;
+}
+.service .service-img .overlay {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 20;
+	background: linear-gradient(
+		180deg,
+		rgba(42, 87, 229, 0.4) 0%,
+		rgba(36, 205, 176, 0.4) 100%
+	);
+	border-radius: 15px;
+	transition: 0.3s;
+}
+.service .service-img .overlay:hover {
+	opacity: 0;
 }
 
-.Home_presentation > button {
+.service h3 {
+	text-transform: capitalize;
+	font-size: 18px;
+	color: var(--header);
 	margin-top: 20px;
-	width: 200px;
-	height: 40px;
-	border-radius: 5px;
-	background-color: var(--second-color-light);
-	padding: 8px;
-	cursor: pointer;
+}
+.service p {
+	line-height: 26px;
+}
+
+.nosotros-section {
+	background: var(--background2);
+	margin-top: 110px;
+}
+.nosotros-container {
+	display: grid;
+	grid-template-columns: 40% 60%;
+	height: 520px;
+}
+.nosotros-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.nosotros-text h2 {
+	margin-bottom: 20px;
+	font-size: 36px;
+}
+.nosotros-text p {
+	line-height: 26px;
+}
+.nosotros-image {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+.nosotros-image img {
+	width: 90%;
+}
+.testimonios-section {
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+.testimonios-section h2 {
+	font-size: 36px;
+	text-align: center;
+}
+.testimonios-grid {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	column-gap: 50px;
+}
+.testimonio {
+	background-color: var(--background2);
+	border-radius: 15px;
+	padding: 40px 32px 32px 32px;
+}
+.testimonio .paciente {
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	column-gap: 20px;
+	margin-bottom: 30px;
+}
+.testimonio .paciente img:first-child {
+	width: 100%;
+}
+.testimonio .paciente .datos p:first-child {
+	font-family: var(--font-family-main);
+	font-weight: bold;
+	color: black;
+	font-size: 17px;
+	margin-bottom: -10px;
+}
+.testimonio .paciente img:last-child {
+	width: 70%;
+	align-self: center;
+	justify-self: end;
+}
+.testimonio .testimonio-text {
+	line-height: 28px;
 }

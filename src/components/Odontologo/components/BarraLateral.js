@@ -49,7 +49,7 @@ function BarraLateral() {
 			</li>
 			<div className="user-doctor">
 				{/* <!-- Doctor Picture --> */}
-				<img src={user.imageurl} alt="doctor" className="doctor-picture" />
+				<img src={user.d_img} alt="doctor" className="doctor-picture" />
 				{/* <!-- Doctor Name --> */}
 
 				<h3 className="doctor-name">{user.d_name}</h3>

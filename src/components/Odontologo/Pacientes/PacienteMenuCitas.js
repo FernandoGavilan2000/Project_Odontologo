@@ -7,12 +7,14 @@ import { AuthContext } from '../../../auth/AuthContext';
 import PacienteMenuCitasFila from './PacienteMenuCitasFila';
 import { NewCita } from '../../../helpers/Backend/NewCita';
 import { CreateNewCita } from '../../../helpers/Backend/CreateNewCita';
+import { useHistory } from 'react-router-dom';
 
 function PacienteMenuCitas({ Patient }) {
 	const [Citas, setCitas] = useState(null);
 	const _isMounted = useRef(true);
 	const [Update, setUpdate] = useState(false);
 	const { user } = useContext(AuthContext);
+	//const history = useHistory();
 
 	useEffect(() => {
 		SearchAppointment(Patient)
@@ -28,13 +30,14 @@ function PacienteMenuCitas({ Patient }) {
 					title: 'Oops...',
 					text: 'No hay registro de citas!',
 				});
-				//history.replace(`/app/pacientes/${Patient}`);
 			});
+	}, [Update]);
 
+	useEffect(() => {
 		return () => {
 			_isMounted.current = false;
 		};
-	}, [Update, setUpdate]);
+	}, []);
 
 	const SearchAppointment = async (id_paciente) => {
 		const response = await fetch(
@@ -66,6 +69,7 @@ function PacienteMenuCitas({ Patient }) {
 					)
 						.then((response) => {
 							if (response.ok) {
+								setUpdate(true);
 								Swal.close();
 								Swal.fire({
 									icon: 'success',
@@ -117,7 +121,9 @@ function PacienteMenuCitas({ Patient }) {
 				</div>
 				<div className="cita-tabla-datos contenedor-scroll">
 					{Citas ? (
-						Citas.map((cita, index) => (
+						Citas.sort(
+							(a, b) => parseInt(b.c_id) - parseInt(a.c_id)
+						).map((cita, index) => (
 							<PacienteMenuCitasFila cita={cita} key={cita.c_id} setUpdate={setUpdate} />
 						))
 					) : (

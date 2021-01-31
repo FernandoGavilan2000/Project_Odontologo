@@ -12,6 +12,7 @@ import { getIDHistoria } from '../../../helpers/Backend/getIDHistoria';
 function PacienteMenuOdontograma({ Patient }) {
 	const [ShowArray, setShowArray] = useState(ArrayDienteModelo);
 	const [ListArray, setListArray] = useState(null);
+	const [Update, setUpdate] = useState(false);
 	const [status, setStatus] = useState({
 		type: 'new',
 		idOdonto: 0,
@@ -28,11 +29,13 @@ function PacienteMenuOdontograma({ Patient }) {
 			.catch((error) => {
 				console.info(`No hay Odontogramas del Paciente: ${Patient}`);
 			});
+	}, [Patient, Update]);
 
+	useEffect(() => {
 		return () => {
 			_isMounted.current = false;
 		};
-	}, [Patient]);
+	}, []);
 
 	const SearchOdontogramas = async (id_paciente) => {
 		const HistoriaId = await getIDHistoria(id_paciente);
@@ -84,7 +87,12 @@ function PacienteMenuOdontograma({ Patient }) {
 						: null}
 				</div>
 
-				<Odontograma ArrayDiente={ShowArray} Patient={Patient} status={status} />
+				<Odontograma
+					ArrayDiente={ShowArray}
+					Patient={Patient}
+					status={status}
+					setUpdate={setUpdate}
+				/>
 			</div>
 		</div>
 	);

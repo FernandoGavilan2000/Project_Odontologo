@@ -36,5 +36,6 @@ export const CreateNewCita = async (
 		return ResponseAPINewCita;
 	} catch (error) {
 		console.info('Error con la Creacion de una Nueva Cita', error);
+		return error;
 	}
 };

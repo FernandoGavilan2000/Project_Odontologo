@@ -25,9 +25,9 @@ import { getIDHistoria } from '../../../helpers/Backend/getIDHistoria';
 import Swal from 'sweetalert2';
 import { useHistory } from 'react-router-dom';
 import { UpdateOdonto } from '../../../helpers/Backend/UpdateOdonto';
-import { useCallback } from 'react';
+//import { useCallback } from 'react';
 
-export const Odontograma = ({ ArrayDiente, Patient, status }) => {
+export const Odontograma = ({ ArrayDiente, Patient, status, setUpdate }) => {
 	const [DientesCollection, setDientesCollection] = useState(ArrayDiente);
 	const [Diente, setDiente] = useState(ArrayDiente[0]);
 	const History = useHistory();
@@ -124,6 +124,7 @@ export const Odontograma = ({ ArrayDiente, Patient, status }) => {
 					NewOdontograma(response[0].hc_id, DientesCollection)
 						.then((response) => {
 							if (response.ok) {
+								setUpdate(true);
 								Swal.close();
 								Swal.fire({
 									icon: 'success',
