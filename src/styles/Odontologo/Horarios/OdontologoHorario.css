@@ -9,6 +9,9 @@
 	background-color: var(--background1);
 	height: 90vh;
 }
+.rbc-event rbc-selected {
+	background-color: var(--main-color-dark);
+}
 
 .rbc-event {
 	background-color: var(--main-color-dark);

@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import seewhite from '../../../assets/images/see-white.svg';
 import { useForm } from '../../../hooks/useForm';
 import { getAnamnesis } from '../../../helpers/Backend/getAnamnesis';
+import { UpdatePatientInfo } from '../../../helpers/Backend/UpdatePatientInfo';
 
 function PacienteMenuDatPersonales({ Patient }) {
 	const [inputDisabled, setinputDisabled] = useState(true);
@@ -22,18 +23,59 @@ function PacienteMenuDatPersonales({ Patient }) {
 		p_dni: Patient.p_dni,
 		p_address: Patient.p_address,
 		p_cellphone: Patient.p_cellphone,
+		p_weight: Patient.p_weight,
+		p_age: Patient.p_age,
+		p_height: Patient.p_height,
+		p_img: Patient.p_img,
+		p_email: Patient.p_email,
 	});
 
 	const changeDisabled = () => {
-		//setinputDisabled(inputDisabled === true ? false : true);
-		//setTextButton(TextButton === 'Editar' ? 'Cancelar' : 'Editar');
 		if (TextButton === 'Cancelar') {
 			reset();
+			setinputDisabled(true);
 			setTextButton('Editar');
 		} else {
 			setinputDisabled(false);
 			setTextButton('Cancelar');
 		}
+	};
+
+	const handleSubmit = () => {
+		Swal.fire({
+			title: 'Actualizando los Datos del Paciente',
+			text: 'Por favor espere...',
+			allowOutsideClick: false,
+			showCancelButton: false,
+			showConfirmButton: false,
+			willOpen: () => {
+				Swal.showLoading();
+			},
+		});
+		UpdatePatientInfo(Patient.p_id, UserData)
+			.then((response) => {
+				if (response.ok) {
+					Swal.close();
+					Swal.fire({
+						icon: 'success',
+						title: 'Nuevos Cambios Guardados!',
+						footer: `${Patient.p_lastname} ${Patient.p_name}`,
+						text: 'Se registro correctamente!',
+					});
+					console.log('Actualizado');
+				} else {
+					Swal.close();
+				}
+			})
+			.catch((error) => {
+				Swal.close();
+				Swal.fire({
+					icon: 'error',
+					title: 'Oopsss!',
+					text: 'No se pudo actualizar los datos del paciente',
+				});
+				console.info('Error con el Boton handleSubmit-UpdatePatient', error);
+			});
 	};
 	const ShowAnamnesis = async () => {
 		const urlData = await getAnamnesis(Patient.p_id);
@@ -62,7 +104,7 @@ function PacienteMenuDatPersonales({ Patient }) {
 
 				{TextButton === 'Cancelar' && (
 					<button
-						onClick={changeDisabled}
+						onClick={handleSubmit}
 						className="btn_changeEdit"
 						style={{ display: 'inline-block' }}
 					>

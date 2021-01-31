@@ -30,7 +30,8 @@
 	border-radius: 50%;
 	position: absolute;
 	left: 50%;
-	bottom: -50%;
+	bottom: -58%;
+	text-align: center;
 	transform: translateX(-50%);
 	cursor: pointer;
 	opacity: 0;

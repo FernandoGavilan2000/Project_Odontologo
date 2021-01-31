@@ -106,6 +106,8 @@
 .login-container form .btn button {
 	height: 100%;
 	width: 100%;
+	display: flex;
+	justify-content: center;
 	background: none;
 	border: none;
 	color: #fff;
@@ -115,6 +117,7 @@
 	letter-spacing: 1px;
 	cursor: pointer;
 }
+
 .login-container form .signup-link {
 	text-align: center;
 }

@@ -1,17 +1,25 @@
 import React from 'react';
 
-function DoctorCard() {
+function DoctorCard({ doctor }) {
 	return (
 		<div className="card-doctor">
-			<img
-				src="https://images.unsplash.com/photo-1588776813677-77aaf5595b83?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8ZG9jdG9yfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-				alt="doctor-perfil"
-			/>
-			<h4>Medico Cirujano</h4>
-			<p className="doctor-name">Annetter Kathyrn</p>
 			<p className="doctor-code">
 				{' '}
-				Codigo: <span>6514-1622</span>
+				Codigo: <span>{doctor.d_id}</span>
+			</p>
+			<img
+				src="https://www.rockandpop.cl/wp-content/uploads/2020/07/bc718c33a41936bd35592e00e1ed6b65-768x512.jpg"
+				alt="doctor-perfil"
+			/>
+			<h4>{doctor.d_branch}</h4>
+			<p className="doctor-name">{`${doctor.d_lastname} ${doctor.d_name}`}</p>
+			<p className="doctor-code">
+				{' '}
+				<span>{doctor.d_email}</span>
+			</p>
+			<p className="doctor-code">
+				{' '}
+				<span>Tel: {doctor.d_cellphone}</span>
 			</p>
 		</div>
 	);

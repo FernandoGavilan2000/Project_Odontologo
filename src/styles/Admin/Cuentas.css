@@ -4,7 +4,7 @@
 }
 
 h2 {
-	margin-bottom: 50px;
+	margin-bottom: 10px;
 }
 .cuentas-tabla {
 	height: 590px;
@@ -12,7 +12,7 @@ h2 {
 }
 .cuentas-tabla-top {
 	display: grid;
-	grid-template-columns: 20% 16% 16% 16% 16% 16%;
+	grid-template-columns: 15% 13% 20% 14% 14% 14% 10%;
 	text-align: center;
 	margin-bottom: 35px;
 }
@@ -26,19 +26,46 @@ h2 {
 
 .cuentas-tabla-datos .cuentas-fila {
 	display: grid;
-	grid-template-columns: 20% 16% 16% 16% 16% 16%;
+	grid-template-columns: 15% 13% 20% 14% 14% 14% 10%;
 	text-align: center;
 	margin-bottom: 30px;
 }
 
 .cuentas-tabla-datos .cuentas-fila p:nth-child(1) {
 	font-family: var(--font-family-main);
+	text-align: center;
 	font-weight: 700;
 }
 .cuentas-tabla-datos .cuentas-fila p:nth-child(5) {
+	text-align: center;
 	color: var(--main-color);
 }
 
 .cuentas-tabla-datos .cuentas-fila p:nth-child(6) {
+	text-align: center;
 	color: var(--red);
+}
+.cuentas-tabla-datos .cuentas-fila .options {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 5px;
+}
+.options img {
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+}
+
+.search_facturas {
+	width: 350px;
+	height: 50px;
+	margin-bottom: 20px;
+	background-color: var(--background2);
+	border-radius: 12px;
+	padding: 5px 20px;
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+	float: right;
+	font-size: 17px;
+	color: var(--paragraph);
+	border-color: var(--paragraph);
 }

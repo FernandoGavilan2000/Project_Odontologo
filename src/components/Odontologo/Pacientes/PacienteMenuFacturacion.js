@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuFacturacion.css';
 import PacienteMenuFacturacionFila from './PacienteMenuFacturacionFila';
 import { Spinner } from '../../Tools/Spinner';
-import Swal from 'sweetalert2';
 
 function PacienteMenuFacturacion({ Patient }) {
 	const [Facturas, setFacturas] = useState(null);
 	const _isMounted = useRef(true);
-	const history = useHistory();
+	//const history = useHistory();
 
 	useEffect(() => {
 		SearchFacturas(Patient)

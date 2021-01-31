@@ -3,6 +3,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'moment/locale/es';
 import moment from 'moment';
+import { Spinner } from '../../Tools/Spinner';
 
 import '../../../styles/Odontologo/Horarios/OdontologoHorario.css';
 import { gellAllEventsDoctor } from '../../../helpers/Backend/getAllEventsDoctor';
@@ -76,23 +77,40 @@ function Horario() {
 		gellAllEventsDoctor(user.d_id)
 			.then((events) => {
 				//Aqui antes Limpiarlos Fecha
-				setEvents(events);
-				console.log(events);
+				let myEventsList = events.map((evento, index) => {
+					return {
+						id: evento.c_id,
+						title: evento.c_title,
+						start: new Date(evento.c_start),
+						end: new Date(evento.c_end),
+					};
+				});
+				console.log(myEventsList);
+				if (_isMounted.current) {
+					setEvents(myEventsList);
+				}
 			})
 			.catch((error) => {
 				console.info('Error en Eventos del Paciente Calendario');
 			});
+		return () => {
+			_isMounted.current = false;
+		};
 	}, []);
 
 	return (
 		<div id="horarioContenedor" className="horario-contenedor">
 			<h1>Horario de Trabajo</h1>
-			<Calendar
-				localizer={localizer}
-				events={myEventsList}
-				startAccessor="start"
-				endAccessor="end"
-			/>
+			{Events ? (
+				<Calendar
+					localizer={localizer}
+					events={Events}
+					startAccessor="start"
+					endAccessor="end"
+				/>
+			) : (
+				<Spinner />
+			)}
 		</div>
 	);
 }

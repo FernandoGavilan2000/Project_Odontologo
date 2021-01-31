@@ -19,7 +19,7 @@ const styleShowMore = {
 };
 
 function PacienteMenuCitasFila({ cita, setUpdate }) {
-	const history = useHistory();
+	//const history = useHistory();
 	const DeleteCita = async () => {
 		const response = await fetch(
 			`${process.env.REACT_APP_API_URL}/api/citas/${cita.c_id}`,
@@ -36,8 +36,8 @@ function PacienteMenuCitasFila({ cita, setUpdate }) {
 
 	const ShowDetails = async () => {
 		Swal.fire({
-			title: `ID_Cita ${cita.c_title}`,
-			text: `${cita.c_description}`,
+			title: `${cita.c_title}`,
+			text: `Descripcion: ${cita.c_description}`,
 			icon: 'info',
 			footer: `Inicio: ${moment(cita.c_start).local().format('LLL')} <br/> Fin: ${moment(
 				cita.c_end
@@ -93,7 +93,7 @@ function PacienteMenuCitasFila({ cita, setUpdate }) {
 
 			<div>
 				<button style={styleShowMore} onClick={ShowDetails}>
-					<img src={see} alt="see" />
+					<img src={see} alt="see" style={{ marginRight: '0' }} />
 					<span>Ver Comentario</span>
 				</button>
 			</div>
