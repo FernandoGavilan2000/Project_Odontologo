@@ -59,7 +59,6 @@ function PacienteMenuDatPersonales({ Patient }) {
 					Swal.fire({
 						icon: 'success',
 						title: 'Nuevos Cambios Guardados!',
-						footer: `${Patient.p_lastname} ${Patient.p_name}`,
 						text: 'Se registro correctamente!',
 					});
 					console.log('Actualizado');
