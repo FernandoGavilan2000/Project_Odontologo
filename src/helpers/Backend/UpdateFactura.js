@@ -1,4 +1,4 @@
-import queryString from 'query-string';
+import queryString, { parse } from 'query-string';
 export const UpdateFactura = async (
 	id_factura,
 	f_tipoT,
@@ -7,9 +7,12 @@ export const UpdateFactura = async (
 	f_statu,
 	f_cost,
 	f_disch,
-	f_summary
+	doctorid
 ) => {
 	try {
+		let costoTotal = parseFloat(f_cost);
+		let dischar = parseFloat(f_disch);
+		let summary = parseFloat(costoTotal - dischar);
 		const ResponseAPIFact = await fetch(
 			`${process.env.REACT_APP_API_URL}/api/facturas/${id_factura}`,
 			{
@@ -19,19 +22,20 @@ export const UpdateFactura = async (
 					'Content-Type': 'application/x-www-form-urlencoded',
 				},
 				body: queryString.stringify({
-					f_tpid,
-					f_pid,
-					f_did,
-					f_emission,
-					f_status,
-					f_topay,
-					f_discharged,
-					f_total,
+					f_tpid: f_tipoT,
+					f_pid: f_patient,
+					f_did: doctorid,
+					f_emission: f_emiss,
+					f_status: f_statu,
+					f_topay: costoTotal,
+					f_discharged: dischar,
+					f_total: summary,
 				}),
 			}
 		);
 		return ResponseAPIFact;
 	} catch (error) {
 		console.info('Error, con la funcion UpdateFactura', error);
+		return error;
 	}
 };

@@ -5,10 +5,39 @@ import moment from 'moment';
 import Swal from 'sweetalert2';
 import 'moment/locale/es';
 import { FacturaUpdate } from '../../../helpers/Alerts/FacturaUpdate';
+import { UpdateFactura } from '../../../helpers/Backend/UpdateFactura';
 
 function CuentasFila({ factura }) {
-	const UpdateFactura = () => {
-		FacturaUpdate(factura);
+	const updateFact = async () => {
+		try {
+			const formFactura = await FacturaUpdate(factura);
+			if (formFactura.isConfirmed) {
+				UpdateFactura(
+					factura.f_id,
+					factura.f_tpid,
+					factura.f_pid,
+					factura.f_emission,
+					formFactura.value[3],
+					formFactura.value[0],
+					formFactura.value[1],
+					factura.f_did
+				).then((response) => {
+					if (response.ok) {
+						console.log('OKKK');
+					} else {
+						console.log('errroo');
+					}
+				});
+			} else {
+			}
+		} catch (error) {
+			console.log(error);
+			Swal.fire({
+				icon: 'error',
+				title: 'Oopsss',
+				text: 'No se pudo actualizar la cuenta..',
+			});
+		}
 	};
 	return (
 		<div className="cuentas-fila">
@@ -33,7 +62,7 @@ function CuentasFila({ factura }) {
 			{/* Action */}
 			<div className="options">
 				<img src={eliminar} />
-				<img src={editar} onClick={UpdateFactura} />
+				<img src={editar} onClick={updateFact} />
 			</div>
 		</div>
 	);
