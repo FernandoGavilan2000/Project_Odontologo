@@ -87,7 +87,7 @@ function Horario() {
 						end: new Date(evento.c_end),
 					};
 				});
-				console.log(myEventsList);
+				//console.log(myEventsList);
 				if (_isMounted.current) {
 					setEvents(myEventsList);
 				}

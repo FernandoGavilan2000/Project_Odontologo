@@ -17,9 +17,15 @@
 	margin-right: 8px;
 }
 
+/*
 .paciente-menu-facturacion-fila p:nth-child(1) {
 	width: 160px;
 	word-wrap: break-word;
 	text-align: center;
 	justify-self: center;
+}
+*/
+.paciente-menu-facturacion-fila p:nth-child(1) {
+	font-weight: bolder;
+	color: var(--header);
 }

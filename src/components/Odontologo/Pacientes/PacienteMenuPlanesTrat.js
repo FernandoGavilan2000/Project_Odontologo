@@ -110,6 +110,11 @@ function PacienteMenuPlanesTrat({ Patient }) {
 			.catch((error) => {
 				//NewTratamientoAlert();
 				console.error(`No se encontraron tratamientos del paciente:${pacienteId}`);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'No hay registro de tratamientos!',
+				});
 			});
 	}, [Update, pacienteId]);
 
@@ -122,7 +127,7 @@ function PacienteMenuPlanesTrat({ Patient }) {
 			<div id="pacienteMenuPlanesTrat" className="paciente-menu-planes-trat">
 				<div className="planestrat-tabla-top">
 					<h4>Cod P. Tratamiento</h4>
-					<h4>N_Citas Trazadas</h4>
+					<h4>Tipo</h4>
 					<h4>Inicio</h4>
 					<h4>Final</h4>
 					<h4>Doctor</h4>

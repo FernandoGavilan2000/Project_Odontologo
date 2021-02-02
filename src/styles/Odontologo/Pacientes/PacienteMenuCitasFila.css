@@ -15,10 +15,15 @@
 .paciente-menu-citas-fila a img {
 	transform: translateY(5px);
 }
-
+/*
 .paciente-menu-citas-fila p:nth-child(4) {
 	width: 160px;
 	word-wrap: break-word;
 	text-align: center;
 	justify-self: center;
+}
+*/
+.paciente-menu-citas-fila p:nth-child(1) {
+	font-weight: bolder;
+	color: var(--header);
 }

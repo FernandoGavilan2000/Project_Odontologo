@@ -14,14 +14,14 @@ const newPacientes = {
 	p_name: '',
 	p_lastname: '',
 	p_birthday: '',
-	p_age: '',
+	p_age: 0,
 	p_gender: '',
 	p_dni: '',
 	p_address: '',
 	p_cellphone: '',
 	p_email: '',
-	p_weight: '',
-	p_height: '',
+	p_weight: 0,
+	p_height: 0,
 	p_allergy: '',
 };
 
@@ -172,7 +172,9 @@ export const PacienteRegistro = () => {
 					<div className="txt-input">
 						<label htmlFor="">Edad</label>
 						<input
-							type="text"
+							type="number"
+							min="1"
+							max="120"
 							name="p_age"
 							autoComplete="off"
 							value={NewUser.p_age}
@@ -256,7 +258,9 @@ export const PacienteRegistro = () => {
 					<div className="txt-input">
 						<label htmlFor="">Peso (kg)</label>
 						<input
-							type="text"
+							type="number"
+							min="15"
+							max="200"
 							name="p_weight"
 							autoComplete="off"
 							value={NewUser.p_weight}
@@ -266,7 +270,9 @@ export const PacienteRegistro = () => {
 					<div className="txt-input">
 						<label htmlFor="">Altura(cm)</label>
 						<input
-							type="text"
+							type="number"
+							min="15"
+							max="300"
 							name="p_height"
 							autoComplete="off"
 							value={NewUser.p_height}
@@ -286,7 +292,7 @@ export const PacienteRegistro = () => {
 					}}
 				>
 					<img src={file} alt="file" />
-					<span>Agregar historia clinica</span>
+					<span>Agregar Anamnesis</span>
 				</button>
 
 				<label style={{ display: 'block' }}>{FilesName.inputfile1}</label>

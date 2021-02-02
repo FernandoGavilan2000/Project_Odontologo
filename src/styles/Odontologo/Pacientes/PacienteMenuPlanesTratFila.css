@@ -1,6 +1,6 @@
 .paciente-menu-planestrat-fila {
 	display: grid;
-	grid-template-columns: 20% 20% 20% 20% 20%;
+	grid-template-columns: 14% 15% 28% 28% 15%;
 	padding-left: 30px;
 	padding-right: 30px;
 	text-align: center;
@@ -16,10 +16,15 @@
 	transform: translateY(5px);
 	margin-right: 8px;
 }
-
+/*
 .paciente-menu-planestrat-fila p:nth-child(4) {
-	width: 160px;
+	width: 170px;
 	word-wrap: break-word;
 	text-align: center;
 	justify-self: center;
+}
+*/
+.paciente-menu-planestrat-fila p:nth-child(1) {
+	font-weight: bolder;
+	color: var(--header);
 }

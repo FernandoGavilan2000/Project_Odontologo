@@ -24,6 +24,13 @@
 	width: 100%;
 }
 
+.datos-personales .datos-personales-inputs input[type='number'] {
+	width: 100%;
+}
+.datos-personales .datos-personales-inputs input[type='date'] {
+	width: 100%;
+}
+
 .mas-informacion h3 {
 	color: var(--paragraph);
 	text-transform: uppercase;
