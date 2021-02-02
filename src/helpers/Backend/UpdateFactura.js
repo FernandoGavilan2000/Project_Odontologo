@@ -1,4 +1,4 @@
-import queryString, { parse } from 'query-string';
+import queryString from 'query-string';
 export const UpdateFactura = async (
 	id_factura,
 	f_tipoT,
@@ -13,6 +13,12 @@ export const UpdateFactura = async (
 		let costoTotal = parseFloat(f_cost);
 		let dischar = parseFloat(f_disch);
 		let summary = parseFloat(costoTotal - dischar);
+		/*
+		let textStatus = 'Pendiente';
+		if (summary === 0) {
+			textStatus = 'Cancelado';
+		}
+		*/
 		const ResponseAPIFact = await fetch(
 			`${process.env.REACT_APP_API_URL}/api/facturas/${id_factura}`,
 			{

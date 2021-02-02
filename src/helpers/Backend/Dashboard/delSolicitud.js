@@ -9,5 +9,5 @@ export const delSolicitud = async (id_solicitud) => {
 			},
 		}
 	);
-	return await response.json();
+	return response;
 };

@@ -11,6 +11,7 @@ import { AuthContext } from '../../../auth/AuthContext';
 
 const localizer = momentLocalizer(moment);
 
+/*
 const myEventsList = [
 	{
 		id: 1,
@@ -67,9 +68,10 @@ const myEventsList = [
 		end: new Date(2021, 0, 5),
 	},
 ];
+*/
 
 function Horario() {
-	const { user, dispatch } = useContext(AuthContext);
+	const { user } = useContext(AuthContext);
 	const [Events, setEvents] = useState(null);
 	const _isMounted = useRef(true);
 
@@ -96,7 +98,7 @@ function Horario() {
 		return () => {
 			_isMounted.current = false;
 		};
-	}, []);
+	}, [user.d_id]);
 
 	return (
 		<div id="horarioContenedor" className="horario-contenedor">

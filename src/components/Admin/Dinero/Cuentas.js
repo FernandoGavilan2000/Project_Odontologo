@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../../../styles/Admin/Cuentas.css';
 import CuentasFila from './CuentasFila';
 import { Spinner } from '../../Tools/Spinner';
-import editar from '../../../assets/images/editar.svg';
+//import editar from '../../../assets/images/editar.svg';
 import { getAllFacturas } from '../../../helpers/Backend/getAllFacturas';
 
 export const Cuentas = () => {
 	const [Facturas, setFacturas] = useState(null);
+	const [Update, setUpdate] = useState(false);
+
 	const _isMounted = useRef(true);
 
 	useEffect(() => {
@@ -19,13 +21,13 @@ export const Cuentas = () => {
 			.catch((error) => {
 				console.info('No se pudo encontrar los facturas-admin', error);
 			});
-	}, []);
+	}, [Update]);
 
 	useEffect(() => {
 		return () => {
 			_isMounted.current = false;
 		};
-	});
+	}, []);
 	return (
 		<div id="cuentasSeccion" className="cuentas-seccion">
 			<h1>Resumen Facturas</h1>
@@ -43,7 +45,7 @@ export const Cuentas = () => {
 					{Facturas ? (
 						<>
 							{Facturas.map((factura, index) => (
-								<CuentasFila factura={factura} key={factura.f_id} />
+								<CuentasFila factura={factura} key={factura.f_id} setUpdate={setUpdate} />
 							))}
 						</>
 					) : (
