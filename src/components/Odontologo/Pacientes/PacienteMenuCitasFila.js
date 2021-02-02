@@ -6,7 +6,7 @@ import 'moment/locale/es';
 import see from '../../../assets/images/see.svg';
 
 import Swal from 'sweetalert2';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 
 const styleShowMore = {
 	backgroundColor: '#FFFF',

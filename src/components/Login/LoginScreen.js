@@ -27,7 +27,7 @@ export const LoginScreen = ({ history }) => {
 				d_id: 1004,
 				d_name: 'Fernando Ramiro',
 				d_lastname: 'Gavilan Hernandez',
-				type: 'admin',
+				type: 'odontologo',
 				d_img:
 					'https://plataformas.news/online/nota_the-good-doctor-posiciona-sony-channel-en-la-region.jpg',
 			},

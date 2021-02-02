@@ -7,7 +7,7 @@ import 'moment/locale/es';
 import { FacturaUpdate } from '../../../helpers/Alerts/FacturaUpdate';
 import { UpdateFactura } from '../../../helpers/Backend/UpdateFactura';
 
-function CuentasFila({ factura }) {
+function CuentasFila({ factura, setUpdate }) {
 	const updateFact = async () => {
 		try {
 			const formFactura = await FacturaUpdate(factura);
@@ -17,12 +17,13 @@ function CuentasFila({ factura }) {
 					factura.f_tpid,
 					factura.f_pid,
 					factura.f_emission,
-					formFactura.value[3],
+					formFactura.value[2],
 					formFactura.value[0],
 					formFactura.value[1],
 					factura.f_did
 				).then((response) => {
 					if (response.ok) {
+						setUpdate((stateValue) => !stateValue);
 						console.log('OKKK');
 					} else {
 						console.log('errroo');
@@ -61,8 +62,8 @@ function CuentasFila({ factura }) {
 
 			{/* Action */}
 			<div className="options">
-				<img src={eliminar} />
-				<img src={editar} onClick={updateFact} />
+				<img src={eliminar} alt="btn_delete" />
+				<img src={editar} alt="btn_update" onClick={updateFact} />
 			</div>
 		</div>
 	);

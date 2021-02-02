@@ -7,7 +7,7 @@ import { AuthContext } from '../../../auth/AuthContext';
 import PacienteMenuCitasFila from './PacienteMenuCitasFila';
 import { NewCita } from '../../../helpers/Backend/NewCita';
 import { CreateNewCita } from '../../../helpers/Backend/CreateNewCita';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 
 function PacienteMenuCitas({ Patient }) {
 	const [Citas, setCitas] = useState(null);
@@ -31,7 +31,7 @@ function PacienteMenuCitas({ Patient }) {
 					text: 'No hay registro de citas!',
 				});
 			});
-	}, [Update]);
+	}, [Update, Patient]);
 
 	useEffect(() => {
 		return () => {
@@ -69,7 +69,7 @@ function PacienteMenuCitas({ Patient }) {
 					)
 						.then((response) => {
 							if (response.ok) {
-								setUpdate(true);
+								setUpdate((stateValue) => !stateValue);
 								Swal.close();
 								Swal.fire({
 									icon: 'success',

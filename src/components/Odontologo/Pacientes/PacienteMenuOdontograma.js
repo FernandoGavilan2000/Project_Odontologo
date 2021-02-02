@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuOdontograma.css';
 import PacienteMenuOdontogramaFila from './PacienteMenuOdontogramaFila';
-import Swal from 'sweetalert2';
+//import Swal from 'sweetalert2';
 
 //import { ArrayDiente } from '../../../helpers/Odontograma/ArrayDiente';
 //import { ArrayDiente2 } from '../../../helpers/Odontograma/ArrayDiente2';

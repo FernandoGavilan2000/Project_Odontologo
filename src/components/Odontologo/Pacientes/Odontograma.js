@@ -23,14 +23,14 @@ import { NewOdontograma } from '../../../helpers/Backend/NewOdontograma';
 import { getIDHistoria } from '../../../helpers/Backend/getIDHistoria';
 //EstadosDientes
 import Swal from 'sweetalert2';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import { UpdateOdonto } from '../../../helpers/Backend/UpdateOdonto';
 //import { useCallback } from 'react';
 
 export const Odontograma = ({ ArrayDiente, Patient, status, setUpdate }) => {
 	const [DientesCollection, setDientesCollection] = useState(ArrayDiente);
 	const [Diente, setDiente] = useState(ArrayDiente[0]);
-	const History = useHistory();
+	//const History = useHistory();
 	/*
 	console.log(DientesCollection);
 	console.log(Diente);
@@ -124,7 +124,7 @@ export const Odontograma = ({ ArrayDiente, Patient, status, setUpdate }) => {
 					NewOdontograma(response[0].hc_id, DientesCollection)
 						.then((response) => {
 							if (response.ok) {
-								setUpdate(true);
+								setUpdate((stateValue) => !stateValue);
 								Swal.close();
 								Swal.fire({
 									icon: 'success',
@@ -148,6 +148,7 @@ export const Odontograma = ({ ArrayDiente, Patient, status, setUpdate }) => {
 					UpdateOdonto(status.idOdonto, response[0].hc_id, DientesCollection)
 						.then((response) => {
 							if (response.ok) {
+								setUpdate((stateValue) => !stateValue);
 								Swal.close();
 								Swal.fire({
 									icon: 'success',

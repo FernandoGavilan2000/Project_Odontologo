@@ -54,7 +54,7 @@ function PacienteMenuPlanesTrat({ Patient }) {
 							.then((response) => {
 								if (response.ok) {
 									//history.replace(`/app/pacientes/${pacienteId}`);
-									setUpdate(true);
+									setUpdate((stateValue) => !stateValue);
 									console.log('NUEVO TRATAMIENTO Y FACTURA CREADO');
 									Swal.close();
 									Swal.fire({
@@ -111,7 +111,7 @@ function PacienteMenuPlanesTrat({ Patient }) {
 				//NewTratamientoAlert();
 				console.error(`No se encontraron tratamientos del paciente:${pacienteId}`);
 			});
-	}, [Update]);
+	}, [Update, pacienteId]);
 
 	return (
 		<>

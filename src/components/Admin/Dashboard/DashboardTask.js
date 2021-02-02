@@ -5,10 +5,52 @@ import Swal from 'sweetalert2';
 import { delSolicitud } from '../../../helpers/Backend/Dashboard/delSolicitud';
 
 const CardTask = ({ task, setUpdate }) => {
+	const DeleteTask = async (task_id) => {
+		try {
+			Swal.fire({
+				title: 'Are you sure?',
+				text: "You won't be able to revert this!",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes, delete it!',
+			}).then((result) => {
+				if (result.isConfirmed) {
+					delSolicitud(task_id)
+						.then((response) => {
+							if (response.ok) {
+								setUpdate((stateValue) => !stateValue);
+								Swal.fire(
+									'Solicitud Eliminada',
+									`Se elimino la solicitud :${task_id}`,
+									'success'
+								);
+							} else {
+								Swal.fire('Oopss', `Error con la solicitud :${task_id}`, 'error');
+							}
+						})
+						.catch((error) => {
+							Swal.fire('Oopss', `Error con la solicitud :${task_id}`, 'error');
+							console.info('Error eliminar solicitud');
+						});
+				}
+			});
+		} catch (error) {
+			Swal.fire('Oopss', `Error con la solicitud :${task_id}`, 'error');
+			console.info('Error eliminar solicitud', error);
+		}
+	};
 	return (
 		<div className="card1">
 			<p className="txt_chartDelete">
-				<b onClick={() => {}}>Eliminar</b>
+				<b
+					onClick={() => {
+						DeleteTask(task.s_id);
+					}}
+				>
+					Eliminar
+				</b>
 			</p>
 			<h3>
 				<b>
@@ -50,7 +92,8 @@ export const DashboardTask = () => {
 		return () => {
 			_isMounted.current = false;
 		};
-	});
+	}, []);
+
 	return (
 		<div className="charts__right">
 			<div className="charts__right__title">

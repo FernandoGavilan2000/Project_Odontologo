@@ -23,7 +23,7 @@ function PacienteMenuFacturacion({ Patient }) {
 		return () => {
 			_isMounted.current = false;
 		};
-	}, []);
+	}, [Patient]);
 	const SearchFacturas = async (id_paciente) => {
 		const response = await fetch(
 			`${process.env.REACT_APP_API_URL}/api/facturas/patient/${id_paciente}`,
