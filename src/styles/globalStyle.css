@@ -135,6 +135,27 @@ ul {
 	outline-color: var(--background3);
 }
 
+.txt-input input[type='number'] {
+	border-bottom: 0.75px solid var(--background4);
+	padding: 6px 4px;
+	background: none;
+	font-size: 16px;
+	font-family: var(--font-family-second);
+	color: var(--paragraph);
+}
+.txt-input input[type='number']:focus {
+	outline-color: var(--background3);
+}
+
+.txt-input input[type='date'] {
+	border-bottom: 0.75px solid var(--background4);
+	padding: 6px 4px;
+	background: none;
+	font-size: 16px;
+	font-family: var(--font-family-second);
+	color: var(--paragraph);
+}
+
 .contenedor-scroll::-webkit-scrollbar-track {
 	-webkit-box-shadow: 0 0 6px rgb(255, 255, 255);
 	border-radius: 10px;

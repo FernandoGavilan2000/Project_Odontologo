@@ -1,4 +1,5 @@
 import queryString from 'query-string';
+import moment from 'moment';
 
 export const NewTratamiento = async (
 	id_doctor,
@@ -24,8 +25,10 @@ export const NewTratamiento = async (
 					tp_tid: id_trat,
 					tp_did: id_doctor,
 					tp_description: comment,
-					tp_start: date_start,
-					tp_end: date_end,
+					tp_start: moment(date_start, 'DD.MM.YYYY HH:mm:ss').format(
+						'YYYY-MM-DD HH:mm:ss'
+					),
+					tp_end: moment(date_end, 'DD.MM.YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss'),
 					tp_ndates: ncitas,
 				}),
 			}

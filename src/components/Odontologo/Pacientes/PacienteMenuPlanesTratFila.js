@@ -3,6 +3,7 @@ import '../../../styles/Odontologo/Pacientes/PacienteMenuPlanesTratFila.css';
 import moment from 'moment';
 import 'moment/locale/es';
 import { ShowDoctor } from '../../../helpers/Backend/ShowDoctor';
+import { ShowTipoTrat } from '../../../helpers/Backend/ShowTipoTrat';
 function PacienteMenuPlanesTratFila({ tratamiento }) {
 	//let doctor = doctors.filter((doctor) => doctor.auth_id === tratamiento.tp_did);
 	return (
@@ -11,7 +12,14 @@ function PacienteMenuPlanesTratFila({ tratamiento }) {
 			<p>{tratamiento.tp_id}</p>
 
 			{/* Cantidad de Citas */}
-			<p>{tratamiento.tp_ndates}</p>
+			<p
+				style={{ cursor: 'pointer' }}
+				onClick={() => {
+					ShowTipoTrat(tratamiento.tp_tid);
+				}}
+			>
+				{tratamiento.tp_tid}
+			</p>
 
 			{/* Inicio */}
 			<p>{moment(tratamiento.tp_start).local().format('LL')}</p>

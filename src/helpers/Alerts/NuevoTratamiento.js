@@ -15,12 +15,12 @@ export const NuevoTratamiento = async () => {
 		{
 			title: 'Fecha de Inicio',
 			text: 'Escriba aqui la Fecha :  DD-MM-YYYY',
-			inputValue: `${moment().format('DD-MM-YYYY HH:mm:ss')}`,
+			inputValue: `${moment().format('DD-MM-YYYY')}`,
 		},
 		{
 			title: 'Fecha de Finalizacion',
 			text: 'Escriba aqui la Fecha : DD-MM-YYYY',
-			inputValue: `${moment().format('DD-MM-YYYY HH:mm:ss')}`,
+			inputValue: `${moment().format('DD-MM-YYYY')}`,
 		},
 		{
 			title: 'Numero de Citas Trazadas',

@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../../../styles/Odontologo/Pacientes/PacienteMenuFacturacion.css';
 import PacienteMenuFacturacionFila from './PacienteMenuFacturacionFila';
 import { Spinner } from '../../Tools/Spinner';
+import Swal from 'sweetalert2';
 
 function PacienteMenuFacturacion({ Patient }) {
 	const [Facturas, setFacturas] = useState(null);
@@ -17,7 +18,12 @@ function PacienteMenuFacturacion({ Patient }) {
 				}
 			})
 			.catch((error) => {
-				console.info('No se pudo encontrar las Citas del Paciente', error);
+				console.info('No se pudo encontrar las Facturas del Paciente', error);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'No hay registro de cuentas!',
+				});
 			});
 
 		return () => {
