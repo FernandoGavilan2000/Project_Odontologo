@@ -26,7 +26,7 @@ export const NewFactura = async (id_trat, id_paciente, id_doctor, cod_tipo) => {
 			f_pid: id_paciente,
 			f_did: id_doctor,
 			f_emission: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
-			f_status: 'Pendiente de Pago',
+			f_status: 'Pendiente',
 			f_topay: CostTratamiento[0].t_price,
 			f_discharged: 0,
 			f_total: CostTratamiento[0].t_price,

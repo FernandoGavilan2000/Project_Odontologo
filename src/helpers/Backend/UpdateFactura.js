@@ -1,4 +1,5 @@
 import queryString from 'query-string';
+import moment from 'moment';
 export const UpdateFactura = async (
 	id_factura,
 	f_tipoT,
@@ -31,7 +32,7 @@ export const UpdateFactura = async (
 					f_tpid: f_tipoT,
 					f_pid: f_patient,
 					f_did: doctorid,
-					f_emission: f_emiss,
+					f_emission: moment(f_emiss).utc().format('YYYY-MM-DD'),
 					f_status: f_statu,
 					f_topay: costoTotal,
 					f_discharged: dischar,
