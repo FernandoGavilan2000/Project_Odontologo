@@ -114,7 +114,7 @@ export const PacienteRegistro = () => {
 					Swal.close();
 					Swal.fire({
 						icon: 'success',
-						title: 'Paciente Creado con Exito!',
+						title: 'Paciente Creado con Éxito!',
 						text: 'Se registro correctamente!',
 					});
 					history.replace('/app/pacientes');

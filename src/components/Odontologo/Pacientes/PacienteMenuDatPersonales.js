@@ -9,10 +9,12 @@ import seewhite from '../../../assets/images/see-white.svg';
 import { useForm } from '../../../hooks/useForm';
 import { getAnamnesis } from '../../../helpers/Backend/getAnamnesis';
 import { UpdatePatientInfo } from '../../../helpers/Backend/UpdatePatientInfo';
+import { useHistory } from 'react-router-dom';
 
 function PacienteMenuDatPersonales({ Patient }) {
 	const [inputDisabled, setinputDisabled] = useState(true);
 	const [TextButton, setTextButton] = useState('Editar');
+	const history = useHistory();
 
 	const [UserData, setUserData, reset] = useForm({
 		p_name: Patient.p_name,
@@ -56,14 +58,20 @@ function PacienteMenuDatPersonales({ Patient }) {
 			.then((response) => {
 				if (response.ok) {
 					Swal.close();
+					history.push('/app/pacientes');
 					Swal.fire({
 						icon: 'success',
 						title: 'Nuevos Cambios Guardados!',
 						text: 'Se registro correctamente!',
 					});
-					console.log('Actualizado');
+					//console.log('Actualizado');
 				} else {
 					Swal.close();
+					Swal.fire({
+						icon: 'error',
+						title: 'Oopsss!',
+						text: 'No se pudo actualizar los datos del paciente',
+					});
 				}
 			})
 			.catch((error) => {
