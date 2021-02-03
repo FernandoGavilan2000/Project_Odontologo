@@ -30,10 +30,10 @@ export const Cuentas = () => {
 	}, []);
 	return (
 		<div id="cuentasSeccion" className="cuentas-seccion">
-			<h1>Resumen Facturas</h1>
+			<h1>Resumen Cuentas</h1>
 			<div className="cuentas-tabla contenedor-scroll">
 				<div className="cuentas-tabla-top">
-					<h4>Cod. Factura</h4>
+					<h4 className="title_black">Cod. Cuenta</h4>
 					<h4>Estado</h4>
 					<h4>F. de Emision</h4>
 					<h4>Total a pagar</h4>
