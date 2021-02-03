@@ -56,9 +56,11 @@ function PacienteMenuFacturacion({ Patient }) {
 			<div className="facturacion-tabla-datos contenedor-scroll">
 				{Facturas ? (
 					<>
-						{Facturas.map((factura, index) => (
-							<PacienteMenuFacturacionFila factura={factura} key={factura.f_id} />
-						))}
+						{Facturas.sort((a, b) => parseInt(b.f_id) - parseInt(a.f_id)).map(
+							(factura, index) => (
+								<PacienteMenuFacturacionFila factura={factura} key={factura.f_id} />
+							)
+						)}
 					</>
 				) : (
 					<Spinner />

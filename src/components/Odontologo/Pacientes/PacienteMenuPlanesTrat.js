@@ -59,7 +59,7 @@ function PacienteMenuPlanesTrat({ Patient }) {
 									Swal.close();
 									Swal.fire({
 										icon: 'success',
-										title: 'Nuevo Tratamiento Creado con Exito!',
+										title: 'Nuevo Tratamiento Creado!',
 										text: 'Se registro correctamente!',
 									});
 								} else {
@@ -68,7 +68,7 @@ function PacienteMenuPlanesTrat({ Patient }) {
 									Swal.fire({
 										icon: 'error',
 										title: 'No se pudo crear el Tratamiento',
-										text: 'Intentelo Nuevamente,Ingrese bien los Datos',
+										text: 'Inténtelo  Nuevamente,Ingrese bien los Datos',
 									});
 									console.info('NO SE PUDO CREAR EL TRATAMIENTO Y FACTURA ');
 								}
@@ -77,9 +77,9 @@ function PacienteMenuPlanesTrat({ Patient }) {
 								history.replace(`/app/pacientes/${pacienteId}`);
 								Swal.close();
 								Swal.fire({
-									icon: 'info',
-									title: 'No se pudo crear la Factura del Tratamiento',
-									text: 'Comunicarse con el Admin o Supervisor',
+									icon: 'error',
+									title: 'No se pudo crear el Tratamiento',
+									text: 'Inténtelo  Nuevamente,Ingrese bien los Datos',
 								});
 								console.info('Error con la creacion del Factura');
 							});
@@ -90,7 +90,7 @@ function PacienteMenuPlanesTrat({ Patient }) {
 						Swal.fire({
 							icon: 'error',
 							title: 'No se pudo crear el Tratamiento',
-							text: 'Intentelo Nuevamente,Ingrese bien los Datos',
+							text: 'Inténtelo  Nuevamente,Ingrese bien los Datos',
 						});
 						console.info('No se pudo crear el Tratamiento');
 					});
@@ -135,7 +135,7 @@ function PacienteMenuPlanesTrat({ Patient }) {
 				<div className="planestrat-tabla-datos contenedor-scroll">
 					{Tratamientos ? (
 						<>
-							{Tratamientos.sort((a, b) => parseInt(b.c_id) - parseInt(a.c_id)).map(
+							{Tratamientos.sort((a, b) => parseInt(b.tp_id) - parseInt(a.tp_id)).map(
 								(tratamiento, index) => (
 									<PacienteMenuPlanesTratFila
 										tratamiento={tratamiento}

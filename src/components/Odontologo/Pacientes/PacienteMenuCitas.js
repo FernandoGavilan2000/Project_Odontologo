@@ -74,7 +74,7 @@ function PacienteMenuCitas({ Patient }) {
 								Swal.close();
 								Swal.fire({
 									icon: 'success',
-									title: 'Nueva Cita Creada con Exito!',
+									title: 'Nueva Cita Creada!',
 									text: 'Se registro correctamente!',
 								});
 							} else {
@@ -116,8 +116,8 @@ function PacienteMenuCitas({ Patient }) {
 				<div className="cita-tabla-top">
 					<h4>ID Cita</h4>
 					<h4>ID Tratamiento</h4>
-					<h4>Hora</h4>
-					<h4>Estado</h4>
+					<h4>Inicio</h4>
+					<h4>Fin</h4>
 					<h4>Comentarios</h4>
 				</div>
 				<div className="cita-tabla-datos contenedor-scroll">

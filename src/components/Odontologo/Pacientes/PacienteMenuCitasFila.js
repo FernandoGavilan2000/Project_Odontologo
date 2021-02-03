@@ -87,7 +87,7 @@ function PacienteMenuCitasFila({ cita, setUpdate }) {
 			<p>{moment(cita.c_start).local().format('LLL')}</p>
 
 			{/* Status*/}
-			<p>{cita.c_status}</p>
+			<p>{moment(cita.c_end).local().format('LLL')}</p>
 
 			{/* Comentarios */}
 
