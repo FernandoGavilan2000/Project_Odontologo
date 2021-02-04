@@ -25,13 +25,15 @@ export const LoginScreen = ({ history }) => {
 			const lastPath = localStorage.getItem('lastPathOdontologo') || '/app';
 
 			if (LoginUser.logged) {
-				console.log('AQQUII SI EXISTE');
+				//console.log('AQQUII SI EXISTE');
 				dispatch({
 					type: types.login,
 					payload: {
 						...LoginUser,
 					},
 				});
+				history.replace(lastPath);
+				SuccesfullLogin();
 			} else {
 				dispatch({
 					type: types.logout,
@@ -52,10 +54,6 @@ export const LoginScreen = ({ history }) => {
 				},
 			});
 			*/
-
-			history.replace(lastPath);
-
-			SuccesfullLogin();
 		} catch (error) {
 			console.log(error);
 			dispatch({
