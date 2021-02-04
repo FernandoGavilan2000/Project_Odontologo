@@ -6,6 +6,7 @@ import '../../styles/Login/Login.css';
 import logo from '../../assets/images/logo.svg';
 import { SuccesfullLogin } from '../../helpers/Alerts/SuccessfulLogin';
 import { useForm } from '../../hooks/useForm';
+import { authLogin } from '../../helpers/Backend/authLogin';
 
 export const LoginScreen = ({ history }) => {
 	const { dispatch } = useContext(AuthContext);
@@ -15,27 +16,53 @@ export const LoginScreen = ({ history }) => {
 		auth_password: '',
 	});
 
-	const handleLogin = (e) => {
+	const handleLogin = async (e) => {
 		e.preventDefault();
-		//Hacer la verificacion en la API , confirmar autenticacion --> Tipo POST , responder con un 200 OK
-		//Segundo: La Api debe devolver lo del payload
-		const lastPath = localStorage.getItem('lastPathOdontologo') || '/app';
+		try {
+			//console.log(FormValues);
+			const LoginUser = await authLogin(FormValues.auth_user, FormValues.auth_password);
 
-		dispatch({
-			type: types.login,
-			payload: {
-				d_id: 1004,
-				d_name: 'Fernando Ramiro',
-				d_lastname: 'Gavilan Hernandez',
-				type: 'odontologo',
-				d_img:
-					'https://plataformas.news/online/nota_the-good-doctor-posiciona-sony-channel-en-la-region.jpg',
-			},
-		});
+			const lastPath = localStorage.getItem('lastPathOdontologo') || '/app';
 
-		history.replace(lastPath);
+			if (LoginUser.logged) {
+				console.log('AQQUII SI EXISTE');
+				dispatch({
+					type: types.login,
+					payload: {
+						...LoginUser,
+					},
+				});
+			} else {
+				dispatch({
+					type: types.logout,
+				});
+				resetForm();
+			}
 
-		SuccesfullLogin();
+			/*
+			dispatch({
+				type: types.login,
+				payload: {
+					d_id: 1004,
+					d_name: 'Fernando Ramiro',
+					d_lastname: 'Gavilan Hernandez',
+					type: 'odontologo',
+					d_img:
+						'https://plataformas.news/online/nota_the-good-doctor-posiciona-sony-channel-en-la-region.jpg',
+				},
+			});
+			*/
+
+			history.replace(lastPath);
+
+			SuccesfullLogin();
+		} catch (error) {
+			console.log(error);
+			dispatch({
+				type: types.logout,
+			});
+			resetForm();
+		}
 	};
 	return (
 		<div className="login-center">
@@ -49,7 +76,7 @@ export const LoginScreen = ({ history }) => {
 						<label>User Name</label>
 						<input
 							type="text"
-							name="email"
+							name="auth_user"
 							required
 							onChange={handleForm}
 							autoComplete="off"
@@ -59,7 +86,7 @@ export const LoginScreen = ({ history }) => {
 						<label>Password</label>
 						<input
 							type="password"
-							name="password"
+							name="auth_password"
 							required
 							onChange={handleForm}
 							autoComplete="off"

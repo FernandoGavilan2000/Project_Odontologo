@@ -12,10 +12,7 @@ import { AuthContext } from '../../../auth/AuthContext';
 import { types } from '../../../types/types';
 
 export const BarraLateralAdmin = () => {
-	const {
-		user: { name },
-		dispatch,
-	} = useContext(AuthContext);
+	const { user, dispatch } = useContext(AuthContext);
 	const history = useHistory();
 
 	const handleLogout = () => {
@@ -54,7 +51,7 @@ export const BarraLateralAdmin = () => {
 					className="doctor-picture"
 				/>
 
-				<h3 className="doctor-name">{name}</h3>
+				<h3 className="doctor-name">{user.a_name}</h3>
 
 				<NavLink to="/" activeClassName="selected" onClick={handleLogout}>
 					<img src={logout} alt="log-out" />
