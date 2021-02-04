@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import '../../../styles/Odontologo/Inicio/OdontologoInicio.css';
 import see from '../../../assets/images/see.svg';
-import { InicioPacienteRow } from './InicioPacienteRow';
+//import { InicioPacienteRow } from './InicioPacienteRow';
 
 import { FetchComunicados } from '../../../helpers/Firebase/FetchComunicados';
 import { Spinner } from '../../Tools/Spinner';
@@ -50,22 +50,7 @@ function Inicio() {
 					</NavLink>
 				</button>
 			</div>
-			<div className="patients-table">
-				<table cellSpacing={0} cellPadding={0}>
-					<thead>
-						<tr>
-							<th>PACIENTE</th>
-							<th>TELEFONO</th>
-							<th />
-						</tr>
-					</thead>
-					<tbody>
-						<InicioPacienteRow />
-						<InicioPacienteRow />
-						<InicioPacienteRow />
-					</tbody>
-				</table>
-			</div>
+
 			<br />
 			<h2>Comunicados :</h2>
 

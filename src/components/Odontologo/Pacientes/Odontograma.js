@@ -218,85 +218,114 @@ export const Odontograma = ({ ArrayDiente, Patient, status, setUpdate }) => {
 				</div>
 				<div className="detalles-odontograma">
 					<h2>DIENTE SELECCIONADO :</h2>
-					<p>
-						<b>Numero de Diente:</b> <span>{Diente.numero}</span>
-					</p>
-					<p>
-						<b>Nombre del Diente:</b> <span>{Diente.nombre}</span>
-					</p>
-					<p>
-						<b>Estado:</b>
-						<select value={Diente.estado} onChange={handleChangeEstado}>
-							{EstadosArray.map((estadoArray, index) => (
-								<option value={estadoArray.name} key={estadoArray.name}>
-									{estadoArray.name}
+					<div className="odontograma_miniresults">
+						<p>
+							<b>Numero de Diente:</b> <span>{Diente.numero}</span>
+						</p>
+						<p>
+							<b>Nombre del Diente:</b> <span>{Diente.nombre}</span>
+						</p>
+						<p>
+							<b>Estado:</b>
+							<select value={Diente.estado} onChange={handleChangeEstado}>
+								{EstadosArray.map((estadoArray, index) => (
+									<option value={estadoArray.name} key={estadoArray.name}>
+										{estadoArray.name}
+									</option>
+								))}
+							</select>
+						</p>
+					</div>
+					<div className="odontograma_hallazgo">
+						<h2>Hallazgo Clínico:</h2>
+						<select value={Diente.hallazgo} onChange={handleChangeHallazgo}>
+							{HallazgosArray.map((hallazgoArray, index) => (
+								<option value={hallazgoArray.name} key={hallazgoArray.id}>
+									{hallazgoArray.name}
 								</option>
 							))}
 						</select>
-					</p>
-
-					<h2>Hallazgo Clínico:</h2>
-					<select value={Diente.hallazgo} onChange={handleChangeHallazgo}>
-						{HallazgosArray.map((hallazgoArray, index) => (
-							<option value={hallazgoArray.name} key={hallazgoArray.id}>
-								{hallazgoArray.name}
-							</option>
-						))}
-					</select>
+					</div>
 
 					<h2>Caras del Diente Seleccionado :</h2>
 
-					<p>Vestibular:</p>
-					<select
-						value={Diente.caras.Vestibular}
-						name="Vestibular"
-						onChange={handleChangeCara}
-					>
-						{CarasDientesArray.map((carasArray, index) => (
-							<option name="Vestibular" value={carasArray.name} key={carasArray.id}>
-								{carasArray.name}
-							</option>
-						))}
-					</select>
-					<p>Oclusal: </p>
-					<select value={Diente.caras.Oclusal} name="Oclusal" onChange={handleChangeCara}>
-						{CarasDientesArray.map((carasArray, index) => (
-							<option name="Oclusal" value={carasArray.name} key={carasArray.id}>
-								{carasArray.name}
-							</option>
-						))}
-					</select>
+					<div className="odontograma_results">
+						<div>
+							<p>Vestibular:</p>
+							<select
+								value={Diente.caras.Vestibular}
+								name="Vestibular"
+								onChange={handleChangeCara}
+							>
+								{CarasDientesArray.map((carasArray, index) => (
+									<option name="Vestibular" value={carasArray.name} key={carasArray.id}>
+										{carasArray.name}
+									</option>
+								))}
+							</select>
+						</div>
+						<div>
+							<p>Oclusal: </p>
+							<select
+								value={Diente.caras.Oclusal}
+								name="Oclusal"
+								onChange={handleChangeCara}
+							>
+								{CarasDientesArray.map((carasArray, index) => (
+									<option name="Oclusal" value={carasArray.name} key={carasArray.id}>
+										{carasArray.name}
+									</option>
+								))}
+							</select>
+						</div>
 
-					<p>Lingual:</p>
-					<select value={Diente.caras.Lingual} name="Lingual" onChange={handleChangeCara}>
-						{CarasDientesArray.map((carasArray, index) => (
-							<option name="Lingual" value={carasArray.name} key={carasArray.id}>
-								{carasArray.name}
-							</option>
-						))}
-					</select>
-					<p>Mesial:</p>
-					<select value={Diente.caras.Mesial} name="Mesial" onChange={handleChangeCara}>
-						{CarasDientesArray.map((carasArray, index) => (
-							<option name="Mesial" value={carasArray.name} key={carasArray.id}>
-								{carasArray.name}
-							</option>
-						))}
-					</select>
-					<p>Distal:</p>
-					<select value={Diente.caras.Distal} name="Distal" onChange={handleChangeCara}>
-						{CarasDientesArray.map((carasArray, index) => (
-							<option name="Distal" value={carasArray.name} key={carasArray.id}>
-								{carasArray.name}
-							</option>
-						))}
-					</select>
+						<div>
+							<p>Lingual:</p>
+							<select
+								value={Diente.caras.Lingual}
+								name="Lingual"
+								onChange={handleChangeCara}
+							>
+								{CarasDientesArray.map((carasArray, index) => (
+									<option name="Lingual" value={carasArray.name} key={carasArray.id}>
+										{carasArray.name}
+									</option>
+								))}
+							</select>
+						</div>
+
+						<div>
+							<p>Mesial:</p>
+							<select
+								value={Diente.caras.Mesial}
+								name="Mesial"
+								onChange={handleChangeCara}
+							>
+								{CarasDientesArray.map((carasArray, index) => (
+									<option name="Mesial" value={carasArray.name} key={carasArray.id}>
+										{carasArray.name}
+									</option>
+								))}
+							</select>
+						</div>
+						<div>
+							<p>Distal:</p>
+							<select
+								value={Diente.caras.Distal}
+								name="Distal"
+								onChange={handleChangeCara}
+							>
+								{CarasDientesArray.map((carasArray, index) => (
+									<option name="Distal" value={carasArray.name} key={carasArray.id}>
+										{carasArray.name}
+									</option>
+								))}
+							</select>
+						</div>
+					</div>
 
 					<br />
-					<button
-						style={{ backgroundColor: 'lightblue', padding: '12px' }}
-						onClick={handleSubmit}
-					>
+					<button style={{ padding: '12px' }} onClick={handleSubmit}>
 						Guardar Cambios
 					</button>
 				</div>
