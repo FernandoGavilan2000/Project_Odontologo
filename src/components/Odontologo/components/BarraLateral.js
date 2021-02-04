@@ -20,11 +20,11 @@ function BarraLateral() {
 	const history = useHistory();
 
 	const handleLogout = () => {
-		history.replace('/login');
-
 		dispatch({
 			type: types.logout,
 		});
+
+		history.replace('/');
 	};
 	return (
 		<ul id="sideBar" className="nav-bar">
@@ -52,7 +52,7 @@ function BarraLateral() {
 				<img src={user.d_img} alt="doctor" className="doctor-picture" />
 				{/* <!-- Doctor Name --> */}
 
-				<h3 className="doctor-name">{user.d_name}</h3>
+				<h3 className="doctor-name">{`${user.d_name} ${user.d_lastname}`}</h3>
 
 				<NavLink to="/app/perfil" activeClassName="selected">
 					<img src={profile} alt="profile" />

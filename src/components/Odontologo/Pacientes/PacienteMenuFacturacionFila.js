@@ -10,11 +10,11 @@ function PacienteMenuFacturacionFila({ factura }) {
 			{/* COD Tratamiento Paciente*/}
 			<p>{factura.f_tpid}</p>
 
-			{/* Total Pagado */}
+			{/* Total  a Pagar  */}
 			<p>s/ {factura.f_topay}</p>
 
 			{/* Pago Restante */}
-			<p>s/ {factura.f_discharged}</p>
+			<p>s/ {factura.f_total}</p>
 
 			{/* Estado */}
 			<p>{factura.f_status}</p>

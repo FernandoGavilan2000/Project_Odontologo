@@ -18,7 +18,7 @@ const menus = [
 	'Citas',
 	'Planes de Tratamiento',
 	'Odontograma Actual',
-	'Facturación',
+	'Cuentas',
 ];
 
 function PacientePerfil({ history }) {

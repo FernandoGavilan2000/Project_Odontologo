@@ -8,13 +8,14 @@ const CardTask = ({ task, setUpdate }) => {
 	const DeleteTask = async (task_id) => {
 		try {
 			Swal.fire({
-				title: 'Are you sure?',
-				text: "You won't be able to revert this!",
+				title: 'Seguro de Eliminar esta Solicitud ?',
+				text: '¡No podrás revertir esto! ',
 				icon: 'warning',
 				showCancelButton: true,
 				confirmButtonColor: '#3085d6',
 				cancelButtonColor: '#d33',
-				confirmButtonText: 'Yes, delete it!',
+				confirmButtonText: 'Si,Confirmar!',
+				cancelButtonText: 'Cancelar',
 			}).then((result) => {
 				if (result.isConfirmed) {
 					delSolicitud(task_id)
@@ -41,6 +42,19 @@ const CardTask = ({ task, setUpdate }) => {
 			console.info('Error eliminar solicitud', error);
 		}
 	};
+
+	const ShowMessageTask = () => {
+		try {
+			Swal.fire({
+				title: `Solicitud Num: ${task.s_id}`,
+				text: `Mensaje: ${task.s_query}`,
+				footer: `Nombre: ${task.s_fullname}    Tel: ${task.s_cellphone} `,
+				showConfirmButton: false,
+			});
+		} catch (error) {
+			console.info('Error en ShowMessageTask', error);
+		}
+	};
 	return (
 		<div className="card1">
 			<p className="txt_chartDelete">
@@ -64,7 +78,7 @@ const CardTask = ({ task, setUpdate }) => {
 				<b>Telef:</b> <span>{task.s_cellphone}</span>
 			</p>
 			<p className="txt_chartShowMore">
-				<b>Ver Mas</b>
+				<b onClick={ShowMessageTask}>Ver Mas</b>
 			</p>
 		</div>
 	);

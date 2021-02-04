@@ -16,9 +16,9 @@ export const ShowDoctor = async (id_doctor) => {
 			title: `Dr. ${data[0].d_lastname} ${data[0].d_name}`,
 			text: `Email: ${data[0].d_email}`,
 			imageUrl: `${data[0].d_img}`,
-			imageWidth: 200,
-			imageHeight: 250,
+			imageWidth: 220,
 			imageAlt: 'Doctor-Imagen',
+			showConfirmButton: false,
 		});
 	} catch (error) {
 		console.info('Error, con la funcion ShowDoctor', error);

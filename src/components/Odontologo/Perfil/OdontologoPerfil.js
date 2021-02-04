@@ -7,6 +7,7 @@ import { FetchUpload } from '../../../helpers/Firebase/FetchUpload';
 import { getDoctorByID } from '../../../helpers/Backend/getDoctorByID';
 import { Spinner } from '../../Tools/Spinner';
 import { useHistory } from 'react-router-dom';
+import { UpdateOdontologo } from '../../../helpers/Backend/UpdateOdontologo';
 
 const imagenDefault =
 	'https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg';
@@ -38,6 +39,7 @@ export const OdontologoPerfil = () => {
 	const isUpdated = useRef(false);
 	const _isMounted = useRef(true);
 	const history = useHistory();
+	const [_isNewPhoto, set_isNewPhoto] = useState(false);
 	const [inputDisabled, setinputDisabled] = useState(true);
 	const [TextButton, setTextButton] = useState('Editar');
 
@@ -46,39 +48,54 @@ export const OdontologoPerfil = () => {
 		isUpdated.current = true;
 
 		//Verificar si hay una nueva imagen
-		if (user.d_img !== Data.d_img) {
+		if (_isNewPhoto) {
 			try {
 				let newImage = await FetchUpload(
 					'/profiles/',
 					document.querySelector('#imgupload').files[0]
 				);
 				//Despues pasar nueva info a la API para Actualizar
-				console.log(newImage);
+				const response = await UpdateOdontologo(user.d_id, {
+					...Data,
+					d_img: `${newImage}`,
+				});
+
+				if (response.ok) {
+					dispatch({
+						type: types.updateprofile,
+						payload: {
+							d_id: user.d_id,
+							d_name: Data.d_name,
+							d_lastname: Data.d_lastname,
+							type: 'odontologo',
+							d_img: `${newImage}`,
+						},
+					});
+					history.push('/app/inicio');
+				}
 			} catch (error) {
 				console.error('No se pudo guardar la nueva imagen en Firebase,', error);
 			}
 		} else {
-			//Actualizar nueva data a API
+			try {
+				const response = await UpdateOdontologo(user.d_id, { ...Data });
 
-			//De prueba ESTA ES LA BUENA
-			let newImage = await FetchUpload(
-				'/profiles/',
-				document.querySelector('#imgupload').files[0]
-			);
-			console.log(newImage);
-			/*
-			dispatch({
-				type: types.updateprofile,
-				payload: {
-					cod: user.cod,
-					name: NameSplit,
-					type: user.type,
-					imageurl: newImage,
-				},
-			});
-			*/
-
-			//Despues pasar nueva info a la API para Actualizar
+				if (response.ok) {
+					dispatch({
+						type: types.updateprofile,
+						payload: {
+							d_id: user.d_id,
+							d_name: Data.d_name,
+							d_lastname: Data.d_lastname,
+							type: 'odontologo',
+							d_img: user.d_img,
+						},
+					});
+					history.push('/app/inicio');
+				}
+			} catch (error) {
+				console.error('No se pudo guardar la nueva imagen en Firebase,', error);
+			}
 		}
 	};
 
@@ -88,6 +105,7 @@ export const OdontologoPerfil = () => {
 
 		reader.onload = function () {
 			document.getElementById('imgProfileUser').src = this.result;
+			set_isNewPhoto(true);
 			setinputDisabled(false);
 			setTextButton('Cancelar');
 		};
@@ -130,6 +148,7 @@ export const OdontologoPerfil = () => {
 						d_npatients: data[0].d_npatients,
 						d_cellphone: data[0].d_cellphone,
 						d_portfolio: data[0].d_portfolio,
+						d_codecollege: data[0].d_codecollege,
 					});
 				}
 			})
@@ -158,11 +177,7 @@ export const OdontologoPerfil = () => {
 				<div id="odontologoPerfil" className="odontologo-perfil">
 					<div className="odontologo-foto" style={{ backgroundImage: `url(${portada})` }}>
 						{/* Foto del doctor */}
-						<img
-							src={Data.d_img === 'abc' ? imagenDefault : Data.d_img}
-							alt="imagenperfil"
-							id="imgProfileUser"
-						/>
+						<img src={Data.d_img} alt="imagenperfil" id="imgProfileUser" />
 						<button
 							id="changePhoto"
 							onClick={() => {

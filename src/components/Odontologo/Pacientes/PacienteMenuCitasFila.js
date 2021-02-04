@@ -31,7 +31,7 @@ function PacienteMenuCitasFila({ cita, setUpdate }) {
 				},
 			}
 		);
-		return await response.json();
+		return response;
 	};
 
 	const ShowDetails = async () => {
@@ -63,8 +63,11 @@ function PacienteMenuCitasFila({ cita, setUpdate }) {
 					if (result.isConfirmed) {
 						DeleteCita()
 							.then((response) => {
-								setUpdate(true);
-								Swal.fire('Eliminado!', 'Se borro correctamente la cita', 'success');
+								if (response.ok) {
+									setUpdate(true);
+								}
+
+								//Swal.fire('Eliminado!', 'Se borro correctamente la cita', 'success');
 								//history.replace(`/app/pacientes/${cita.c_pid}`);
 							})
 							.catch((error) => {

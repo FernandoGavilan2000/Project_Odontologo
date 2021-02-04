@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../../styles/Home/Home.css';
 
 import { AlertForm } from '../../helpers/Alerts/HomeForm';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../auth/AuthContext';
 
 //Images
 import mainBackground from '../../assets/images/main-background.png';
@@ -22,6 +23,8 @@ import logoHorizontal from '../../assets/images/logo-horizontal.svg';
 import { NewSolicitud } from '../../helpers/Backend/NewSolicitud';
 
 export const HomeScreen = () => {
+	const { user } = useContext(AuthContext);
+
 	const handleSubmit = async () => {
 		try {
 			let form = await AlertForm();
@@ -90,7 +93,9 @@ export const HomeScreen = () => {
 							<a href="#testimoniosSection">Testimonios</a>
 						</div>
 						<div>
-							<NavLink to="/login">Login o Volver</NavLink>
+							<NavLink to="/login">
+								{user.d_id || user.a_id ? 'REGRESAR' : 'LOGIN'}
+							</NavLink>
 						</div>
 					</div>
 				</div>

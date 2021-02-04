@@ -26,8 +26,6 @@ function Inicio() {
 			.then((urls) => {
 				if (_isMounted.current) {
 					setComunicados(urls);
-				} else {
-					console.warn('Cambiaste de vista');
 				}
 			})
 			.catch((error) => {
